@@ -107,6 +107,7 @@ public class AppsGridAdapter extends BaseAdapter implements Filterable {
 				FilterResults results) {
 			if (results.count > 0) {
 				listApps = (List<AppPack>) results.values;
+				AppsGridClickListener.listApps = listApps;
 				notifyDataSetChanged();
 			} else {
 				notifyDataSetInvalidated();

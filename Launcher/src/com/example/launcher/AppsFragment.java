@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
@@ -60,6 +61,8 @@ public class AppsFragment extends Fragment implements OnItemSelectedListener {
 
 		textSearch = (EditText) mView.findViewById(R.id.edit_text1);
 		textSearch.addTextChangedListener(filterTextWatcher);
+		getActivity().getWindow().setSoftInputMode(
+			      WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 		return mView;
 	}
 
@@ -88,8 +91,10 @@ public class AppsFragment extends Fragment implements OnItemSelectedListener {
 				.getApplicationContext(), listApps);
 		mAppsGrid.setAdapter(mAppsGridAdapter);
 
-		mAppsGrid.setOnItemClickListener(new AppsGridClickListener(
-				getActivity().getApplicationContext(), listApps, pm));
+		AppsGridClickListener gridClickListener = new AppsGridClickListener(
+				getActivity().getApplicationContext(), pm);
+		gridClickListener.listApps = listApps;
+		mAppsGrid.setOnItemClickListener(gridClickListener);
 	}
 
 	private void set_pacs() {

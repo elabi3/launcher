@@ -1,16 +1,21 @@
 package com.example.launcher;
 
+import com.jfeinstein.jazzyviewpager.JazzyViewPager;
+import com.jfeinstein.jazzyviewpager.JazzyViewPager.TransitionEffect;
+
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
+import android.view.View;
+import android.view.ViewGroup;
 
-public class MainActivity extends FragmentActivity implements
-		ViewPager.OnPageChangeListener {
+public class MainActivity extends FragmentActivity /*implements
+		ViewPager.OnPageChangeListener*/ {
 
-	private ViewPager mViewPager;
+	//private ViewPager mViewPager;
+	private static JazzyViewPager mJazzy;
 
 	private Class<?>[] mFragments = new Class<?>[] {
 			MainFragment.class,
@@ -22,13 +27,22 @@ public class MainActivity extends FragmentActivity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		mViewPager = (ViewPager) findViewById(R.id.pager);
+		/*mViewPager = (ViewPager) findViewById(R.id.pager);
 		mViewPager.setAdapter(new HomePagerAdapter(getSupportFragmentManager(),
 				mFragments));
-		mViewPager.setOnPageChangeListener(this);
+		mViewPager.setOnPageChangeListener(this);*/
+		setupJazziness(TransitionEffect.Tablet);
 	}
 
-	@Override
+	private void setupJazziness(TransitionEffect effect) {
+		mJazzy = (JazzyViewPager) findViewById(R.id.jazzy_pager);
+		mJazzy.setTransitionEffect(effect);
+		mJazzy.setAdapter(new HomePagerAdapter(getSupportFragmentManager(),
+				mFragments));
+		mJazzy.setPageMargin(30);
+	}
+	
+	/*@Override
 	public void onPageScrollStateChanged(int arg0) {
 		// TODO Auto-generated method stub
 
@@ -44,7 +58,7 @@ public class MainActivity extends FragmentActivity implements
 	public void onPageSelected(int arg0) {
 		// TODO Auto-generated method stub
 
-	}
+	}*/
 
 	private static class HomePagerAdapter extends FragmentPagerAdapter {
 		private final Class<?>[] mFragments;
@@ -68,6 +82,23 @@ public class MainActivity extends FragmentActivity implements
 				return null;
 			}
 		}
+		
+		// Metodos necesarios para JazzyViewPager
+		@Override
+		public boolean isViewFromObject(View view, Object object) {
+		    if(object != null){
+		        return ((Fragment)object).getView() == view;
+		    }else{
+		        return false;
+		    }
+		}
+		
+	    @Override
+	    public Object instantiateItem(ViewGroup container, final int position) {
+	        Object obj = super.instantiateItem(container, position);
+	        mJazzy.setObjectForPosition(obj, position);
+	        return obj;
+	    }
 	}
 
 }

@@ -1,22 +1,17 @@
 package com.example.launcher;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-
-import android.content.Intent;
+import android.hardware.Camera;
+import android.hardware.Camera.Parameters;
 import android.os.Bundle;
-import android.provider.AlarmClock;
 import android.support.v4.app.Fragment;
-import java.text.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.TextView;
 
 public class MainFragment extends Fragment implements OnItemSelectedListener,
@@ -28,6 +23,7 @@ public class MainFragment extends Fragment implements OnItemSelectedListener,
 	private TextView newContact;
 	private TextView newEvent;
 	private TextView newAlarm;
+	private TextView torch;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -68,12 +64,19 @@ public class MainFragment extends Fragment implements OnItemSelectedListener,
 		newContact = (TextView) mView.findViewById(R.id.newContact);
 		newEvent = (TextView) mView.findViewById(R.id.newEvent);
 		newAlarm = (TextView) mView.findViewById(R.id.newAlarm);
+		torch = (TextView) mView.findViewById(R.id.torch);
 
 		sendEmail.setOnClickListener(this);
 		newContact.setOnClickListener(this);
 		newEvent.setOnClickListener(this);
 		newAlarm.setOnClickListener(this);
+		torch.setOnClickListener(this);
 	}
+
+	// Set boolean flag when torch is turned on/off
+	private boolean isFlashOn = false;
+	private Camera camera = Camera.open();
+	final Parameters p = camera.getParameters();
 
 	@Override
 	public void onClick(View v) {
@@ -84,8 +87,28 @@ public class MainFragment extends Fragment implements OnItemSelectedListener,
 				ActionsIntents.newContact(getActivity());
 			} else if (v.equals(newEvent)) {
 				ActionsIntents.newEvent(getActivity());
-			} else {
+			} else if (v.equals(newAlarm)) {
 				ActionsIntents.newAlarm(getActivity());
+			} else {
+
+				if (isFlashOn) {
+					// Set the flashmode to off
+					p.setFlashMode(Parameters.FLASH_MODE_OFF);
+					// Pass the parameter ti camera object
+					camera.setParameters(p);
+					// Set flag to false
+					isFlashOn = false;
+					// Set the button text to Torcn-ON
+				}
+				else {
+					// Set the flashmode to on
+					p.setFlashMode(Parameters.FLASH_MODE_TORCH);
+					// Pass the parameter ti camera object
+					camera.setParameters(p);
+					// Set flag to true
+					isFlashOn = true;
+					// Set the button text to Torcn-OFF
+				}
 			}
 		}
 	}
