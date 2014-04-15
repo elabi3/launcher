@@ -2,15 +2,21 @@ package com.example.utilities;
 
 import android.content.Context;
 import android.content.Intent;
+import android.hardware.Camera;
+import android.hardware.Camera.Parameters;
 import android.net.Uri;
 import android.provider.AlarmClock;
 import android.provider.ContactsContract;
 
 public class ActionsIntents {
+	// Set boolean flag when torch is turned on/off
+	private static boolean isFlashOn = false;
+	private final static Camera camera = Camera.open();
+	private final static Parameters p = camera.getParameters();
 
 	public static void senEmail(Context context) {
 		Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:"));
-	    context.startActivity(intent);
+		context.startActivity(intent);
 	}
 
 	public static void newContact(Context context) {
@@ -36,4 +42,15 @@ public class ActionsIntents {
 		context.startActivity(launchIntent);
 	}
 
+	public static void turnTorch() {
+		if (isFlashOn) {
+			p.setFlashMode(Parameters.FLASH_MODE_OFF); // Set the flashmode to off
+			camera.setParameters(p); // Pass the parameter ti camera object
+			isFlashOn = false; // Set flag to false
+		} else {
+			p.setFlashMode(Parameters.FLASH_MODE_TORCH); // Set the flashmode to on
+			camera.setParameters(p); // Pass the parameter ti camera object
+			isFlashOn = true; // Set flag to true
+		}
+	}
 }

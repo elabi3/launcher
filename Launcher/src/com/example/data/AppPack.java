@@ -61,17 +61,6 @@ public class AppPack {
 		return lastUpdate;
 	}
 
-	private class InstallInformation extends AsyncTask<Void, Void, Void> {
-
-		@Override
-		protected Void doInBackground(Void... params) {
-			firsIntall = getAppFirstInstallTime();
-			lastUpdate = getAppLastUpdateTime();
-			return null;
-		}
-
-	}
-
 	private void launchAsyncTask() {
 		final Handler handler = new Handler();
 		Timer timer = new Timer();
@@ -89,7 +78,18 @@ public class AppPack {
 				});
 			}
 		};
-		timer.schedule(doAsynchronousTask, 0, 3600000); // execute in every hour*
+		timer.schedule(doAsynchronousTask, 0, 600000); // execute in every ten
+														// minutes*
+	}
+
+	private class InstallInformation extends AsyncTask<Void, Void, Void> {
+
+		@Override
+		protected Void doInBackground(Void... params) {
+			firsIntall = getAppFirstInstallTime();
+			lastUpdate = getAppLastUpdateTime();
+			return null;
+		}
 	}
 
 	private long getAppFirstInstallTime() {
@@ -112,9 +112,9 @@ public class AppPack {
 			return packageInfo.lastUpdateTime;
 
 		} catch (NameNotFoundException e) {
-			// should never happen
-			return 0;
+			e.printStackTrace();
 		}
+		return 0;
 	}
 
 }

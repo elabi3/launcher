@@ -1,12 +1,12 @@
 package com.example.ui;
 
-import com.example.launcher.R;
-import com.example.utilities.ActionsIntents;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
-import android.hardware.Camera;
-import android.hardware.Camera.Parameters;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -16,6 +16,9 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import com.example.launcher.R;
+import com.example.utilities.ActionsIntents;
 
 public class MainFragment extends Fragment implements OnItemSelectedListener,
 		OnClickListener {
@@ -32,10 +35,44 @@ public class MainFragment extends Fragment implements OnItemSelectedListener,
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		mView = inflater.inflate(R.layout.main_fragment, container, false);
-		loadSpinner();
+		// loadSpinner();
+		loadClock();
 		loadActions();
+
 		return mView;
 	}
+
+	private Handler handler = new Handler();
+
+	public void loadClock() {
+		handler = new Handler();
+		handler.postDelayed(runnable, 1000);
+	}
+
+	private Runnable runnable = new Runnable() {
+		@Override
+		public void run() {
+			/* do what you need to do */
+			Calendar calendar = Calendar.getInstance();
+			SimpleDateFormat dateFormatHour = new SimpleDateFormat(
+					"HH");
+			SimpleDateFormat dateFormatMin = new SimpleDateFormat(
+					"mm");
+			SimpleDateFormat dateFormatSec = new SimpleDateFormat(
+					"ss");
+			SimpleDateFormat dateFormatDate = new SimpleDateFormat(
+					"dd:MMMM:yyyy");
+			
+			final String strDateHour = dateFormatHour.format(calendar.getTime());
+			final String strDateMin = dateFormatMin.format(calendar.getTime());
+			final String strDateSec = dateFormatSec.format(calendar.getTime());
+
+			Log.v("TIME", strDateHour + ":" + strDateMin + ":" + strDateSec);
+			
+			/* and here comes the "trick" */
+			handler.postDelayed(this, 1000);
+		}
+	};
 
 	public void loadSpinner() {
 		mSpinner = (Spinner) mView.findViewById(R.id.spinner);
@@ -76,11 +113,6 @@ public class MainFragment extends Fragment implements OnItemSelectedListener,
 		torch.setOnClickListener(this);
 	}
 
-	// Set boolean flag when torch is turned on/off
-	private boolean isFlashOn = false;
-	private Camera camera = Camera.open();
-	final Parameters p = camera.getParameters();
-
 	@Override
 	public void onClick(View v) {
 		if (v instanceof TextView) {
@@ -93,25 +125,7 @@ public class MainFragment extends Fragment implements OnItemSelectedListener,
 			} else if (v.equals(newAlarm)) {
 				ActionsIntents.newAlarm(getActivity());
 			} else {
-
-				if (isFlashOn) {
-					// Set the flashmode to off
-					p.setFlashMode(Parameters.FLASH_MODE_OFF);
-					// Pass the parameter ti camera object
-					camera.setParameters(p);
-					// Set flag to false
-					isFlashOn = false;
-					// Set the button text to Torcn-ON
-				}
-				else {
-					// Set the flashmode to on
-					p.setFlashMode(Parameters.FLASH_MODE_TORCH);
-					// Pass the parameter ti camera object
-					camera.setParameters(p);
-					// Set flag to true
-					isFlashOn = true;
-					// Set the button text to Torcn-OFF
-				}
+				ActionsIntents.turnTorch();
 			}
 		}
 	}
