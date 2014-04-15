@@ -5,37 +5,28 @@
     android:orientation="vertical" >
 
     <LinearLayout
-        android:id="@+id/topBar"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:id="@+id/mainContent"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:layout_alignParentTop="true"
         android:orientation="horizontal" >
 
-        <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
-            android:layout_weight="1" />
-
-        <!--
-            <TextView
-            android:id="@+id/time"
+        <TextView
+            android:id="@+id/timeHour"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="25dp"
             android:layout_weight="1"
             android:gravity="right"
-            android:textSize="65sp" />
-        -->
-    </LinearLayout>
+            android:textSize="80sp" />
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/pager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/topBar" />
+        <TextView
+            android:id="@+id/timeMin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:textSize="80sp" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/bottomBar"
@@ -44,17 +35,6 @@
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"
         android:padding="5dp" >
-
-        <!--
-             <TextView
-            android:id="@+id/date"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="15dp"
-            android:layout_weight="1"
-            android:textSize="20sp" />
-        -->
 
         <SlidingDrawer
             android:id="@+id/SlidingDrawer"
@@ -96,8 +76,8 @@
                     android:layout_marginTop="15dp"
                     android:text="New Contact"
                     android:textSize="20sp" />
-                
-                 <TextView
+
+                <TextView
                     android:id="@+id/newEvent"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
@@ -105,8 +85,8 @@
                     android:layout_marginTop="15dp"
                     android:text="New Event"
                     android:textSize="20sp" />
-                 
-                  <TextView
+
+                <TextView
                     android:id="@+id/newAlarm"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
@@ -114,8 +94,8 @@
                     android:layout_marginTop="15dp"
                     android:text="New Alarm"
                     android:textSize="20sp" />
-                  
-                  <TextView
+
+                <TextView
                     android:id="@+id/torch"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"

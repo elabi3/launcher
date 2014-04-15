@@ -20,6 +20,7 @@ public class MainActivity extends FragmentActivity /*implements
 	private static JazzyViewPager mJazzy;
 
 	private Class<?>[] mFragments = new Class<?>[] {
+			TodayFragment.class,
 			MainFragment.class,
 			AppsFragment.class
 	};
@@ -42,6 +43,7 @@ public class MainActivity extends FragmentActivity /*implements
 		mJazzy.setAdapter(new HomePagerAdapter(getSupportFragmentManager(),
 				mFragments));
 		mJazzy.setPageMargin(30);
+		mJazzy.setCurrentItem(1);
 	}
 	
 	/*@Override

@@ -75,14 +75,14 @@ containing a value of this type.
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int SlidingDrawer=0x7f040018;
+        public static final int SlidingDrawer=0x7f040019;
         public static final int accordion=0x7f04000b;
-        public static final int action_settings=0x7f04002c;
-        public static final int actionsButton=0x7f04001a;
+        public static final int action_settings=0x7f04002d;
+        public static final int actionsButton=0x7f04001b;
         public static final int appsGrid=0x7f040014;
-        public static final int bottomBar=0x7f040017;
+        public static final int bottomBar=0x7f040018;
         public static final int button_close=0x7f040013;
-        public static final int contentLayout=0x7f040019;
+        public static final int contentLayout=0x7f04001a;
         public static final int cubein=0x7f040002;
         public static final int cubeout=0x7f040003;
         public static final int edit_text1=0x7f040012;
@@ -92,32 +92,33 @@ containing a value of this type.
         public static final int icon_text=0x7f04000f;
         public static final int jazzy_key=0x7f04000c;
         public static final int jazzy_pager=0x7f04000d;
-        public static final int menu_accordian=0x7f04002b;
-        public static final int menu_cube_in=0x7f040022;
-        public static final int menu_cube_out=0x7f040023;
-        public static final int menu_flip_horizontal=0x7f040025;
-        public static final int menu_flip_vertical=0x7f040024;
-        public static final int menu_rotate_down=0x7f04002a;
-        public static final int menu_rotate_up=0x7f040029;
-        public static final int menu_stack=0x7f040026;
-        public static final int menu_standard=0x7f040020;
-        public static final int menu_tablet=0x7f040021;
-        public static final int menu_zoom_in=0x7f040027;
-        public static final int menu_zoom_out=0x7f040028;
-        public static final int newAlarm=0x7f04001e;
-        public static final int newContact=0x7f04001c;
-        public static final int newEvent=0x7f04001d;
-        public static final int pager=0x7f040016;
+        public static final int mainContent=0x7f040015;
+        public static final int menu_accordian=0x7f04002c;
+        public static final int menu_cube_in=0x7f040023;
+        public static final int menu_cube_out=0x7f040024;
+        public static final int menu_flip_horizontal=0x7f040026;
+        public static final int menu_flip_vertical=0x7f040025;
+        public static final int menu_rotate_down=0x7f04002b;
+        public static final int menu_rotate_up=0x7f04002a;
+        public static final int menu_stack=0x7f040027;
+        public static final int menu_standard=0x7f040021;
+        public static final int menu_tablet=0x7f040022;
+        public static final int menu_zoom_in=0x7f040028;
+        public static final int menu_zoom_out=0x7f040029;
+        public static final int newAlarm=0x7f04001f;
+        public static final int newContact=0x7f04001d;
+        public static final int newEvent=0x7f04001e;
         public static final int rotatedown=0x7f04000a;
         public static final int rotateup=0x7f040009;
-        public static final int sendEmail=0x7f04001b;
-        public static final int spinner=0x7f040015;
+        public static final int sendEmail=0x7f04001c;
         public static final int spinnerApps=0x7f040011;
         public static final int stack=0x7f040006;
         public static final int standard=0x7f040000;
         public static final int tablet=0x7f040001;
+        public static final int timeHour=0x7f040016;
+        public static final int timeMin=0x7f040017;
         public static final int topBar=0x7f040010;
-        public static final int torch=0x7f04001f;
+        public static final int torch=0x7f040020;
         public static final int zoomin=0x7f040007;
         public static final int zoomout=0x7f040008;
     }
@@ -126,6 +127,7 @@ containing a value of this type.
         public static final int app_grid_item=0x7f030001;
         public static final int apps_fragment=0x7f030002;
         public static final int main_fragment=0x7f030003;
+        public static final int today_fragment=0x7f030004;
     }
     public static final class menu {
         public static final int activity_main=0x7f0a0000;
