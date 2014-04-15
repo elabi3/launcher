@@ -50,9 +50,40 @@ public class AppsFragment extends Fragment implements OnItemSelectedListener {
 			Bundle savedInstanceState) {
 		mView = inflater.inflate(R.layout.apps_fragment, container, false);
 
-		loadGridView();
 		loadSpinner();
+		loadTextSearch();
+		loadGridView();
+		
+		getActivity().getWindow().setSoftInputMode(
+			      WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+		
+		return mView;
+	}
+	
+	/********************************************
+	 * Spinner
+	********************************************/
+	
+	private void loadSpinner() {
+		mSpinner = (Spinner) mView.findViewById(R.id.spinnerApps);
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity()
+				.getApplicationContext(), android.R.layout.simple_spinner_item);
 
+		for (String element : mSpinnerElements) {
+			adapter.add(element);
+		}
+
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		mSpinner.setAdapter(adapter);
+		mSpinner.setOnItemSelectedListener(this);
+	}
+	
+	
+	/********************************************
+	 * Search
+	********************************************/
+
+	private void loadTextSearch() {
 		buttonClose = (Button) mView.findViewById(R.id.button_close);
 		buttonClose.setOnClickListener(new OnClickListener() {
 			@Override
@@ -65,9 +96,6 @@ public class AppsFragment extends Fragment implements OnItemSelectedListener {
 
 		textSearch = (EditText) mView.findViewById(R.id.edit_text1);
 		textSearch.addTextChangedListener(filterTextWatcher);
-		getActivity().getWindow().setSoftInputMode(
-			      WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-		return mView;
 	}
 
 	private TextWatcher filterTextWatcher = new TextWatcher() {
@@ -86,6 +114,11 @@ public class AppsFragment extends Fragment implements OnItemSelectedListener {
 		}
 	};
 
+	
+	/********************************************
+	 * Grid
+	********************************************/
+	
 	private void loadGridView() {
 		mAppsGrid = (GridView) mView.findViewById(R.id.appsGrid);
 
@@ -112,20 +145,6 @@ public class AppsFragment extends Fragment implements OnItemSelectedListener {
 					.loadLabel(pm).toString(),
 					resolveInfo.activityInfo.packageName, getActivity()));
 		}
-	}
-
-	private void loadSpinner() {
-		mSpinner = (Spinner) mView.findViewById(R.id.spinnerApps);
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity()
-				.getApplicationContext(), android.R.layout.simple_spinner_item);
-
-		for (String element : mSpinnerElements) {
-			adapter.add(element);
-		}
-
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		mSpinner.setAdapter(adapter);
-		mSpinner.setOnItemSelectedListener(this);
 	}
 
 	@Override

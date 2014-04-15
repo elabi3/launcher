@@ -78,6 +78,11 @@ public class AppsGridAdapter extends BaseAdapter implements Filterable {
 		return listfilter;
 	}
 
+
+	/********************************************
+	 * Filter Class
+	********************************************/
+	
 	private class MyFilter extends Filter {
 
 		@Override

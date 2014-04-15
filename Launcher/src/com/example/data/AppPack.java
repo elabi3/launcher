@@ -28,6 +28,11 @@ public class AppPack {
 	private long lastUpdate;
 	private Context mContext;
 
+	
+	/********************************************
+	 * Contructor
+	********************************************/
+	
 	public AppPack(Drawable icon, String name, String packageName,
 			Context context) {
 		super();
@@ -40,7 +45,12 @@ public class AppPack {
 
 		launchAsyncTask();
 	}
+	
 
+	/********************************************
+	 * Getters & Setters
+	********************************************/
+	
 	public Drawable getIcon() {
 		return icon;
 	}
@@ -72,7 +82,27 @@ public class AppPack {
 	public long getLastUpdate() {
 		return lastUpdate;
 	}
+	
+	
+	/********************************************
+	 * Opens
+	********************************************/
+	
+	public void setNewOpen() {
+		Integer period = getPeriod();
+		Integer temp = this.openingTimes.get(period);
+		if (temp != null) {
+			temp = Integer.valueOf(temp.intValue() + 1);
+		} else {
+			temp = 1;
+		}
+		this.openingTimes.put(period, temp);
+	}
 
+	public int getTimesOpenAround(Integer period) {
+		return this.openingTimes.get(period).intValue();
+	}
+	
 	private Integer getPeriod() {
 		Pair<Integer, Integer> morning = new Pair<Integer, Integer>(
 				Integer.valueOf(6), Integer.valueOf(13));
@@ -101,20 +131,10 @@ public class AppPack {
 		}
 	}
 
-	public void setNewOpen() {
-		Integer period = getPeriod();
-		Integer temp = this.openingTimes.get(period);
-		if (temp != null) {
-			temp = Integer.valueOf(temp.intValue() + 1);
-		} else {
-			temp = 1;
-		}
-		this.openingTimes.put(period, temp);
-	}
-
-	public int getTimesOpenAround(Integer period) {
-		return this.openingTimes.get(period).intValue();
-	}
+	
+	/********************************************
+	 * First install & LastUpdate
+	********************************************/
 
 	private void launchAsyncTask() {
 		final Handler handler = new Handler();
