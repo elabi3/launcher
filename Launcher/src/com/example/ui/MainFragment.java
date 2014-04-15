@@ -1,4 +1,7 @@
-package com.example.launcher;
+package com.example.ui;
+
+import com.example.launcher.R;
+import com.example.utilities.ActionsIntents;
 
 import android.hardware.Camera;
 import android.hardware.Camera.Parameters;

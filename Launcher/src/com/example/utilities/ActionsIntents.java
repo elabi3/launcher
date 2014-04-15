@@ -1,4 +1,4 @@
-package com.example.launcher;
+package com.example.utilities;
 
 import android.content.Context;
 import android.content.Intent;

@@ -1,6 +1,9 @@
-package com.example.launcher;
+package com.example.ui.appsdrawer;
 
 import java.util.List;
+
+import com.example.data.AppPack;
+import com.example.utilities.ActionsIntents;
 
 import android.content.Context;
 import android.content.Intent;

@@ -1,7 +1,10 @@
-package com.example.launcher;
+package com.example.ui.appsdrawer;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.example.data.AppPack;
+import com.example.launcher.R;
 
 import android.content.Context;
 import android.view.LayoutInflater;

@@ -1,5 +1,7 @@
-package com.example.launcher;
+package com.example.ui;
 
+import com.example.launcher.R;
+import com.example.ui.appsdrawer.AppsFragment;
 import com.jfeinstein.jazzyviewpager.JazzyViewPager;
 import com.jfeinstein.jazzyviewpager.JazzyViewPager.TransitionEffect;
 

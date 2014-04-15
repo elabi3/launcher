@@ -1,7 +1,9 @@
-package com.example.launcher;
+package com.example.utilities;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.example.data.AppPack;
 
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningAppProcessInfo;
