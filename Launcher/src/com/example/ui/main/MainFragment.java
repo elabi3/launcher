@@ -1,4 +1,4 @@
-package com.example.ui;
+package com.example.ui.main;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

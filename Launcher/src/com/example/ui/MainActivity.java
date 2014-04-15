@@ -2,6 +2,7 @@ package com.example.ui;
 
 import com.example.launcher.R;
 import com.example.ui.appsdrawer.AppsFragment;
+import com.example.ui.main.MainFragment;
 import com.jfeinstein.jazzyviewpager.JazzyViewPager;
 import com.jfeinstein.jazzyviewpager.JazzyViewPager.TransitionEffect;
 
