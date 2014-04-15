@@ -1,5 +1,9 @@
 package com.example.data;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -9,8 +13,14 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Handler;
+import android.util.Pair;
 
 public class AppPack {
+	public final static Integer MORNING_PERIOD = Integer.valueOf(0);
+	public final static Integer AFTERNOON_PERIOD = Integer.valueOf(1);
+	public final static Integer NIGHT_PERIOD = Integer.valueOf(2);
+	private Map<Integer, Integer> openingTimes;
+
 	private Drawable icon;
 	private String name;
 	private String packageName;
@@ -25,6 +35,8 @@ public class AppPack {
 		this.name = name;
 		this.packageName = packageName;
 		this.mContext = context;
+
+		this.openingTimes = new HashMap<Integer, Integer>();
 
 		launchAsyncTask();
 	}
@@ -59,6 +71,49 @@ public class AppPack {
 
 	public long getLastUpdate() {
 		return lastUpdate;
+	}
+
+	private Integer getPeriod() {
+		Pair<Integer, Integer> morning = new Pair<Integer, Integer>(
+				Integer.valueOf(6), Integer.valueOf(13));
+		Pair<Integer, Integer> afternoon = new Pair<Integer, Integer>(
+				Integer.valueOf(13), Integer.valueOf(20));
+		Pair<Integer, Integer> night = new Pair<Integer, Integer>(
+				Integer.valueOf(20), Integer.valueOf(6));
+
+		Calendar calendar = Calendar.getInstance();
+		SimpleDateFormat dateFormatTime = new SimpleDateFormat("HH");
+		Integer currentTime = new Integer(dateFormatTime.format(calendar
+				.getTime()));
+
+		if (currentTime.intValue() >= morning.first.intValue()
+				&& currentTime <= morning.second) {
+			return MORNING_PERIOD;
+		} else if (currentTime.intValue() >= afternoon.first.intValue()
+				&& currentTime <= afternoon.second) {
+			return AFTERNOON_PERIOD;
+
+		} else if (currentTime.intValue() >= night.first.intValue()
+				&& currentTime <= night.second) {
+			return NIGHT_PERIOD;
+		} else {
+			return -1;
+		}
+	}
+
+	public void setNewOpen() {
+		Integer period = getPeriod();
+		Integer temp = this.openingTimes.get(period);
+		if (temp != null) {
+			temp = Integer.valueOf(temp.intValue() + 1);
+		} else {
+			temp = 1;
+		}
+		this.openingTimes.put(period, temp);
+	}
+
+	public int getTimesOpenAround(Integer period) {
+		return this.openingTimes.get(period).intValue();
 	}
 
 	private void launchAsyncTask() {

@@ -11,8 +11,8 @@ import android.provider.ContactsContract;
 public class ActionsIntents {
 	// Set boolean flag when torch is turned on/off
 	private static boolean isFlashOn = false;
-	private final static Camera camera = Camera.open();
-	private final static Parameters p = camera.getParameters();
+	private static Camera camera = Camera.open();
+	private static Parameters p = camera.getParameters();
 
 	public static void senEmail(Context context) {
 		Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:"));

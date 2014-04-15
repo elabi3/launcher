@@ -97,7 +97,7 @@ public class AppsFragment extends Fragment implements OnItemSelectedListener {
 
 		AppsGridClickListener gridClickListener = new AppsGridClickListener(
 				getActivity().getApplicationContext(), pm);
-		gridClickListener.listApps = listApps;
+		AppsGridClickListener.listApps = listApps;
 		mAppsGrid.setOnItemClickListener(gridClickListener);
 	}
 
