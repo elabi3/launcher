@@ -100,6 +100,9 @@ public class AppPack {
 	}
 
 	public int getTimesOpenAround(Integer period) {
+		if (this.openingTimes.get(period) == null) {
+			return 0;
+		}
 		return this.openingTimes.get(period).intValue();
 	}
 	

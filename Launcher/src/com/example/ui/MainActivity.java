@@ -13,29 +13,33 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 
-public class MainActivity extends FragmentActivity /*implements
-		ViewPager.OnPageChangeListener*/ {
+public class MainActivity extends FragmentActivity /*
+													 * implements ViewPager.
+													 * OnPageChangeListener
+													 */{
 
-	//private ViewPager mViewPager;
+	// private ViewPager mViewPager;
 	private static JazzyViewPager mJazzy;
 
-	private Class<?>[] mFragments = new Class<?>[] {
-			TodayFragment.class,
-			MainFragment.class,
-			AppsFragment.class
-	};
+	private Class<?>[] mFragments = new Class<?>[] { TodayFragment.class,
+			MainFragment.class, AppsFragment.class };
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
-		/*mViewPager = (ViewPager) findViewById(R.id.pager);
-		mViewPager.setAdapter(new HomePagerAdapter(getSupportFragmentManager(),
-				mFragments));
-		mViewPager.setOnPageChangeListener(this);*/
+        
+		/*
+		 * mViewPager = (ViewPager) findViewById(R.id.pager);
+		 * mViewPager.setAdapter(new
+		 * HomePagerAdapter(getSupportFragmentManager(), mFragments));
+		 * mViewPager.setOnPageChangeListener(this);
+		 */
 		setupJazziness(TransitionEffect.Tablet);
+		
 	}
 
 	private void setupJazziness(TransitionEffect effect) {
@@ -46,24 +50,23 @@ public class MainActivity extends FragmentActivity /*implements
 		mJazzy.setPageMargin(30);
 		mJazzy.setCurrentItem(1);
 	}
-	
-	/*@Override
-	public void onPageScrollStateChanged(int arg0) {
-		// TODO Auto-generated method stub
 
-	}
-
-	@Override
-	public void onPageScrolled(int arg0, float arg1, int arg2) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void onPageSelected(int arg0) {
-		// TODO Auto-generated method stub
-
-	}*/
+	/*
+	 * @Override public void onPageScrollStateChanged(int arg0) { // TODO
+	 * Auto-generated method stub
+	 * 
+	 * }
+	 * 
+	 * @Override public void onPageScrolled(int arg0, float arg1, int arg2) { //
+	 * TODO Auto-generated method stub
+	 * 
+	 * }
+	 * 
+	 * @Override public void onPageSelected(int arg0) { // TODO Auto-generated
+	 * method stub
+	 * 
+	 * }
+	 */
 
 	private static class HomePagerAdapter extends FragmentPagerAdapter {
 		private final Class<?>[] mFragments;
@@ -87,23 +90,23 @@ public class MainActivity extends FragmentActivity /*implements
 				return null;
 			}
 		}
-		
+
 		// Metodos necesarios para JazzyViewPager
 		@Override
 		public boolean isViewFromObject(View view, Object object) {
-		    if(object != null){
-		        return ((Fragment)object).getView() == view;
-		    }else{
-		        return false;
-		    }
+			if (object != null) {
+				return ((Fragment) object).getView() == view;
+			} else {
+				return false;
+			}
 		}
-		
-	    @Override
-	    public Object instantiateItem(ViewGroup container, final int position) {
-	        Object obj = super.instantiateItem(container, position);
-	        mJazzy.setObjectForPosition(obj, position);
-	        return obj;
-	    }
+
+		@Override
+		public Object instantiateItem(ViewGroup container, final int position) {
+			Object obj = super.instantiateItem(container, position);
+			mJazzy.setObjectForPosition(obj, position);
+			return obj;
+		}
 	}
 
 }
