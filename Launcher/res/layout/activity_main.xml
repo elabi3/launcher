@@ -9,12 +9,9 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/jazzy_pager"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent" >
-
-        <!--
-     android:fitsSystemWindows="true"
-        	Con esta linea conseguimos que no sea full screen
-        -->
+        android:layout_height="fill_parent"
+        android:fitsSystemWindows="true" >
+        <!-- Con esta linea 'fitsSystemWindows' conseguimos que no sea full screen -->
     </com.jfeinstein.jazzyviewpager.JazzyViewPager>
 
     <!--
