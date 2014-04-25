@@ -6,7 +6,15 @@
         res/values-v11/styles.xml on API 14+ devices.
     -->
     <style name="AppBaseTheme" parent="android:Theme.Holo.Wallpaper.NoTitleBar">
+
         <!-- API 14 theme customizations can go here. -->
+        <item name="android:actionBarStyle">@style/ActionBar</item>
+    </style>
+
+    <style name="ActionBar" parent="android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">#00000000</item>
+        <item name="android:showDividers">none</item>
+        <item name="android:divider">#00000000</item>
     </style>
 
 </resources>

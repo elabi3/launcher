@@ -5,6 +5,7 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical" >
 
+    <!--
     <LinearLayout
         android:id="@+id/topBar"
         android:layout_width="match_parent"
@@ -40,18 +41,20 @@
             android:layout_marginRight="10dp"
             android:layout_marginTop="5dp" />
     </LinearLayout>
+    -->
 
     <GridView
         android:id="@+id/appsGrid"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        android:background="@color/Black_transparent"
+        android:background="#00000000"
         android:columnWidth="65dp"
         android:drawSelectorOnTop="true"
         android:gravity="center"
         android:horizontalSpacing="15dp"
         android:numColumns="auto_fit"
-        android:padding="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:stretchMode="columnWidth"
         android:textFilterEnabled="false"
         android:verticalSpacing="30dp" >

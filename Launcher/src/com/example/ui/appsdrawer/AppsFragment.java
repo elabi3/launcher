@@ -5,12 +5,17 @@ import java.util.List;
 
 import com.example.data.AppPack;
 import com.example.launcher.R;
+import com.example.ui.CustomFragment;
+import com.example.ui.MainActivity;
+import com.example.ui.main.MainFragment;
 import com.example.utilities.SortApps;
 
+import android.app.ActionBar;
 import android.app.ActivityManager;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
@@ -29,7 +34,7 @@ import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.Spinner;
 
-public class AppsFragment extends Fragment implements OnItemSelectedListener {
+public class AppsFragment extends CustomFragment implements OnItemSelectedListener {
 	private View mView;
 	private Spinner mSpinner;
 	private GridView mAppsGrid;
@@ -50,53 +55,60 @@ public class AppsFragment extends Fragment implements OnItemSelectedListener {
 			Bundle savedInstanceState) {
 		mView = inflater.inflate(R.layout.apps_fragment, container, false);
 
-		loadSpinner();
-		loadTextSearch();
-		loadGridView();
+		// loadSpinner();
+		// loadTextSearch();
+		loadGridView();		
 		
 		getActivity().getWindow().setSoftInputMode(
-			      WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-		
+				WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
 		return mView;
+	}
+
+	@Override
+	public String getTitle() {
+		return "Apps";
+	}
+
+	@Override
+	public void setActionBar() {
+
 	}
 	
 	/********************************************
 	 * Spinner
-	********************************************/
-	
-	private void loadSpinner() {
-		mSpinner = (Spinner) mView.findViewById(R.id.spinnerApps);
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity()
-				.getApplicationContext(), android.R.layout.simple_spinner_item);
+	 ********************************************/
 
-		for (String element : mSpinnerElements) {
-			adapter.add(element);
-		}
+	/*
+	 * private void loadSpinner() { mSpinner = (Spinner)
+	 * mView.findViewById(R.id.spinnerApps); ArrayAdapter<String> adapter = new
+	 * ArrayAdapter<String>(getActivity() .getApplicationContext(),
+	 * android.R.layout.simple_spinner_item);
+	 * 
+	 * for (String element : mSpinnerElements) { adapter.add(element); }
+	 * 
+	 * adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item
+	 * ); mSpinner.setAdapter(adapter);
+	 * mSpinner.setOnItemSelectedListener(this); }
+	 */
 
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		mSpinner.setAdapter(adapter);
-		mSpinner.setOnItemSelectedListener(this);
-	}
-	
-	
 	/********************************************
 	 * Search
-	********************************************/
+	 ********************************************/
 
-	private void loadTextSearch() {
-		buttonClose = (Button) mView.findViewById(R.id.button_close);
-		buttonClose.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				textSearch.setText("");
-				InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(getActivity().INPUT_METHOD_SERVICE);
-			    imm.hideSoftInputFromWindow(textSearch.getWindowToken(), 0);
-			}
-		});
-
-		textSearch = (EditText) mView.findViewById(R.id.edit_text1);
-		textSearch.addTextChangedListener(filterTextWatcher);
-	}
+	/*
+	 * private void loadTextSearch() { buttonClose = (Button)
+	 * mView.findViewById(R.id.button_close); buttonClose.setOnClickListener(new
+	 * OnClickListener() {
+	 * 
+	 * @Override public void onClick(View v) { textSearch.setText("");
+	 * InputMethodManager imm = (InputMethodManager)
+	 * getActivity().getSystemService(getActivity().INPUT_METHOD_SERVICE);
+	 * imm.hideSoftInputFromWindow(textSearch.getWindowToken(), 0); } });
+	 * 
+	 * textSearch = (EditText) mView.findViewById(R.id.edit_text1);
+	 * textSearch.addTextChangedListener(filterTextWatcher); }
+	 */
 
 	private TextWatcher filterTextWatcher = new TextWatcher() {
 
@@ -114,11 +126,10 @@ public class AppsFragment extends Fragment implements OnItemSelectedListener {
 		}
 	};
 
-	
 	/********************************************
 	 * Grid
-	********************************************/
-	
+	 ********************************************/
+
 	private void loadGridView() {
 		mAppsGrid = (GridView) mView.findViewById(R.id.appsGrid);
 

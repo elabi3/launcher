@@ -3,6 +3,7 @@ package com.example.ui.main;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+import android.app.ActionBar;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -14,9 +15,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.launcher.R;
+import com.example.ui.CustomFragment;
 import com.example.utilities.ActionsIntents;
 
-public class MainFragment extends Fragment implements OnClickListener {
+public class MainFragment extends CustomFragment implements OnClickListener {
 	private View mView;
 	private Handler handler = new Handler();
 	private TextView timeHour;
@@ -36,6 +38,16 @@ public class MainFragment extends Fragment implements OnClickListener {
 		loadActions();
 
 		return mView;
+	}
+	
+	@Override
+	public String getTitle() {
+		return "";
+	}
+
+	@Override
+	public void setActionBar() {
+		//getActivity().getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
 	}
 	
 	public void loadClock() {
