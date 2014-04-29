@@ -15,6 +15,7 @@ import android.os.AsyncTask;
 import android.os.Handler;
 import android.util.Pair;
 
+// Add total openings
 public class AppPack {
 	public final static Integer MORNING_PERIOD = Integer.valueOf(0);
 	public final static Integer AFTERNOON_PERIOD = Integer.valueOf(1);

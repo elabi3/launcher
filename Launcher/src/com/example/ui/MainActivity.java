@@ -12,22 +12,41 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.widget.DrawerLayout;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 public class MainActivity extends FragmentActivity implements
 		com.jfeinstein.jazzyviewpager.JazzyViewPager.OnPageChangeListener {
 
 	private static JazzyViewPager mJazzy;
-	private Class<?>[] mFragments = new Class<?>[] { /*TodayFragment.class,*/
-			MainFragment.class, AppsFragment.class };
+	private Class<?>[] mFragments = new Class<?>[] { /* TodayFragment.class, */
+	MainFragment.class, AppsFragment.class };
+
+	private DrawerLayout mDrawerLayout;
+	private ListView mDrawerList;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		setTitle("");
+		getActionBar().setIcon(android.R.color.transparent);
 		setupJazziness(TransitionEffect.Tablet);
+
+		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_element);
+		mDrawerLayout.setScrimColor(Color.TRANSPARENT);
+
+		mDrawerList = (ListView) findViewById(R.id.left_drawer);
+
+		/*
+		// Set the adapter for the list view
+		mDrawerList.setAdapter(new ArrayAdapter<String>(this,
+				R.layout.drawer_list_item, mPlanetTitles));
+		// Set the list's click listener
+		mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
+		*/
 	}
 
 	private void setupJazziness(TransitionEffect effect) {
@@ -61,13 +80,14 @@ public class MainActivity extends FragmentActivity implements
 		if (selectedFragment != null) {
 			setTitle(selectedFragment.getTitle());
 			selectedFragment.setActionBar();
-			//TODO: Poner una animacion de cambio de alpha y que se seleccione desde el fragment cambio == 0
+			// TODO: Poner una animacion de cambio de alpha y que se seleccione
+			// desde el fragment cambio == 0
 			if (arg0 == 1) {
-			    View view = this.getWindow().getDecorView();
-			    view.setBackgroundColor(Color.parseColor("#80000000"));
+				View view = this.getWindow().getDecorView();
+				view.setBackgroundColor(Color.parseColor("#80000000"));
 			} else {
 				View view = this.getWindow().getDecorView();
-			    view.setBackgroundColor(Color.TRANSPARENT);
+				view.setBackgroundColor(Color.TRANSPARENT);
 			}
 		}
 	}

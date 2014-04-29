@@ -34,7 +34,8 @@ import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.Spinner;
 
-public class AppsFragment extends CustomFragment implements OnItemSelectedListener {
+public class AppsFragment extends CustomFragment implements
+		OnItemSelectedListener {
 	private View mView;
 	private Spinner mSpinner;
 	private GridView mAppsGrid;
@@ -55,10 +56,10 @@ public class AppsFragment extends CustomFragment implements OnItemSelectedListen
 			Bundle savedInstanceState) {
 		mView = inflater.inflate(R.layout.apps_fragment, container, false);
 
-		// loadSpinner();
+		 //loadSpinner();
 		// loadTextSearch();
-		loadGridView();		
-		
+		loadGridView();
+
 		getActivity().getWindow().setSoftInputMode(
 				WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
@@ -72,9 +73,9 @@ public class AppsFragment extends CustomFragment implements OnItemSelectedListen
 
 	@Override
 	public void setActionBar() {
-
+		//getActivity().getActionBar().setCustomView(mSpinner);
 	}
-	
+
 	/********************************************
 	 * Spinner
 	 ********************************************/
@@ -156,6 +157,9 @@ public class AppsFragment extends CustomFragment implements OnItemSelectedListen
 					.loadLabel(pm).toString(),
 					resolveInfo.activityInfo.packageName, getActivity()));
 		}
+		
+		// Por defecto lo ordenamos por nombre
+		SortApps.sortByName(listApps, false);
 	}
 
 	@Override
