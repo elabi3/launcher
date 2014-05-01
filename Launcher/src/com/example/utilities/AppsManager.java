@@ -13,20 +13,22 @@ import com.example.data.AppPack;
 
 public class AppsManager {
 	private static AppsManager instance = null;
-	private List<AppPack> listApps = new ArrayList<AppPack>();
-	private PackageManager pm;
 	private Context mContext;
-
-	private AppsManager(Context context) {
-		mContext = context;
-		createAppList();
-	}
+	private PackageManager pm;
+	private List<AppPack> listApps = new ArrayList<AppPack>();
 
 	public static AppsManager getInstance(Context context) {
 		if (instance == null) {
 			instance = new AppsManager(context);
 		}
 		return instance;
+	}
+
+	private AppsManager(Context context) {
+		mContext = context;
+		pm = mContext.getPackageManager();
+		// TODO refresh AppList every Xmn
+		createAppList();
 	}
 
 	private void createAppList() {
@@ -40,22 +42,30 @@ public class AppsManager {
 					resolveInfo.activityInfo.packageName, mContext));
 		}
 	}
-	
+
+	public PackageManager getPackageManager() {
+		return this.pm;
+	}
+
 	public List<AppPack> getAppsByName() {
-		SortApps.sortByName(listApps, false);
-		return listApps;
+		List<AppPack> result = this.listApps;
+		SortApps.sortByName(result, false);
+		return result;
 	}
 
 	public List<AppPack> getAppsByInstallDate() {
-		SortApps.sortByInstallTime(listApps);
-		return listApps;
+		List<AppPack> result = this.listApps;
+		SortApps.sortByInstallTime(result);
+		return result;
 	}
-	
+
 	public List<AppPack> getAppsByUpdateDate() {
-		SortApps.sortByLastUpdateTime(listApps);
-		return listApps;
+		List<AppPack> result = this.listApps;
+		SortApps.sortByLastUpdateTime(result);
+		return result;
 	}
-	
+
+	// TODO
 	public List<AppPack> getAppRecents() {
 		ActivityManager am = (ActivityManager) mContext
 				.getSystemService(mContext.ACTIVITY_SERVICE);
@@ -64,8 +74,23 @@ public class AppsManager {
 		// SortApps.sortByRecents(pacs, runningAppProcessInfo);
 		return listApps;
 	}
-	
-	
-	// getAppsInPeriod
-	// getMostOpenApps
+
+	// TODO
+	public List<AppPack> getAppsInPeriod(Integer period) {
+		List<AppPack> result = new ArrayList<AppPack>();
+		for (AppPack app : this.listApps) {
+			if (app.getTimesOpenAround(period) >= 0) {
+				result.add(app);
+			}
+		}
+		// Sort List by times in period
+		return result;
+	}
+
+	// TODO
+	public List<AppPack> getMostOpenApps() {
+		List<AppPack> result = this.listApps;
+		// Sort List by total times open
+		return result;
+	}
 }

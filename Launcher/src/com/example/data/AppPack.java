@@ -21,6 +21,7 @@ public class AppPack {
 	public final static Integer AFTERNOON_PERIOD = Integer.valueOf(1);
 	public final static Integer NIGHT_PERIOD = Integer.valueOf(2);
 	private Map<Integer, Integer> openingTimes;
+	private int totalOpeningTimes;
 
 	private Drawable icon;
 	private String name;
@@ -84,7 +85,6 @@ public class AppPack {
 		return lastUpdate;
 	}
 	
-	
 	/********************************************
 	 * Opens
 	********************************************/
@@ -98,6 +98,7 @@ public class AppPack {
 			temp = 1;
 		}
 		this.openingTimes.put(period, temp);
+		this.totalOpeningTimes += 1;
 	}
 
 	public int getTimesOpenAround(Integer period) {
@@ -105,6 +106,10 @@ public class AppPack {
 			return 0;
 		}
 		return this.openingTimes.get(period).intValue();
+	}
+	
+	public int getTotalOpeningTimes() {
+		return totalOpeningTimes;
 	}
 	
 	private Integer getPeriod() {
