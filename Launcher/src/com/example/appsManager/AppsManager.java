@@ -1,15 +1,16 @@
-package com.example.utilities;
+package com.example.appsManager;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.example.appsManager.auxiliar.SortApps;
+import com.example.appsManager.model.AppPack;
 
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-
-import com.example.data.AppPack;
 
 public class AppsManager {
 	private static AppsManager instance = null;
@@ -27,7 +28,6 @@ public class AppsManager {
 	private AppsManager(Context context) {
 		mContext = context;
 		pm = mContext.getPackageManager();
-		// TODO refresh AppList every Xmn
 		createAppList();
 	}
 
@@ -65,32 +65,33 @@ public class AppsManager {
 		return result;
 	}
 
-	// TODO
-	public List<AppPack> getAppRecents() {
+	public List<AppPack> getAppsRecents() {
+		List<AppPack> result = this.listApps;
 		ActivityManager am = (ActivityManager) mContext
 				.getSystemService(mContext.ACTIVITY_SERVICE);
 		List<ActivityManager.RunningAppProcessInfo> runningAppProcessInfo = am
 				.getRunningAppProcesses();
-		// SortApps.sortByRecents(pacs, runningAppProcessInfo);
-		return listApps;
+		return SortApps.sortByRecents(result, runningAppProcessInfo);
 	}
 
-	// TODO
-	public List<AppPack> getAppsInPeriod(Integer period) {
-		List<AppPack> result = new ArrayList<AppPack>();
-		for (AppPack app : this.listApps) {
-			if (app.getTimesOpenAround(period) >= 0) {
-				result.add(app);
-			}
-		}
-		// Sort List by times in period
+	public List<AppPack> getAppsMostOpen() {
+		List<AppPack> result = this.listApps;
+		SortApps.sortByMostOpen(result);
 		return result;
 	}
-
-	// TODO
-	public List<AppPack> getMostOpenApps() {
+	
+	public List<AppPack> getAppsByLocation() {
 		List<AppPack> result = this.listApps;
-		// Sort List by total times open
+		// Current location
+		return result;
+	}
+	
+	public List<AppPack> getAppsNearNow() {
+		List<AppPack> result = new ArrayList<AppPack>();
+		for (AppPack app : this.listApps) {
+			
+		}
+		// Sort List by times in period
 		return result;
 	}
 }

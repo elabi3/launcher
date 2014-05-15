@@ -1,4 +1,4 @@
-package com.example.utilities;
+package com.example.auxiliar;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,9 +10,9 @@ import android.provider.ContactsContract;
 
 public class ActionsIntents {
 	// Set boolean flag when torch is turned on/off
-	private static boolean isFlashOn = false;
-	private static Camera camera = Camera.open();
-	private static Parameters p = camera.getParameters();
+	//private static boolean isFlashOn = false;
+	//private static Camera camera = Camera.open();
+	//private static Parameters p = camera.getParameters();
 
 	public static void senEmail(Context context) {
 		Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:"));
@@ -41,8 +41,20 @@ public class ActionsIntents {
 	public static void openApp(Context context, Intent launchIntent) {
 		context.startActivity(launchIntent);
 	}
+	
+	public static void newPhoneCall() {
+		
+	}
+	
+	public static void newTweet() {
+		
+	}
+	
+	public static void newFacebookPost() {
+		
+	}
 
-	public static void turnTorch() {
+	/*public static void turnTorch() {
 		if (isFlashOn) {
 			p.setFlashMode(Parameters.FLASH_MODE_OFF); // Set the flashmode to off
 			camera.setParameters(p); // Pass the parameter ti camera object
@@ -52,5 +64,5 @@ public class ActionsIntents {
 			camera.setParameters(p); // Pass the parameter ti camera object
 			isFlashOn = true; // Set flag to true
 		}
-	}
+	}*/
 }

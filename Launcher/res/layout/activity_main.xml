@@ -20,14 +20,61 @@
         android:layout_height="match_parent" />
     <!-- The navigation drawer -->
 
-    <ListView
-        android:id="@+id/left_drawer"
-        android:layout_width="100dp"
+    <LinearLayout
+        android:id="@+id/contentLayout"
+        android:layout_width="180dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:background="@color/Drawer_color"
         android:choiceMode="singleChoice"
         android:divider="@android:color/transparent"
-        android:dividerHeight="0dp" />
+        android:dividerHeight="0dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/sendEmail"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:text="Send Email"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/newContact"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:text="New Contact"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/newEvent"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:text="New Event"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/newAlarm"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:text="New Alarm"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/torch"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:text="Torch"
+            android:textSize="20sp" />
+    </LinearLayout>
 
 </android.support.v4.widget.DrawerLayout>

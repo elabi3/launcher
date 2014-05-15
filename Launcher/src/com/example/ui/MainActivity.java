@@ -1,8 +1,7 @@
 package com.example.ui;
 
+import com.example.auxiliar.ActionsIntents;
 import com.example.launcher.R;
-import com.example.ui.appsdrawer.AppsFragment;
-import com.example.ui.main.MainFragment;
 import com.jfeinstein.jazzyviewpager.JazzyViewPager;
 import com.jfeinstein.jazzyviewpager.JazzyViewPager.TransitionEffect;
 
@@ -14,39 +13,38 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.widget.DrawerLayout;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.ListView;
+import android.widget.TextView;
 
 public class MainActivity extends FragmentActivity implements
-		com.jfeinstein.jazzyviewpager.JazzyViewPager.OnPageChangeListener {
+		com.jfeinstein.jazzyviewpager.JazzyViewPager.OnPageChangeListener,
+		OnClickListener {
 
 	private static JazzyViewPager mJazzy;
-	private Class<?>[] mFragments = new Class<?>[] { /* TodayFragment.class, */
-	MainFragment.class, AppsFragment.class };
-
+	private Class<?>[] mFragments = new Class<?>[] { MainFragment.class,
+			AppsDrawerFragment.class };
 	private DrawerLayout mDrawerLayout;
-	private ListView mDrawerList;
+
+	// Acciones
+	private TextView sendEmail;
+	private TextView newContact;
+	private TextView newEvent;
+	private TextView newAlarm;
+	private TextView torch;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		setTitle("");
-		getActionBar().setIcon(android.R.color.transparent);
 		setupJazziness(TransitionEffect.Tablet);
 
+		// setup drawer
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_element);
 		mDrawerLayout.setScrimColor(Color.TRANSPARENT);
 
-		mDrawerList = (ListView) findViewById(R.id.left_drawer);
-
-		/*
-		// Set the adapter for the list view
-		mDrawerList.setAdapter(new ArrayAdapter<String>(this,
-				R.layout.drawer_list_item, mPlanetTitles));
-		// Set the list's click listener
-		mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
-		*/
+		// Load Actions
+		loadActions();
 	}
 
 	private void setupJazziness(TransitionEffect effect) {
@@ -71,24 +69,14 @@ public class MainActivity extends FragmentActivity implements
 
 	@Override
 	public void onPageSelected(int arg0) {
-		CustomFragment selectedFragment = null;
-		try {
-			selectedFragment = (CustomFragment) mFragments[arg0].newInstance();
-		} catch (Exception e) {
-
-		}
-		if (selectedFragment != null) {
-			setTitle(selectedFragment.getTitle());
-			selectedFragment.setActionBar();
-			// TODO: Poner una animacion de cambio de alpha y que se seleccione
-			// desde el fragment cambio == 0
-			if (arg0 == 1) {
-				View view = this.getWindow().getDecorView();
-				view.setBackgroundColor(Color.parseColor("#80000000"));
-			} else {
-				View view = this.getWindow().getDecorView();
-				view.setBackgroundColor(Color.TRANSPARENT);
-			}
+		// TODO: Poner una animacion de cambio de alpha y que se seleccione
+		// desde el fragment cambio == 0
+		if (arg0 == 1) {
+			View view = this.getWindow().getDecorView();
+			view.setBackgroundColor(Color.parseColor("#80000000"));
+		} else {
+			View view = this.getWindow().getDecorView();
+			view.setBackgroundColor(Color.TRANSPARENT);
 		}
 	}
 
@@ -130,6 +118,38 @@ public class MainActivity extends FragmentActivity implements
 			Object obj = super.instantiateItem(container, position);
 			mJazzy.setObjectForPosition(obj, position);
 			return obj;
+		}
+	}
+
+	// Acciones
+	public void loadActions() {
+		sendEmail = (TextView) findViewById(R.id.sendEmail);
+		newContact = (TextView) findViewById(R.id.newContact);
+		newEvent = (TextView) findViewById(R.id.newEvent);
+		newAlarm = (TextView) findViewById(R.id.newAlarm);
+		torch = (TextView) findViewById(R.id.torch);
+
+		sendEmail.setOnClickListener(this);
+		newContact.setOnClickListener(this);
+		newEvent.setOnClickListener(this);
+		newAlarm.setOnClickListener(this);
+		torch.setOnClickListener(this);
+	}
+
+	@Override
+	public void onClick(View v) {
+		if (v instanceof TextView) {
+			if (v.equals(sendEmail)) {
+				ActionsIntents.senEmail(this);
+			} else if (v.equals(newContact)) {
+				ActionsIntents.newContact(this);
+			} else if (v.equals(newEvent)) {
+				ActionsIntents.newEvent(this);
+			} else if (v.equals(newAlarm)) {
+				ActionsIntents.newAlarm(this);
+			} else {
+				// ActionsIntents.turnTorch();
+			}
 		}
 	}
 

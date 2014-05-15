@@ -3,7 +3,7 @@ package com.example.ui.appsdrawer;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.data.AppPack;
+import com.example.appsManager.model.AppPack;
 import com.example.launcher.R;
 
 import android.content.Context;
@@ -16,12 +16,12 @@ import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class AppsGridAdapter extends BaseAdapter implements Filterable {
+public class AppsGridAdapterOld extends BaseAdapter implements Filterable {
 	private Context mContext;
 	private List<AppPack> listApps;
 	private List<AppPack> originalListApps;
 	
-	public AppsGridAdapter(Context c, List<AppPack> listApps) {
+	public AppsGridAdapterOld(Context c, List<AppPack> listApps) {
 		this.mContext = c;
 		this.listApps = listApps;
 		this.originalListApps = listApps;
@@ -115,7 +115,7 @@ public class AppsGridAdapter extends BaseAdapter implements Filterable {
 				FilterResults results) {
 			if (results.count > 0) {
 				listApps = (List<AppPack>) results.values;
-				AppsGridClickListener.listApps = listApps;
+				//AppsGridClickListenerOld.listApps = listApps;
 				notifyDataSetChanged();
 			} else {
 				notifyDataSetInvalidated();
