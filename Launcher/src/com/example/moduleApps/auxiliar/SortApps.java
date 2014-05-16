@@ -1,9 +1,9 @@
-package com.example.appsManager.auxiliar;
+package com.example.moduleApps.auxiliar;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.appsManager.model.AppPack;
+import com.example.moduleApps.model.AppPack;
 
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningAppProcessInfo;

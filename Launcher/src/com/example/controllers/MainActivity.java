@@ -1,4 +1,4 @@
-package com.example.ui;
+package com.example.controllers;
 
 import com.example.auxiliar.ActionsIntents;
 import com.example.launcher.R;
@@ -36,7 +36,7 @@ public class MainActivity extends FragmentActivity implements
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.controllers_main_activity);
 		setupJazziness(TransitionEffect.Tablet);
 
 		// setup drawer

@@ -1,4 +1,4 @@
-package com.example.ui;
+package com.example.controllers;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -18,15 +18,16 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
-import com.example.appsManager.AppsManager;
-import com.example.appsManager.controllers.AppsGrid;
 import com.example.launcher.R;
+import com.example.moduleApps.controllers.AppsGrid;
 
-public class AppsDrawerFragment extends Fragment implements OnItemSelectedListener {
+public class AppsDrawerFragment extends Fragment implements
+		OnItemSelectedListener {
 	private View mView;
 	private Spinner mSpinner;
 	private EditText textSearch;
 	private Button buttonClose;
+	private AppsGrid appsGrid;
 
 	private String[] mSpinnerElements = { "Alfabéticamente (AZ)",
 			"Alfabéticamente (ZA)", "Actualizaciones Recientes",
@@ -35,21 +36,28 @@ public class AppsDrawerFragment extends Fragment implements OnItemSelectedListen
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		mView = inflater.inflate(R.layout.apps_fragment, container, false);
+		mView = inflater.inflate(R.layout.controllers_apps_fragment, container, false);
 
+		loadGridApps();
 		loadSpinner();
 		loadTextSearch();
 
-		AppsGrid appsFragment = new AppsGrid(getActivity(), AppsManager.getInstance(
-						getActivity()).getAppsByName(), 0);
-		
-		LinearLayout layout = (LinearLayout) mView.findViewById(R.id.content);
-		layout.addView(appsFragment.getGridView());
-		
 		getActivity().getWindow().setSoftInputMode(
 				WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
 		return mView;
+	}
+
+	/********************************************
+	 * Grid apps
+	 ********************************************/
+
+	private void loadGridApps() {
+		LinearLayout layout = (LinearLayout) mView.findViewById(R.id.content);
+
+		// create and add grid
+		appsGrid = new AppsGrid(getActivity(), AppsGrid.APPS_GRID_ALL, AppsGrid.NO_MAXIMUN_LIMIT);
+		layout.addView(appsGrid.getGridView());
 	}
 
 	/********************************************
@@ -68,6 +76,32 @@ public class AppsDrawerFragment extends Fragment implements OnItemSelectedListen
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		mSpinner.setAdapter(adapter);
 		mSpinner.setOnItemSelectedListener(this);
+	}
+
+	public void onItemSelected(AdapterView<?> arg0, View arg1, int pos,
+			long arg3) {
+
+		switch (pos) {
+		case 0:
+			appsGrid.sortAppsByName(false);
+			break;
+		case 1:
+			appsGrid.sortAppsByName(true);
+			break;
+		case 2:
+			appsGrid.sortAppsByLastUpdate();
+			break;
+		case 3:
+			appsGrid.sortAppsByInstallTime();
+			break;
+		default:
+			break;
+		}
+	}
+
+	@Override
+	public void onNothingSelected(AdapterView<?> arg0) {
+
 	}
 
 	/********************************************
@@ -103,42 +137,7 @@ public class AppsDrawerFragment extends Fragment implements OnItemSelectedListen
 
 		public void onTextChanged(CharSequence s, int start, int before,
 				int count) {
-			//mAppsGridAdapter.getFilter().filter(s);
+			appsGrid.filterList(s);
 		}
 	};
-
-	/********************************************
-	 * Grid
-	 ********************************************/
-
-	public void onItemSelected(AdapterView<?> arg0, View arg1, int pos,
-			long arg3) {
-
-		switch (pos) {
-		case 0:
-			//SortApps.sortByName(listApps, false);
-			break;
-		case 1:
-			// SortApps.sortByName(listApps, true);
-			break;
-		case 2:
-			// SortApps.sortByLastUpdateTime(listApps);
-			break;
-		case 3:
-			// SortApps.sortByInstallTime(listApps);
-			break;
-		case 4: {
-
-		}
-		default:
-			break;
-		}
-		//mAppsGridAdapter.notifyDataSetChanged();
-	}
-
-	@Override
-	public void onNothingSelected(AdapterView<?> arg0) {
-
-	}
-
 }

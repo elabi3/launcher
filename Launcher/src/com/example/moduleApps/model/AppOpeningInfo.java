@@ -1,4 +1,4 @@
-package com.example.appsManager.model;
+package com.example.moduleApps.model;
 
 public class AppOpeningInfo {
 	private int time;

@@ -1,10 +1,10 @@
-package com.example.appsManager;
+package com.example.moduleApps;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.appsManager.auxiliar.SortApps;
-import com.example.appsManager.model.AppPack;
+import com.example.moduleApps.auxiliar.SortApps;
+import com.example.moduleApps.model.AppPack;
 
 import android.app.ActivityManager;
 import android.content.Context;
@@ -47,21 +47,13 @@ public class AppsManager {
 		return this.pm;
 	}
 
+	/********************************************
+	 * Get List of apps
+	 ********************************************/
+	
 	public List<AppPack> getAppsByName() {
 		List<AppPack> result = this.listApps;
 		SortApps.sortByName(result, false);
-		return result;
-	}
-
-	public List<AppPack> getAppsByInstallDate() {
-		List<AppPack> result = this.listApps;
-		SortApps.sortByInstallTime(result);
-		return result;
-	}
-
-	public List<AppPack> getAppsByUpdateDate() {
-		List<AppPack> result = this.listApps;
-		SortApps.sortByLastUpdateTime(result);
 		return result;
 	}
 
@@ -75,23 +67,27 @@ public class AppsManager {
 	}
 
 	public List<AppPack> getAppsMostOpen() {
+		// Ask for this apps to database
 		List<AppPack> result = this.listApps;
 		SortApps.sortByMostOpen(result);
 		return result;
 	}
 	
 	public List<AppPack> getAppsByLocation() {
+		// Ask for this apps to database
 		List<AppPack> result = this.listApps;
-		// Current location
 		return result;
 	}
 	
 	public List<AppPack> getAppsNearNow() {
+		// Ask for this apps to database
 		List<AppPack> result = new ArrayList<AppPack>();
-		for (AppPack app : this.listApps) {
-			
-		}
-		// Sort List by times in period
+		return result;
+	}
+	
+	public List<AppPack> getAppsByLocationAndNearNow() {
+		// Ask for this apps to database
+		List<AppPack> result = new ArrayList<AppPack>();
 		return result;
 	}
 }

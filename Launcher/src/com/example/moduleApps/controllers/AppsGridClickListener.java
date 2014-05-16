@@ -1,10 +1,10 @@
-package com.example.appsManager.controllers;
+package com.example.moduleApps.controllers;
 
 import java.util.List;
 
-import com.example.appsManager.AppsManager;
-import com.example.appsManager.model.AppPack;
 import com.example.auxiliar.ActionsIntents;
+import com.example.moduleApps.AppsManager;
+import com.example.moduleApps.model.AppPack;
 
 import android.content.Context;
 import android.content.Intent;

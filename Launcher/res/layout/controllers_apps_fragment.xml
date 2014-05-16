@@ -10,7 +10,7 @@
         android:id="@+id/topBar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="@color/Black_transparent"
+        android:background="#00000000"
         android:orientation="horizontal" >
 
         <Spinner
@@ -48,24 +48,5 @@
         android:layout_height="match_parent"
         android:orientation="horizontal" >
     </LinearLayout>
-        
-        <!--
-    <GridView
-        android:id="@+id/appsGrid"
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:background="#00000000"
-        android:columnWidth="65dp"
-        android:drawSelectorOnTop="true"
-        android:gravity="center"
-        android:horizontalSpacing="15dp"
-        android:numColumns="auto_fit"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:stretchMode="columnWidth"
-        android:textFilterEnabled="false"
-        android:verticalSpacing="30dp" >
-    </GridView>
-        -->
 
-    </LinearLayout>
+</LinearLayout>

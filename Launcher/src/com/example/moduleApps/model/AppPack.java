@@ -1,5 +1,6 @@
-package com.example.appsManager.model;
+package com.example.moduleApps.model;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -35,6 +36,7 @@ public class AppPack {
 		this.name = name;
 		this.packageName = packageName;
 		this.mContext = context;
+		this.openingInfo = new ArrayList<AppOpeningInfo>();
 
 		launchAsyncTask();
 	}
@@ -81,6 +83,8 @@ public class AppPack {
 
 	public void setNewOpen() {
 		this.totalOpeningTimes += 1;
+		// create new oppening info
+		// save directly in database
 	}
 
 	public int getTotalOpeningTimes() {

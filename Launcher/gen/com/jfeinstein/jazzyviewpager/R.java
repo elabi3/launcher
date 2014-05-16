@@ -29,7 +29,7 @@ public final class R {
 		public static final int fliphorizontal = 0x7f040005;
 		public static final int flipvertical = 0x7f040004;
 		public static final int jazzy_key = 0x7f04000c;
-		public static final int jazzy_pager = 0x7f04000e;
+		public static final int jazzy_pager = 0x7f04000d;
 		public static final int menu_accordian = 0x7f04002e;
 		public static final int menu_cube_in = 0x7f040025;
 		public static final int menu_cube_out = 0x7f040026;

@@ -1,4 +1,4 @@
-package com.example.ui;
+package com.example.controllers;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -8,11 +8,9 @@ import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.auxiliar.ActionsIntents;
 import com.example.launcher.R;
 
 public class MainFragment extends Fragment {
@@ -24,7 +22,7 @@ public class MainFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		mView = inflater.inflate(R.layout.main_fragment, container, false);
+		mView = inflater.inflate(R.layout.controllers_main_fragment, container, false);
 		loadClock();
 		return mView;
 	}

@@ -1,10 +1,7 @@
-package com.example.ui.appsdrawer;
+package com.example.moduleApps.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import com.example.appsManager.model.AppPack;
-import com.example.launcher.R;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -16,15 +13,16 @@ import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class AppsGridAdapterOld extends BaseAdapter implements Filterable {
+import com.example.launcher.R;
+import com.example.moduleApps.model.AppPack;
+
+public class AppsGridAdapter extends BaseAdapter implements Filterable {
 	private Context mContext;
 	private List<AppPack> listApps;
-	private List<AppPack> originalListApps;
-	
-	public AppsGridAdapterOld(Context c, List<AppPack> listApps) {
+
+	public AppsGridAdapter(Context c, List<AppPack> listApps) {
 		this.mContext = c;
 		this.listApps = listApps;
-		this.originalListApps = listApps;
 	}
 
 	@Override
@@ -54,7 +52,7 @@ public class AppsGridAdapterOld extends BaseAdapter implements Filterable {
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
 		if (convertView == null) {
-			convertView = li.inflate(R.layout.app_grid_item, null);
+			convertView = li.inflate(R.layout.module_apps_grid_item, null);
 
 			viewHolder = new ViewHolder();
 			viewHolder.icon = (ImageView) convertView
@@ -72,17 +70,15 @@ public class AppsGridAdapterOld extends BaseAdapter implements Filterable {
 		return convertView;
 	}
 
-	@Override
 	public Filter getFilter() {
 		Filter listfilter = new MyFilter();
 		return listfilter;
 	}
 
-
 	/********************************************
 	 * Filter Class
-	********************************************/
-	
+	 ********************************************/
+
 	private class MyFilter extends Filter {
 
 		@Override
@@ -90,19 +86,19 @@ public class AppsGridAdapterOld extends BaseAdapter implements Filterable {
 			FilterResults result = new FilterResults();
 
 			if (constraint.length() == 0) {
-				result.values = originalListApps;
-				result.count = originalListApps.size();
+				//result.values = originalListApps;
+				//result.count = originalListApps.size();
 				return result;
 			}
 
 			List<AppPack> filteredApps = new ArrayList<AppPack>();
 			String filterString = constraint.toString().toLowerCase();
 
-			for (AppPack originalApp : originalListApps) {
+			/*for (AppPack originalApp : originalListApps) {
 				if (originalApp.getName().toLowerCase().contains(filterString)) {
 					filteredApps.add(originalApp);
 				}
-			}
+			}*/
 
 			result.values = filteredApps;
 			result.count = filteredApps.size();
@@ -115,7 +111,7 @@ public class AppsGridAdapterOld extends BaseAdapter implements Filterable {
 				FilterResults results) {
 			if (results.count > 0) {
 				listApps = (List<AppPack>) results.values;
-				//AppsGridClickListenerOld.listApps = listApps;
+				// AppsGridClickListenerOld.listApps = listApps;
 				notifyDataSetChanged();
 			} else {
 				notifyDataSetInvalidated();
