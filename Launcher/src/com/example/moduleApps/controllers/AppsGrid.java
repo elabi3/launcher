@@ -120,11 +120,14 @@ public class AppsGrid {
 
 	private void loadGridView() {
 		mAppsGrid = (GridView) mView.findViewById(R.id.appsGrid);
-		mAppsGridAdapter = new AppsGridAdapter(
-				mContext.getApplicationContext(), listApps);
-		mAppsGrid.setAdapter(mAppsGridAdapter);
+		
 		AppsGridClickListener gridClickListener = new AppsGridClickListener(
 				mContext.getApplicationContext(), listApps);
+		mAppsGridAdapter = new AppsGridAdapter(
+				mContext.getApplicationContext(), listApps, gridClickListener);
+
+		
+		mAppsGrid.setAdapter(mAppsGridAdapter);
 		mAppsGrid.setOnItemClickListener(gridClickListener);
 	}
 }

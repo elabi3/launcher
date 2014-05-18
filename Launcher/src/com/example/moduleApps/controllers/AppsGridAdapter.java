@@ -19,10 +19,14 @@ import com.example.moduleApps.model.AppPack;
 public class AppsGridAdapter extends BaseAdapter implements Filterable {
 	private Context mContext;
 	private List<AppPack> listApps;
+	private List<AppPack> originalListApps;
+	private AppsGridClickListener gridClickListener;
 
-	public AppsGridAdapter(Context c, List<AppPack> listApps) {
+	public AppsGridAdapter(Context c, List<AppPack> listApps, AppsGridClickListener gridClickListener) {
 		this.mContext = c;
 		this.listApps = listApps;
+		this.originalListApps = listApps;
+		this.gridClickListener = gridClickListener;
 	}
 
 	@Override
@@ -86,19 +90,19 @@ public class AppsGridAdapter extends BaseAdapter implements Filterable {
 			FilterResults result = new FilterResults();
 
 			if (constraint.length() == 0) {
-				//result.values = originalListApps;
-				//result.count = originalListApps.size();
+				result.values = originalListApps;
+				result.count = originalListApps.size();
 				return result;
 			}
 
 			List<AppPack> filteredApps = new ArrayList<AppPack>();
 			String filterString = constraint.toString().toLowerCase();
 
-			/*for (AppPack originalApp : originalListApps) {
+			for (AppPack originalApp : originalListApps) {
 				if (originalApp.getName().toLowerCase().contains(filterString)) {
 					filteredApps.add(originalApp);
 				}
-			}*/
+			}
 
 			result.values = filteredApps;
 			result.count = filteredApps.size();
@@ -111,7 +115,7 @@ public class AppsGridAdapter extends BaseAdapter implements Filterable {
 				FilterResults results) {
 			if (results.count > 0) {
 				listApps = (List<AppPack>) results.values;
-				// AppsGridClickListenerOld.listApps = listApps;
+				gridClickListener.setListApps(listApps);
 				notifyDataSetChanged();
 			} else {
 				notifyDataSetInvalidated();

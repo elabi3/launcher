@@ -20,7 +20,6 @@ public class AppPack {
 	private long firsIntall;
 	private long lastUpdate;
 
-	private int totalOpeningTimes;
 	private List<AppOpeningInfo> openingInfo;
 
 	private Context mContext;
@@ -75,20 +74,6 @@ public class AppPack {
 
 	public long getLastUpdate() {
 		return lastUpdate;
-	}
-
-	/********************************************
-	 * Opens
-	 ********************************************/
-
-	public void setNewOpen() {
-		this.totalOpeningTimes += 1;
-		// create new oppening info
-		// save directly in database
-	}
-
-	public int getTotalOpeningTimes() {
-		return totalOpeningTimes;
 	}
 
 	/********************************************

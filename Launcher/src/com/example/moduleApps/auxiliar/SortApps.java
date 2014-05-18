@@ -70,37 +70,27 @@ public class SortApps {
 		}
 	}
 
-	// Sacamos los procesos que se parezcan 
+	// Sacamos los procesos que se parezcan
 	public static List<AppPack> sortByRecents(List<AppPack> listApps,
 			List<ActivityManager.RunningAppProcessInfo> running) {
 		List<AppPack> returnList = new ArrayList<AppPack>();
-		
+
 		for (RunningAppProcessInfo runningAppProcessInfo : running) {
 			for (int i = 0; i < listApps.size(); i++) {
-				if (listApps.get(i).getpackageName().equals(
-						runningAppProcessInfo.processName)) {
+				if (listApps.get(i).getpackageName()
+						.equals(runningAppProcessInfo.processName)) {
 					returnList.add(listApps.get(i));
 				}
 			}
 		}
 		return returnList;
 	}
-	
+
 	// Mas abiertas
 	public static void sortByMostOpen(List<AppPack> listApps) {
 		int i, j;
 		AppPack temp;
 
-		for (i = 0; i < listApps.size() - 1; i++) {
-			for (j = i + 1; j < listApps.size(); j++) {
-				if (listApps.get(i).getTotalOpeningTimes() < listApps.get(j)
-						.getTotalOpeningTimes()) {
-					temp = listApps.get(i);
-					listApps.set(i, listApps.get(j));
-					listApps.set(j, temp);
-				}
-			}
-		}
 	}
 
 }
