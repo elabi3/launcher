@@ -56,7 +56,7 @@ public class AppsDrawerFragment extends Fragment implements
 		LinearLayout layout = (LinearLayout) mView.findViewById(R.id.content);
 
 		// create and add grid
-		appsGrid = new AppsGrid(getActivity(), AppsGrid.APPS_GRID_ALL, AppsGrid.NO_MAXIMUN_LIMIT);
+		appsGrid = new AppsGrid(getActivity(), AppsGrid.APPS_GRID_ALL, AppsGrid.NO_MAXIMUN_LIMIT, 0);
 		layout.addView(appsGrid.getGridView());
 	}
 

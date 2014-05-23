@@ -1,16 +1,10 @@
 package com.example.moduleApps.model;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
-
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
-import android.os.Handler;
 
 public class AppPack {
 	private Drawable icon;
@@ -19,8 +13,6 @@ public class AppPack {
 
 	private long firsIntall;
 	private long lastUpdate;
-
-	private List<AppOpeningInfo> openingInfo;
 
 	private Context mContext;
 
@@ -35,9 +27,7 @@ public class AppPack {
 		this.name = name;
 		this.packageName = packageName;
 		this.mContext = context;
-		this.openingInfo = new ArrayList<AppOpeningInfo>();
-
-		launchAsyncTask();
+		refreshIntallUpdateInfo();
 	}
 
 	/********************************************
@@ -80,29 +70,11 @@ public class AppPack {
 	 * First install & LastUpdate
 	 ********************************************/
 
-	private void launchAsyncTask() {
-		final Handler handler = new Handler();
-		Timer timer = new Timer();
-		TimerTask doAsynchronousTask = new TimerTask() {
-			@Override
-			public void run() {
-				handler.post(new Runnable() {
-					public void run() {
-						try {
-							new InstallInformation().execute();
-						} catch (Exception e) {
-
-						}
-					}
-				});
-			}
-		};
-		timer.schedule(doAsynchronousTask, 0, 600000); // execute in every ten
-														// minutes*
+	public void refreshIntallUpdateInfo() {
+		new InstallInformation().execute();
 	}
 
 	private class InstallInformation extends AsyncTask<Void, Void, Void> {
-
 		@Override
 		protected Void doInBackground(Void... params) {
 			firsIntall = getAppFirstInstallTime();

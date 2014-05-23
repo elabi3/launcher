@@ -86,11 +86,4 @@ public class SortApps {
 		return returnList;
 	}
 
-	// Mas abiertas
-	public static void sortByMostOpen(List<AppPack> listApps) {
-		int i, j;
-		AppPack temp;
-
-	}
-
 }
