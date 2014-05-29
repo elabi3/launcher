@@ -6,9 +6,10 @@
 
     <LinearLayout
         android:id="@+id/mainContent"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_alignParentTop="true"
+        android:gravity="center"
         android:orientation="horizontal" >
 
         <TextView
@@ -27,4 +28,5 @@
             android:gravity="left"
             android:textSize="80sp" />
     </LinearLayout>
+
 </RelativeLayout>

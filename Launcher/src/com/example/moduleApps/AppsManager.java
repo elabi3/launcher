@@ -15,6 +15,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.util.Log;
 
 public class AppsManager extends Observable {
 	private static AppsManager instance = null;
@@ -53,9 +54,16 @@ public class AppsManager extends Observable {
 	}
 
 	public void packageChange() {
+		Log.v("2","New List");
 		createAppList();
 		notifyObservers();
     }
+	
+	// Call newOpening from click listener
+	public void newOpening(String id) {
+		Element element = new Element(id, "app", "", "");
+		DataBaseInterface.getInstance(mContext).newOpening(element);
+	}
 	
 	/********************************************
 	 * Get List of apps
@@ -76,7 +84,7 @@ public class AppsManager extends Observable {
 		return SortApps.sortByRecents(result, runningAppProcessInfo);
 	}
 	
-	// Example implementation 
+	// Example implementation - generic method maybe
 	public List<AppPack> getAppsMostOpens() {
 		List<AppPack> result = Collections.emptyList();
 		for (AppPack appPack : listApps) {

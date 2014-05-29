@@ -9,6 +9,7 @@ import java.util.TimerTask;
 
 import android.content.Context;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.GridView;
@@ -180,6 +181,7 @@ public class AppsGrid  implements Observer {
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
+		Log.v("3","Update");
 		refreshListApps();
 		mAppsGridAdapter.notifyDataSetChanged();
 	}

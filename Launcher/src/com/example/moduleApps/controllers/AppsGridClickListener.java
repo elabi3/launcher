@@ -28,12 +28,11 @@ public class AppsGridClickListener implements OnItemClickListener {
 
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int pos, long arg3) {
+		AppsManager.getInstance(mContext).newOpening(listApps.get(pos).getpackageName());
 		Intent launchIntent = AppsManager.getInstance(mContext)
 				.getPackageManager()
 				.getLaunchIntentForPackage(listApps.get(pos).getpackageName());
-
-		ActionsIntents.openApp(this.mContext, launchIntent);
-
+		mContext.startActivity(launchIntent);
 	}
 
 }
