@@ -54,8 +54,8 @@ public class AppsManager extends Observable {
 	}
 
 	public void packageChange() {
-		Log.v("2","New List");
 		createAppList();
+		setChanged();
 		notifyObservers();
     }
 	

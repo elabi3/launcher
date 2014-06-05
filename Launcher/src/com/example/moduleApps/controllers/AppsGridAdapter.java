@@ -21,12 +21,22 @@ public class AppsGridAdapter extends BaseAdapter implements Filterable {
 	private List<AppPack> listApps;
 	private List<AppPack> originalListApps;
 	private AppsGridClickListener gridClickListener;
+	private AppsGridLongClickListener gridLongClickListener;
 
-	public AppsGridAdapter(Context c, List<AppPack> listApps, AppsGridClickListener gridClickListener) {
+	public AppsGridAdapter(Context c, List<AppPack> listApps,
+			AppsGridClickListener gridClickListener,
+			AppsGridLongClickListener gridLongClickListener) {
 		this.mContext = c;
 		this.listApps = listApps;
 		this.originalListApps = listApps;
 		this.gridClickListener = gridClickListener;
+		this.gridLongClickListener = gridLongClickListener;
+	}
+
+	public void updateList(List<AppPack> listApps) {
+		this.listApps = listApps;
+		gridClickListener.setListApps(listApps);
+		gridLongClickListener.setListApps(listApps);
 	}
 
 	@Override
@@ -116,6 +126,7 @@ public class AppsGridAdapter extends BaseAdapter implements Filterable {
 			if (results.count > 0) {
 				listApps = (List<AppPack>) results.values;
 				gridClickListener.setListApps(listApps);
+				gridLongClickListener.setListApps(listApps);
 				notifyDataSetChanged();
 			} else {
 				notifyDataSetInvalidated();

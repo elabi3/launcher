@@ -8,6 +8,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,7 +21,7 @@ import com.example.moduleApps.AppsManager;
 import com.example.moduleApps.auxiliar.SortApps;
 import com.example.moduleApps.model.AppPack;
 
-public class AppsGrid  implements Observer {
+public class AppsGrid implements Observer {
 	public static final int APPS_GRID_ALL = 0;
 	public static final int APPS_GRID_RECENTS = 1;
 	public static final int APPS_GRID_MOST_OPENS = 2;
@@ -29,7 +31,15 @@ public class AppsGrid  implements Observer {
 	public static final int APPS_GRID_LOCATION = 6;
 	public static final int APPS_GRID_WEEK_DAY_TIME = 7;
 	public static final int APPS_GRID_WEEK_DAY_TIME_LOCATION = 8;
+
 	public static final int NO_MAXIMUN_LIMIT = -1;
+
+	public static final int APPS_GRID_AZ_ORDER = 0;
+	public static final int APPS_GRID_ZA_ORDER = 1;
+	public static final int APPS_GRID_UPDATE_ORDER = 2;
+	public static final int APPS_GRID_INSTALL_ORDER = 3;
+	
+	private int selectedOrder;
 
 	private Context mContext;
 	private View mView;
@@ -47,20 +57,24 @@ public class AppsGrid  implements Observer {
 		this.maximun = maximun;
 		this.refreshRate = refreshRate;
 
+		// Auto add like oberver of Apps Manager
+		AppsManager.getInstance(mContext).addObserver(this);
+
 		// Layout and Grid
 		LayoutInflater inflater = (LayoutInflater) mContext
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		mView = inflater.inflate(R.layout.module_apps_grid, null);
 		mAppsGrid = (GridView) mView.findViewById(R.id.appsGrid);
 
+		selectedOrder = APPS_GRID_AZ_ORDER;
 		refreshListApps();
 		loadGridView();
-		
+
 		if (refreshRate > 0) {
 			refresh();
 		}
 	}
-	
+
 	/********************************************
 	 * Getters
 	 ********************************************/
@@ -80,26 +94,39 @@ public class AppsGrid  implements Observer {
 	/********************************************
 	 * Sort List Apps
 	 ********************************************/
-
-	public void sortAppsByName(boolean inverse) {
-		SortApps.sortByName(listApps, inverse);
-		mAppsGridAdapter.notifyDataSetChanged();
-	}
-
-	public void sortAppsByLastUpdate() {
-		SortApps.sortByLastUpdateTime(listApps);
-		mAppsGridAdapter.notifyDataSetChanged();
-	}
-
-	public void sortAppsByInstallTime() {
-		SortApps.sortByInstallTime(listApps);
-		mAppsGridAdapter.notifyDataSetChanged();
+	
+	public void sortAppsBy(int order) {
+		switch (order) {
+		case APPS_GRID_AZ_ORDER:
+			SortApps.sortByName(listApps, false);
+			selectedOrder = APPS_GRID_AZ_ORDER;
+			break;
+		case APPS_GRID_ZA_ORDER:
+			SortApps.sortByName(listApps, true);
+			selectedOrder = APPS_GRID_ZA_ORDER;
+			break;
+		case APPS_GRID_UPDATE_ORDER:
+			SortApps.sortByLastUpdateTime(listApps);
+			selectedOrder = APPS_GRID_UPDATE_ORDER;
+			break;
+		case APPS_GRID_INSTALL_ORDER:
+			SortApps.sortByInstallTime(listApps);
+			selectedOrder = APPS_GRID_INSTALL_ORDER;
+			break;
+		default:
+			break;
+		}
+				
+		if (mAppsGridAdapter != null) {
+			mAppsGridAdapter.updateList(listApps);
+			mAppsGridAdapter.notifyDataSetChanged();
+		}
 	}
 
 	/********************************************
-	 * Refresh 
+	 * Refresh
 	 ********************************************/
-	
+
 	private void refreshListApps() {
 		List<AppPack> temp = new ArrayList<AppPack>();
 		switch (gridType) {
@@ -128,7 +155,8 @@ public class AppsGrid  implements Observer {
 			temp = AppsManager.getInstance(mContext).getAppsWeekDayTime();
 			break;
 		case APPS_GRID_WEEK_DAY_TIME_LOCATION:
-			temp = AppsManager.getInstance(mContext).getAppsWeekDayTimeLocation();
+			temp = AppsManager.getInstance(mContext)
+					.getAppsWeekDayTimeLocation();
 			break;
 		default:
 			break;
@@ -142,8 +170,10 @@ public class AppsGrid  implements Observer {
 				listApps.add(temp.get(i));
 			}
 		}
+		
+		sortAppsBy(selectedOrder);
 	}
-	
+
 	private void refresh() {
 		final Handler handler = new Handler();
 		Timer timer = new Timer();
@@ -161,29 +191,29 @@ public class AppsGrid  implements Observer {
 				});
 			}
 		};
-		timer.schedule(doAsynchronousTask, 0, refreshRate); 
+		timer.schedule(doAsynchronousTask, 0, refreshRate);
 	}
 
 	/********************************************
 	 * Grid
 	 ********************************************/
 
-	private void loadGridView() {		
+	private void loadGridView() {
 		AppsGridClickListener gridClickListener = new AppsGridClickListener(
-				mContext.getApplicationContext(), listApps);
-		mAppsGridAdapter = new AppsGridAdapter(
-				mContext.getApplicationContext(), listApps, gridClickListener);
+				mContext, listApps);
+		AppsGridLongClickListener gridLongClickListener = new AppsGridLongClickListener(
+				listApps);
+		mAppsGridAdapter = new AppsGridAdapter(mContext, listApps,
+				gridClickListener, gridLongClickListener);
 
-		
 		mAppsGrid.setAdapter(mAppsGridAdapter);
 		mAppsGrid.setOnItemClickListener(gridClickListener);
+		mAppsGrid.setOnItemLongClickListener(gridLongClickListener);
 	}
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
-		Log.v("3","Update");
 		refreshListApps();
-		mAppsGridAdapter.notifyDataSetChanged();
 	}
 
 }

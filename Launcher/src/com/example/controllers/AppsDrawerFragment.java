@@ -83,16 +83,16 @@ public class AppsDrawerFragment extends Fragment implements
 
 		switch (pos) {
 		case 0:
-			appsGrid.sortAppsByName(false);
+			appsGrid.sortAppsBy(AppsGrid.APPS_GRID_AZ_ORDER);;
 			break;
 		case 1:
-			appsGrid.sortAppsByName(true);
+			appsGrid.sortAppsBy(AppsGrid.APPS_GRID_ZA_ORDER);;
 			break;
 		case 2:
-			appsGrid.sortAppsByLastUpdate();
+			appsGrid.sortAppsBy(AppsGrid.APPS_GRID_UPDATE_ORDER);;
 			break;
 		case 3:
-			appsGrid.sortAppsByInstallTime();
+			appsGrid.sortAppsBy(AppsGrid.APPS_GRID_INSTALL_ORDER);;
 			break;
 		default:
 			break;
