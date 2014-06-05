@@ -9,6 +9,7 @@
         android:id="@+id/icon_image"
         android:layout_width="65dp"
         android:layout_height="65dp"
+        android:contentDescription="@string/content_descriotion_app"
         android:padding="3dp" />
 
     <TextView

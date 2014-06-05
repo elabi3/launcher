@@ -7,10 +7,9 @@ int color Black_Dark_transparent 0x7f050003
 int color Black_transparent 0x7f050002
 int color Drawer_color 0x7f050001
 int color holo_blue 0x7f050000
-int dimen activity_horizontal_margin 0x7f090000
-int dimen activity_vertical_margin 0x7f090001
+int dimen activity_horizontal_margin 0x7f090001
+int dimen activity_vertical_margin 0x7f090000
 int drawable ic_launcher 0x7f020000
-int drawable ic_navigation_drawer 0x7f020001
 int id accordion 0x7f04000b
 int id action_settings 0x7f04002f
 int id appsGrid 0x7f040020
@@ -71,7 +70,14 @@ int menu activity_main 0x7f0a0000
 int menu main 0x7f0a0001
 int string action_settings 0x7f060001
 int string app_name 0x7f060000
+int string content_descriotion_app 0x7f060009
 int string hello_world 0x7f060002
+int string new_alarm 0x7f060007
+int string new_contact 0x7f060005
+int string new_event 0x7f060006
+int string search_hint 0x7f060003
+int string send_email 0x7f060004
+int string torch 0x7f060008
 int style AppBaseTheme 0x7f080000
 int style AppTheme 0x7f080001
 int[] styleable JazzyViewPager { 0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003 }
