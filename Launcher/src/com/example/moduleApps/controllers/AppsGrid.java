@@ -9,6 +9,7 @@ import java.util.TimerTask;
 
 import android.content.Context;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.GridView;
@@ -113,7 +114,7 @@ public class AppsGrid implements Observer {
 		default:
 			break;
 		}
-				
+		Log.v("","" + selectedOrder);		
 		if (mAppsGridAdapter != null) {
 			mAppsGridAdapter.updateList(listApps);
 			mAppsGridAdapter.notifyDataSetChanged();
@@ -169,6 +170,7 @@ public class AppsGrid implements Observer {
 		}
 		
 		sortAppsBy(selectedOrder);
+		Log.v("","" + selectedOrder);
 	}
 
 	private void refresh() {

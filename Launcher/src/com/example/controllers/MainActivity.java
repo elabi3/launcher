@@ -5,6 +5,7 @@ import com.example.launcher.R;
 import com.jfeinstein.jazzyviewpager.JazzyViewPager;
 import com.jfeinstein.jazzyviewpager.JazzyViewPager.TransitionEffect;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -69,15 +70,7 @@ public class MainActivity extends FragmentActivity implements
 
 	@Override
 	public void onPageSelected(int arg0) {
-		// TODO: Poner una animacion de cambio de alpha y que se seleccione
-		// desde el fragment cambio == 0
-		if (arg0 == 1) {
-			View view = this.getWindow().getDecorView();
-			view.setBackgroundColor(Color.parseColor("#80000000"));
-		} else {
-			View view = this.getWindow().getDecorView();
-			view.setBackgroundColor(Color.TRANSPARENT);
-		}
+
 	}
 
 	private static class HomePagerAdapter extends FragmentPagerAdapter {
@@ -148,6 +141,8 @@ public class MainActivity extends FragmentActivity implements
 			} else if (v.equals(newAlarm)) {
 				ActionsIntents.newAlarm(this);
 			} else {
+				Intent intent = new Intent(this, Settings.class);
+				startActivity(intent);
 				// ActionsIntents.turnTorch();
 			}
 		}

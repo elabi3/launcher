@@ -1,0 +1,38 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory
+        android:summary=""
+        android:title="Spaces" >
+        <Preference
+            android:key="spaces_order"
+            android:title="Choose order" />
+        <Preference
+            android:key="spaces_transition"
+            android:title="Transition Type" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:summary=""
+        android:title="Theme" >
+        <Preference
+            android:key="theme_chooser"
+            android:title="Choose Theme" />
+        <Preference
+            android:key="wallpaper"
+            android:title="Change wallpaper" />
+        <Preference
+            android:key="icon_pack_chooser"
+            android:title="Choose icon pack" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:summary=""
+        android:title="About" >
+        <Preference
+            android:key="version"
+            android:title="Version" />
+        <Preference
+            android:key="author"
+            android:title="Author"
+            android:summary="Abimael Barea Puyana" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

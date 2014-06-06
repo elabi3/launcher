@@ -35,8 +35,9 @@ public class AppsGridAdapter extends BaseAdapter implements Filterable {
 
 	public void updateList(List<AppPack> listApps) {
 		this.listApps = listApps;
-		gridClickListener.setListApps(listApps);
-		gridLongClickListener.setListApps(listApps);
+		this.originalListApps = listApps;
+		gridClickListener.setListApps(originalListApps);
+		gridLongClickListener.setListApps(originalListApps);
 	}
 
 	@Override

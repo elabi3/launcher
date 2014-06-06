@@ -11,5 +11,9 @@
     <string name="new_alarm">New Alarm</string>
     <string name="torch">Torch</string>
     <string name="content_descriotion_app">App Image</string>
-    
+    <string name="spinner_all_order_az">AZ</string>
+    <string name="spinner_all_order_za">ZA</string>
+    <string name="spinner_all_order_update">Last Update</string>
+    <string name="spinner_all_order_install">Last Install</string>
+
 </resources>

@@ -29,8 +29,8 @@ public class AppsDrawerFragment extends Fragment implements
 	private Button buttonClose;
 	private AppsGrid appsGrid;
 
-	private String[] mSpinnerElements = { "Alfabéticamente (AZ)",
-			"Alfabéticamente (ZA)", "Actualizaciones Recientes",
+	private String[] mSpinnerElements = { "Alfab≈Ωticamente (AZ)",
+			"Alfab≈Ωticamente (ZA)", "Actualizaciones Recientes",
 			"Instalaciones Recientes" };
 
 	@Override
