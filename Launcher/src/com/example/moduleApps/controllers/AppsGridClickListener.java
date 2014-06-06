@@ -2,7 +2,6 @@ package com.example.moduleApps.controllers;
 
 import java.util.List;
 
-import com.example.auxiliar.ActionsIntents;
 import com.example.moduleApps.AppsManager;
 import com.example.moduleApps.model.AppPack;
 

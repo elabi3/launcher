@@ -22,7 +22,7 @@ public class MainActivity extends FragmentActivity implements
 		OnClickListener {
 
 	private static JazzyViewPager mJazzy;
-	private Class<?>[] mFragments = new Class<?>[] { MainFragment.class,
+	private Class<?>[] mFragments = new Class<?>[] { MinimalistFragment.class,
 			AppsDrawerFragment.class };
 	private DrawerLayout mDrawerLayout;
 

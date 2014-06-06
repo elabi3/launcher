@@ -62,7 +62,7 @@ int layout activity_main 0x7f030000
 int layout controllers_apps_fragment 0x7f030001
 int layout controllers_left_drawer 0x7f030002
 int layout controllers_main_activity 0x7f030003
-int layout controllers_main_fragment 0x7f030004
+int layout controllers_minimalist_fragment 0x7f030004
 int layout controllers_spinner 0x7f030005
 int layout module_apps_grid 0x7f030006
 int layout module_apps_grid_item 0x7f030007

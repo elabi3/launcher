@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.example.launcher.R;
 
-public class MainFragment extends Fragment {
+public class MinimalistFragment extends Fragment {
 	private View mView;
 	private Handler handler = new Handler();
 	private TextView timeHour;
@@ -22,7 +22,7 @@ public class MainFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		mView = inflater.inflate(R.layout.controllers_main_fragment, container, false);
+		mView = inflater.inflate(R.layout.controllers_minimalist_fragment, container, false);
 		loadClock();
 		return mView;
 	}
