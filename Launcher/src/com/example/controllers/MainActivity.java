@@ -38,13 +38,11 @@ public class MainActivity extends FragmentActivity implements
 	public static MainActivity getInstance() {
 		return instance;
 	}
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		if (instance == null) {
-			instance = this;
-		}
+		instance = this;
 
 		setContentView(R.layout.controllers_main_activity);
 		setupJazziness(Settings.currentEffect);

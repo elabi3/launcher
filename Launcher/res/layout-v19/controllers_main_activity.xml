@@ -1,8 +1,8 @@
 <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/drawer_element"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
-
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="false" >
     <!-- The main content view -->
 
     <com.jfeinstein.jazzyviewpager.JazzyViewPager
@@ -10,8 +10,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/jazzy_pager"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:fitsSystemWindows="false" >
+        android:layout_height="fill_parent" >
     </com.jfeinstein.jazzyviewpager.JazzyViewPager>
 
     <FrameLayout
