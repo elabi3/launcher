@@ -29,9 +29,7 @@ public class AppsDrawerFragment extends Fragment implements
 	private Button buttonClose;
 	private AppsGrid appsGrid;
 
-	private String[] mSpinnerElements = { "AlfabŽticamente (AZ)",
-			"AlfabŽticamente (ZA)", "Actualizaciones Recientes",
-			"Instalaciones Recientes" };
+	private String[] mSpinnerElements = new String[4];
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -65,6 +63,11 @@ public class AppsDrawerFragment extends Fragment implements
 	 ********************************************/
 
 	private void loadSpinner() {
+		mSpinnerElements[0] = getString(R.string.spinner_all_order_az);
+		mSpinnerElements[1] = getString(R.string.spinner_all_order_za);
+		mSpinnerElements[2] = getString(R.string.spinner_all_order_update);
+		mSpinnerElements[3] = getString(R.string.spinner_all_order_install);
+		
 		mSpinner = (Spinner) mView.findViewById(R.id.spinnerApps);
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity()
 				.getApplicationContext(), android.R.layout.simple_spinner_item);
@@ -83,16 +86,16 @@ public class AppsDrawerFragment extends Fragment implements
 
 		switch (pos) {
 		case 0:
-			appsGrid.sortAppsBy(AppsGrid.APPS_GRID_AZ_ORDER);;
+			appsGrid.sortAppsBy(AppsGrid.APPS_GRID_AZ_ORDER);
 			break;
 		case 1:
-			appsGrid.sortAppsBy(AppsGrid.APPS_GRID_ZA_ORDER);;
+			appsGrid.sortAppsBy(AppsGrid.APPS_GRID_ZA_ORDER);
 			break;
 		case 2:
-			appsGrid.sortAppsBy(AppsGrid.APPS_GRID_UPDATE_ORDER);;
+			appsGrid.sortAppsBy(AppsGrid.APPS_GRID_UPDATE_ORDER);
 			break;
 		case 3:
-			appsGrid.sortAppsBy(AppsGrid.APPS_GRID_INSTALL_ORDER);;
+			appsGrid.sortAppsBy(AppsGrid.APPS_GRID_INSTALL_ORDER);
 			break;
 		default:
 			break;

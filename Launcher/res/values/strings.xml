@@ -15,5 +15,20 @@
     <string name="spinner_all_order_za">ZA</string>
     <string name="spinner_all_order_update">Last Update</string>
     <string name="spinner_all_order_install">Last Install</string>
+    <string name="preferences_spaces_title">Spaces</string>
+    <string name="preferences_spaces_order_title">Order</string>
+    <string name="preferences_spaces_transition_title">Transition Type</string>
+    <string name="preferences_spaces_transition_chooser_title">Choose transition</string>
+    <string name="preferences_theme_title">Appearance</string>
+    <string name="preferences_theme_theme_title">Theme</string>
+    <string name="preferences_theme_wallpaper_title">Wallpaper</string>
+    <string name="preferences_theme__icon_pack_title">Icon Pack</string>
+    <string name="preferences_about_title">About</string>
+    <string name="preferences_about_version_title">Version</string>
+    <string name="preferences_about_author_title">Author</string>
+    <string name="module_app_long_app_title">Choose an action</string>
+    <string name="module_app_long_app_info">App Info</string>
+    <string name="module_app_long_app_detail">Google Play Info</string>
+    <string name="module_app_long_app_unistall">Unistall</string>
 
 </resources>

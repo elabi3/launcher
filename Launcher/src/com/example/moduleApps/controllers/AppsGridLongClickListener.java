@@ -2,6 +2,7 @@ package com.example.moduleApps.controllers;
 
 import java.util.List;
 
+import com.example.launcher.R;
 import com.example.moduleApps.model.AppPack;
 
 import android.app.AlertDialog;
@@ -20,7 +21,7 @@ public class AppsGridLongClickListener implements OnItemLongClickListener,
 	private List<AppPack> listApps;
 	private Context mContext;
 	private String packageName;
-	private String[] items = { "Informaci—n App", "Ficha Google Play", "Desinstalar" };
+	private String[] items = new String[3];
 
 	public AppsGridLongClickListener(List<AppPack> listApps) {
 		super();
@@ -36,9 +37,12 @@ public class AppsGridLongClickListener implements OnItemLongClickListener,
 			long arg3) {
 		packageName = listApps.get(pos).getpackageName();
 		mContext = view.getContext();
+		items[0] = mContext.getString(R.string.module_app_long_app_info);
+		items[1] = mContext.getString(R.string.module_app_long_app_detail);
+		items[2] = mContext.getString(R.string.module_app_long_app_unistall);
 
 		AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
-		builder.setTitle("Elige una acci—n");
+		builder.setTitle(mContext.getString(R.string.module_app_long_app_title));
 		builder.setItems(items, this);
 
 		Dialog alert = builder.create();

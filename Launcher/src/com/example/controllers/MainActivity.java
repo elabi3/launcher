@@ -21,6 +21,7 @@ import android.widget.TextView;
 public class MainActivity extends FragmentActivity implements
 		com.jfeinstein.jazzyviewpager.JazzyViewPager.OnPageChangeListener,
 		OnClickListener {
+	private static MainActivity instance;
 
 	private static JazzyViewPager mJazzy;
 	private Class<?>[] mFragments = new Class<?>[] { MinimalistFragment.class,
@@ -34,12 +35,19 @@ public class MainActivity extends FragmentActivity implements
 	private TextView newAlarm;
 	private TextView torch;
 
+	public static MainActivity getInstance() {
+		return instance;
+	}
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.controllers_main_activity);
-		setupJazziness(TransitionEffect.Tablet);
+		if (instance == null) {
+			instance = this;
+		}
 
+		setContentView(R.layout.controllers_main_activity);
+		setupJazziness(Settings.currentEffect);
 		// setup drawer
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_element);
 		mDrawerLayout.setScrimColor(Color.TRANSPARENT);

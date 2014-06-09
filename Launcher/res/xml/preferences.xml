@@ -2,36 +2,36 @@
 
     <PreferenceCategory
         android:summary=""
-        android:title="Spaces" >
+        android:title="@string/preferences_spaces_title" >
         <Preference
             android:key="spaces_order"
-            android:title="Choose order" />
+            android:title="@string/preferences_spaces_order_title" />
         <Preference
             android:key="spaces_transition"
-            android:title="Transition Type" />
+            android:title="@string/preferences_spaces_transition_title" />
     </PreferenceCategory>
     <PreferenceCategory
         android:summary=""
-        android:title="Theme" >
+        android:title="@string/preferences_theme_title" >
         <Preference
             android:key="theme_chooser"
-            android:title="Choose Theme" />
+            android:title="@string/preferences_theme_theme_title" />
         <Preference
             android:key="wallpaper"
-            android:title="Change wallpaper" />
+            android:title="@string/preferences_theme_wallpaper_title" />
         <Preference
             android:key="icon_pack_chooser"
-            android:title="Choose icon pack" />
+            android:title="@string/preferences_theme__icon_pack_title" />
     </PreferenceCategory>
     <PreferenceCategory
         android:summary=""
-        android:title="About" >
+        android:title="@string/preferences_about_title" >
         <Preference
             android:key="version"
-            android:title="Version" />
+            android:title="@string/preferences_about_version_title" />
         <Preference
             android:key="author"
-            android:title="Author"
+            android:title="@string/preferences_about_author_title"
             android:summary="Abimael Barea Puyana" />
     </PreferenceCategory>
 

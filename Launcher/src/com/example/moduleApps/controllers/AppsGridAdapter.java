@@ -81,6 +81,7 @@ public class AppsGridAdapter extends BaseAdapter implements Filterable {
 		}
 
 		viewHolder.icon.setImageDrawable(listApps.get(pos).getIcon());
+		viewHolder.icon.setContentDescription(listApps.get(pos).getName());
 		viewHolder.text.setText(listApps.get(pos).getName());
 		return convertView;
 	}
