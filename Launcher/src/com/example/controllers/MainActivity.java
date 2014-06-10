@@ -1,6 +1,7 @@
 package com.example.controllers;
 
 import com.example.auxiliar.ActionsIntents;
+import com.example.auxiliar.settingsManagers.TransitionManager;
 import com.example.launcher.R;
 import com.jfeinstein.jazzyviewpager.JazzyViewPager;
 import com.jfeinstein.jazzyviewpager.JazzyViewPager.TransitionEffect;
@@ -45,7 +46,7 @@ public class MainActivity extends FragmentActivity implements
 		instance = this;
 
 		setContentView(R.layout.controllers_main_activity);
-		setupJazziness(Settings.currentEffect);
+		setupJazziness(TransitionManager.getInstance().getSelectedEffect());
 		// setup drawer
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_element);
 		mDrawerLayout.setScrimColor(Color.TRANSPARENT);
