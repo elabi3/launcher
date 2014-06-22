@@ -34,7 +34,7 @@ public class AppsDrawerFragment extends Fragment implements
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		mView = inflater.inflate(R.layout.controllers_apps_fragment, container, false);
+		mView = inflater.inflate(R.layout.controllers_apps_drawer_fragment, container, false);
 
 		loadGridApps();
 		loadSpinner();

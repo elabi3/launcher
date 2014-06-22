@@ -23,20 +23,17 @@ public class AppsGrid implements Observer {
 	public static final int APPS_GRID_ALL = 0;
 	public static final int APPS_GRID_RECENTS = 1;
 	public static final int APPS_GRID_MOST_OPENS = 2;
-	public static final int APPS_GRID_NEAR_NOW = 3;
-	public static final int APPS_GRID_WEEK_DAY = 4;
-	public static final int APPS_GRID_MONTH_DAY = 5;
-	public static final int APPS_GRID_LOCATION = 6;
 	public static final int APPS_GRID_WEEK_DAY_TIME = 7;
 	public static final int APPS_GRID_WEEK_DAY_TIME_LOCATION = 8;
 
 	public static final int NO_MAXIMUN_LIMIT = -1;
 
+	public static final int APPS_GRID_DEFAULT_ORDER = -1;
 	public static final int APPS_GRID_AZ_ORDER = 0;
 	public static final int APPS_GRID_ZA_ORDER = 1;
 	public static final int APPS_GRID_UPDATE_ORDER = 2;
 	public static final int APPS_GRID_INSTALL_ORDER = 3;
-	
+
 	private int selectedOrder;
 
 	private Context mContext;
@@ -64,7 +61,7 @@ public class AppsGrid implements Observer {
 		mView = inflater.inflate(R.layout.module_apps_grid, null);
 		mAppsGrid = (GridView) mView.findViewById(R.id.appsGrid);
 
-		selectedOrder = APPS_GRID_AZ_ORDER;
+		selectedOrder = APPS_GRID_DEFAULT_ORDER;
 		refreshListApps();
 		loadGridView();
 
@@ -92,7 +89,7 @@ public class AppsGrid implements Observer {
 	/********************************************
 	 * Sort List Apps
 	 ********************************************/
-	
+
 	public void sortAppsBy(int order) {
 		switch (order) {
 		case APPS_GRID_AZ_ORDER:
@@ -114,7 +111,6 @@ public class AppsGrid implements Observer {
 		default:
 			break;
 		}
-		Log.v("","" + selectedOrder);		
 		if (mAppsGridAdapter != null) {
 			mAppsGridAdapter.updateList(listApps);
 			mAppsGridAdapter.notifyDataSetChanged();
@@ -137,18 +133,6 @@ public class AppsGrid implements Observer {
 		case APPS_GRID_MOST_OPENS:
 			temp = AppsManager.getInstance(mContext).getAppsMostOpens();
 			break;
-		case APPS_GRID_NEAR_NOW:
-			temp = AppsManager.getInstance(mContext).getAppsTime();
-			break;
-		case APPS_GRID_WEEK_DAY:
-			temp = AppsManager.getInstance(mContext).getAppsWeekDay();
-			break;
-		case APPS_GRID_MONTH_DAY:
-			temp = AppsManager.getInstance(mContext).getAppsMonthDay();
-			break;
-		case APPS_GRID_LOCATION:
-			temp = AppsManager.getInstance(mContext).getAppsByLocation();
-			break;
 		case APPS_GRID_WEEK_DAY_TIME:
 			temp = AppsManager.getInstance(mContext).getAppsWeekDayTime();
 			break;
@@ -164,13 +148,18 @@ public class AppsGrid implements Observer {
 		if (maximun == NO_MAXIMUN_LIMIT) {
 			listApps = temp;
 		} else {
-			for (int i = 0; i < maximun; i++) {
-				listApps.add(temp.get(i));
+			if (temp.size() > 0) {
+				int until = maximun > temp.size() ? temp
+						.size() : maximun; 
+				for (int i = 0; i < until; i++) {
+					listApps.add(temp.get(i));
+				}
 			}
 		}
-		
-		sortAppsBy(selectedOrder);
-		Log.v("","" + selectedOrder);
+
+		if (selectedOrder >= 0) {
+			sortAppsBy(selectedOrder);
+		}
 	}
 
 	private void refresh() {
