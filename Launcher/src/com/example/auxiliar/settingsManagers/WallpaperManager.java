@@ -9,4 +9,13 @@ public class WallpaperManager {
 		}
 		return instance;
 	}
+
+	public void pickPicture() {
+		setUpWallpaper();
+	}
+	
+	private void setUpWallpaper() {
+		
+	}
+
 }

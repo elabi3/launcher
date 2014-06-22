@@ -57,9 +57,14 @@ containing a value of this type.
         public static final int style=0x7f010000;
     }
     public static final class color {
-        public static final int Black_Dark_transparent=0x7f060003;
-        public static final int Black_transparent=0x7f060002;
+        public static final int Black=0x7f060003;
+        public static final int Black_Dark_transparent=0x7f060005;
+        public static final int Black_transparent=0x7f060004;
         public static final int Drawer_color=0x7f060001;
+        public static final int Transparent=0x7f060002;
+        public static final int White=0x7f060006;
+        public static final int White_Light_transparent=0x7f060008;
+        public static final int White_transparent=0x7f060007;
         public static final int holo_blue=0x7f060000;
     }
     public static final class dimen {
@@ -145,21 +150,22 @@ containing a value of this type.
         public static final int app_name=0x7f070000;
         public static final int content_descriotion_app=0x7f070009;
         public static final int hello_world=0x7f070002;
-        public static final int module_app_long_app_detail=0x7f07001b;
-        public static final int module_app_long_app_info=0x7f07001a;
-        public static final int module_app_long_app_title=0x7f070019;
-        public static final int module_app_long_app_unistall=0x7f07001c;
+        public static final int module_app_long_app_detail=0x7f07001c;
+        public static final int module_app_long_app_info=0x7f07001b;
+        public static final int module_app_long_app_title=0x7f07001a;
+        public static final int module_app_long_app_unistall=0x7f07001d;
         public static final int new_alarm=0x7f070007;
         public static final int new_contact=0x7f070005;
         public static final int new_event=0x7f070006;
-        public static final int preferences_about_author_title=0x7f070018;
-        public static final int preferences_about_title=0x7f070016;
-        public static final int preferences_about_version_title=0x7f070017;
+        public static final int preferences_about_author_title=0x7f070019;
+        public static final int preferences_about_title=0x7f070017;
+        public static final int preferences_about_version_title=0x7f070018;
         public static final int preferences_spaces_order_title=0x7f07000f;
         public static final int preferences_spaces_title=0x7f07000e;
         public static final int preferences_spaces_transition_chooser_title=0x7f070011;
         public static final int preferences_spaces_transition_title=0x7f070010;
-        public static final int preferences_theme__icon_pack_title=0x7f070015;
+        public static final int preferences_theme_font_title=0x7f070015;
+        public static final int preferences_theme_icon_pack_title=0x7f070016;
         public static final int preferences_theme_theme_title=0x7f070013;
         public static final int preferences_theme_title=0x7f070012;
         public static final int preferences_theme_wallpaper_title=0x7f070014;

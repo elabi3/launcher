@@ -20,8 +20,11 @@
             android:key="wallpaper"
             android:title="@string/preferences_theme_wallpaper_title" />
         <Preference
+            android:key="font_chooser"
+            android:title="@string/preferences_theme_font_title" />
+        <Preference
             android:key="icon_pack_chooser"
-            android:title="@string/preferences_theme__icon_pack_title" />
+            android:title="@string/preferences_theme_icon_pack_title" />
     </PreferenceCategory>
     <PreferenceCategory
         android:summary=""

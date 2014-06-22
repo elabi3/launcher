@@ -22,7 +22,8 @@
     <string name="preferences_theme_title">Appearance</string>
     <string name="preferences_theme_theme_title">Theme</string>
     <string name="preferences_theme_wallpaper_title">Wallpaper</string>
-    <string name="preferences_theme__icon_pack_title">Icon Pack</string>
+    <string name="preferences_theme_font_title">Font</string>
+    <string name="preferences_theme_icon_pack_title">Icon Pack</string>
     <string name="preferences_about_title">About</string>
     <string name="preferences_about_version_title">Version</string>
     <string name="preferences_about_author_title">Author</string>

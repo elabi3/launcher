@@ -9,4 +9,15 @@ public class IconPackManager {
 		}
 		return instance;
 	}
+	
+	public void getAviableIconsPacks() {
+
+	}
+	
+	public void getSelectedIconPack() {
+	}
+
+	public void setSelectedIconPack() {
+
+	}
 }
