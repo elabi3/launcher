@@ -95,7 +95,7 @@ public class Interface {
 	}
 
 	public List<DatabaseElementOpen> getNextElements(String id) {
-		int interval[] = getInterval(30);
+		int interval[] = getInterval(120);
 		int weekDay = getWeekDay();
 		
 		/*
@@ -134,6 +134,41 @@ public class Interface {
 		                 Map.Entry e1 = (Map.Entry) o1;
 		                 Map.Entry e2 = (Map.Entry) o2;
 		                 return ((Comparable) e2.getValue()).compareTo(e1.getValue());
+		             }
+		         });
+
+		
+		List<String> resultList = new ArrayList<String>();
+		for (Map.Entry e : sortedList) {
+		        resultList.add(e.getKey().toString());
+		}
+   
+		return resultList;
+	}
+	
+	public List<String> getLessOpenings() {
+		// Obtenemos las apps
+		List<String> result = DatabaseOps.getInstance(mContext).getAll();
+		
+		// Creamos un hashMap
+		Map<String, Integer> mappedData = new HashMap<String, Integer>();
+		for (String string : result) {
+			if (mappedData.get(string) == null) {
+				mappedData.put(string, 1);
+			} else {
+				int value = mappedData.get(string) + 1;
+				mappedData.put(string, value);
+			}
+		}
+		
+		// Ordenamos de mayor a menor
+		List<Map.Entry> sortedList = new ArrayList<Map.Entry>(mappedData.entrySet());
+		Collections.sort(sortedList,
+		         new Comparator() {
+		             public int compare(Object o1, Object o2) {
+		                 Map.Entry e1 = (Map.Entry) o1;
+		                 Map.Entry e2 = (Map.Entry) o2;
+		                 return ((Comparable) e1.getValue()).compareTo(e2.getValue());
 		             }
 		         });
 

@@ -23,6 +23,7 @@ public class AppsGrid implements Observer {
 	public static final int APPS_GRID_ALL = 0;
 	public static final int APPS_GRID_RECENTS = 1;
 	public static final int APPS_GRID_MOST_OPENS = 2;
+	public static final int APPS_GRID_LESS_OPENS = 3;
 	public static final int APPS_GRID_WEEK_DAY_TIME = 7;
 	public static final int APPS_GRID_WEEK_DAY_TIME_LOCATION = 8;
 
@@ -132,6 +133,9 @@ public class AppsGrid implements Observer {
 			break;
 		case APPS_GRID_MOST_OPENS:
 			temp = AppsManager.getInstance(mContext).getAppsMostOpens();
+			break;
+		case APPS_GRID_LESS_OPENS:
+			temp = AppsManager.getInstance(mContext).getAppsLessOpens();
 			break;
 		case APPS_GRID_WEEK_DAY_TIME:
 			temp = AppsManager.getInstance(mContext).getAppsWeekDayTime();
