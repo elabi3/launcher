@@ -124,6 +124,28 @@ public class AppsManager extends Observable {
 		}
 		return result;
 	}
+	
+	public List<AppPack> getAppsTime() {
+		List<AppPack> result = new ArrayList<AppPack>();
+
+		for (String element : Interface.getInstance(mContext)
+				.getElementsTime()) {
+			for (AppPack appPack : listApps) {
+				// Check if it is already added
+				boolean already = false;
+				for (AppPack appInserted : result) {
+					if (appInserted.getpackageName().equals(element)) {
+						already = true;
+					}
+				}
+
+				if (!already && appPack.getpackageName().equals(element)) {
+					result.add(appPack);
+				}
+			}
+		}
+		return result;
+	}
 
 	public List<AppPack> getAppsWeekDayTime() {
 		List<AppPack> result = new ArrayList<AppPack>();

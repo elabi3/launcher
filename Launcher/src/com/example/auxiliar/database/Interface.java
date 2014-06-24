@@ -96,8 +96,7 @@ public class Interface {
 
 	public List<DatabaseElementOpen> getNextElements(String id) {
 		int interval[] = getInterval(120);
-		int weekDay = getWeekDay();
-		
+		int weekDay = getWeekDay();		
 		/*
 		 * (BD) obtenego opening time de id for (JAVA) recorrer opening.time
 		 * (BD) buscar en la siguientes N horas a opening.time (BD) ordenar
@@ -108,7 +107,7 @@ public class Interface {
 	}
 
 	public int getOpeningsTimes(String id) {
-		return 0;
+		return DatabaseOps.getInstance(mContext).getOpeningTimes(id);
 	}
 
 	public List<String> getMostOpenings() {
@@ -199,15 +198,23 @@ public class Interface {
 	}
 
 	public List<String> getElementsWeekDayTime() {
-		int interval[] = getInterval(30);
+		int interval[] = getInterval(120);
 		int weekDay = getWeekDay();
 
 		return DatabaseOps.getInstance(mContext).getElementsWeekDayTime(
 				weekDay, interval);
 	}
 
+	public List<String> getElementsTime() {
+		int interval[] = getInterval(120);
+		int weekDay = -1;
+
+		return DatabaseOps.getInstance(mContext).getElementsWeekDayTime(
+				weekDay, interval);
+	}
+	
 	public List<DatabaseElementOpen> getElementsWeekDayTimeLocation() {
-		int interval[] = getInterval(30);
+		int interval[] = getInterval(120);
 		int weekDay = getWeekDay();
 		return Collections.emptyList();
 	}

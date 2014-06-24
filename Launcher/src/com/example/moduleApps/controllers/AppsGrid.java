@@ -139,6 +139,9 @@ public class AppsGrid implements Observer {
 			break;
 		case APPS_GRID_WEEK_DAY_TIME:
 			temp = AppsManager.getInstance(mContext).getAppsWeekDayTime();
+			if (temp.size() < maximun - 2) {
+				temp = AppsManager.getInstance(mContext).getAppsTime();
+			}
 			break;
 		case APPS_GRID_WEEK_DAY_TIME_LOCATION:
 			temp = AppsManager.getInstance(mContext)

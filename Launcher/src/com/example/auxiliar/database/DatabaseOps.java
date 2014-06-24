@@ -58,14 +58,26 @@ public class DatabaseOps {
 	// 1637;
 	public List<String> getElementsWeekDayTime(int weekday, int interval[]) {
 		String[] columns = { DatabaseTableOpens.COLUMN_NAME };
-		String selection = DatabaseTableOpens.COLUMN_WEEK_DAY + "=? AND "
-				+ DatabaseTableOpens.COLUMN_TIME + ">? AND "
-				+ DatabaseTableOpens.COLUMN_TIME + "<?";
-		String[] selectionArgs = { Integer.toString(weekday),
-				Integer.toString(interval[1]), Integer.toString(interval[0]) };
+	
+		String selection;
+		String[] selectionArgs;
+		if (weekday == -1) {
+			selection = DatabaseTableOpens.COLUMN_TIME + ">? AND "
+					+ DatabaseTableOpens.COLUMN_TIME + "<?";
+			selectionArgs = new String[2];
+			selectionArgs[0] = Integer.toString(interval[1]);
+			selectionArgs[1] = Integer.toString(interval[0]);
+		} else {
+			selection = DatabaseTableOpens.COLUMN_WEEK_DAY + "=? AND "
+					+ DatabaseTableOpens.COLUMN_TIME + ">? AND "
+					+ DatabaseTableOpens.COLUMN_TIME + "<?";
+			selectionArgs = new String[3];
+			selectionArgs[0] = Integer.toString(weekday);
+			selectionArgs[1] = Integer.toString(interval[1]);
+			selectionArgs[2] = Integer.toString(interval[0]);
+		}
 
 		Cursor cursor = query(columns, selection, selectionArgs);
-
 		List<String> elements = new ArrayList<String>(cursor.getCount());
 
 		cursor.moveToFirst();
@@ -75,6 +87,15 @@ public class DatabaseOps {
 		}
 		cursor.close();
 		return Collections.unmodifiableList(elements);
+	}
+	
+	public int getOpeningTimes(String name) {
+		String[] columns = { DatabaseTableOpens.COLUMN_NAME };
+		String selection = DatabaseTableOpens.COLUMN_NAME + "=?";
+		String[] selectionArgs = {name}; 
+		
+		Cursor cursor = query(columns, selection, selectionArgs);
+		return cursor.getCount();
 	}
 
 	private Cursor query(String[] columns, String selection,
