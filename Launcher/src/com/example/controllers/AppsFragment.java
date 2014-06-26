@@ -20,7 +20,7 @@ public class AppsFragment extends Fragment {
 				false);
 
 		loadGridRecommendedApps();
-		//loadGridNextApps();
+		loadGridNextApps();
 		loadGridMostUsedApps();
 		loadGridMostLessApps();
 		

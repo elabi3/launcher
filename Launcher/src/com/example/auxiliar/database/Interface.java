@@ -79,64 +79,38 @@ public class Interface {
 
 		return result;
 	}
-
-	/********************************************
-	 * Public Interface
-	 ********************************************/
-
-	public void newOpening(DatabaseElementOpen newElement) {
-		newElement.setTime(getTime());
-		newElement.setWeek_day(getWeekDay());
-		newElement.setMonth_day(getMonthDay());
-		newElement.setLatitude("");
-		newElement.setLatitude("");
-
-		DatabaseOps.getInstance(mContext).insertNewOpen(newElement);
-	}
-
-	public List<DatabaseElementOpen> getNextElements(String id) {
-		int interval[] = getInterval(120);
-		int weekDay = getWeekDay();		
-		/*
-		 * (BD) obtenego opening time de id for (JAVA) recorrer opening.time
-		 * (BD) buscar en la siguientes N horas a opening.time (BD) ordenar
-		 * elementos (JAVA) quedarnos el elemento que se acerque a la hora
-		 * (JAVA) a–adir a lista resultado
-		 */
-		return Collections.emptyList();
-	}
-
-	public int getOpeningsTimes(String id) {
-		return DatabaseOps.getInstance(mContext).getOpeningTimes(id);
-	}
-
-	public List<String> getMostOpenings() {
-		// Obtenemos las apps
-		List<String> result = DatabaseOps.getInstance(mContext).getAll();
-		
+	
+	private List<String> sortElementsByMostOpen(List<String> elements, boolean bool) {
 		// Creamos un hashMap
 		Map<String, Integer> mappedData = new HashMap<String, Integer>();
-		for (String string : result) {
+		for (String string : elements) {
 			if (mappedData.get(string) == null) {
-				mappedData.put(string, 1);
-			} else {
-				int value = mappedData.get(string) + 1;
-				mappedData.put(string, value);
-			}
+				mappedData.put(string, getOpeningsTimes(string));
+			} 
 		}
 		
 		// Ordenamos de mayor a menor
 		List<Map.Entry> sortedList = new ArrayList<Map.Entry>(mappedData.entrySet());
-		Collections.sort(sortedList,
-		         new Comparator() {
-		             public int compare(Object o1, Object o2) {
-		                 Map.Entry e1 = (Map.Entry) o1;
-		                 Map.Entry e2 = (Map.Entry) o2;
-		                 return ((Comparable) e2.getValue()).compareTo(e1.getValue());
-		             }
-		         });
+		if (bool) {
+			Collections.sort(sortedList,
+			         new Comparator() {
+			             public int compare(Object o1, Object o2) {
+			                 Map.Entry e1 = (Map.Entry) o1;
+			                 Map.Entry e2 = (Map.Entry) o2;
+			                 return ((Comparable) e2.getValue()).compareTo(e1.getValue());
+			             }
+			         });
+		} else {
+			Collections.sort(sortedList,
+			         new Comparator() {
+			             public int compare(Object o1, Object o2) {
+			                 Map.Entry e1 = (Map.Entry) o1;
+			                 Map.Entry e2 = (Map.Entry) o2;
+			                 return ((Comparable) e1.getValue()).compareTo(e2.getValue());
+			             }
+			         });
+		}
 
-		
 		List<String> resultList = new ArrayList<String>();
 		for (Map.Entry e : sortedList) {
 		        resultList.add(e.getKey().toString());
@@ -145,42 +119,7 @@ public class Interface {
 		return resultList;
 	}
 	
-	public List<String> getLessOpenings() {
-		// Obtenemos las apps
-		List<String> result = DatabaseOps.getInstance(mContext).getAll();
-		
-		// Creamos un hashMap
-		Map<String, Integer> mappedData = new HashMap<String, Integer>();
-		for (String string : result) {
-			if (mappedData.get(string) == null) {
-				mappedData.put(string, 1);
-			} else {
-				int value = mappedData.get(string) + 1;
-				mappedData.put(string, value);
-			}
-		}
-		
-		// Ordenamos de mayor a menor
-		List<Map.Entry> sortedList = new ArrayList<Map.Entry>(mappedData.entrySet());
-		Collections.sort(sortedList,
-		         new Comparator() {
-		             public int compare(Object o1, Object o2) {
-		                 Map.Entry e1 = (Map.Entry) o1;
-		                 Map.Entry e2 = (Map.Entry) o2;
-		                 return ((Comparable) e1.getValue()).compareTo(e2.getValue());
-		             }
-		         });
-
-		
-		List<String> resultList = new ArrayList<String>();
-		for (Map.Entry e : sortedList) {
-		        resultList.add(e.getKey().toString());
-		}
-   
-		return resultList;
-	}
-	
-	class ValueComparator implements Comparator<String> {
+	private class ValueComparator implements Comparator<String> {
 
 	    Map<String, Integer> base;
 	    public ValueComparator(Map<String, Integer> base) {
@@ -197,20 +136,58 @@ public class Interface {
 	    }
 	}
 
+	/********************************************
+	 * Public Interface
+	 ********************************************/
+
+	public void newOpening(DatabaseElementOpen newElement) {
+		newElement.setTime(getTime());
+		newElement.setWeek_day(getWeekDay());
+		newElement.setMonth_day(getMonthDay());
+		newElement.setLatitude("");
+		newElement.setLatitude("");
+
+		DatabaseOps.getInstance(mContext).insertNewOpen(newElement);
+	}
+
+	public List<String> getNextElements(String id) {
+		return DatabaseOps.getInstance(mContext).getNext(id, getTime());
+	}
+
+	public int getOpeningsTimes(String id) {
+		return DatabaseOps.getInstance(mContext).getOpeningTimes(id);
+	}
+	
+	public List<String> getMostOpenings() {
+		// Obtenemos las apps
+		List<String> result = DatabaseOps.getInstance(mContext).getAll();
+		return sortElementsByMostOpen(result, true);
+	}
+	
+	public List<String> getLessOpenings() {
+		// Obtenemos las apps
+		List<String> result = DatabaseOps.getInstance(mContext).getAll();
+		return sortElementsByMostOpen(result, false);
+	}
+
 	public List<String> getElementsWeekDayTime() {
 		int interval[] = getInterval(120);
 		int weekDay = getWeekDay();
 
-		return DatabaseOps.getInstance(mContext).getElementsWeekDayTime(
+		List<String> result = DatabaseOps.getInstance(mContext).getElementsWeekDayTime(
 				weekDay, interval);
+		Log.v("HEREEEE", result.toString());
+		Log.v("HEREEEE", sortElementsByMostOpen(result, true).toString());
+		return sortElementsByMostOpen(result, true);
 	}
 
 	public List<String> getElementsTime() {
 		int interval[] = getInterval(120);
 		int weekDay = -1;
 
-		return DatabaseOps.getInstance(mContext).getElementsWeekDayTime(
+		List<String> result = DatabaseOps.getInstance(mContext).getElementsWeekDayTime(
 				weekDay, interval);
+		return sortElementsByMostOpen(result, true);
 	}
 	
 	public List<DatabaseElementOpen> getElementsWeekDayTimeLocation() {

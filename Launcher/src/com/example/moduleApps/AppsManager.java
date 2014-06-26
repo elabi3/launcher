@@ -49,6 +49,26 @@ public class AppsManager extends Observable {
 		}
 	}
 
+	private List<AppPack> checkIfAppExist(List<String> elements) {
+		List<AppPack> result = new ArrayList<AppPack>();
+
+		for (String element : elements) {
+			for (AppPack appPack : listApps) {
+				boolean already = false;
+				for (AppPack appInserted : result) {
+					if (appInserted.getpackageName().equals(element)) {
+						already = true;
+					}
+				}
+
+				if (!already && appPack.getpackageName().equals(element)) {
+					result.add(appPack);
+				}
+			}
+		}
+		return result;
+	}
+
 	public PackageManager getPackageManager() {
 		return this.pm;
 	}
@@ -65,6 +85,7 @@ public class AppsManager extends Observable {
 		Interface.getInstance(mContext).newOpening(element);
 	}
 
+	
 	/********************************************
 	 * Get List of apps
 	 ********************************************/
@@ -86,91 +107,27 @@ public class AppsManager extends Observable {
 
 	// Example implementation - generic method maybe
 	public List<AppPack> getAppsMostOpens() {
-		List<AppPack> result = new ArrayList<AppPack>();
-		
-		for (String element : Interface.getInstance(mContext).getMostOpenings()) {
-			for (AppPack appPack : listApps) {
-				boolean already = false;
-				for (AppPack appInserted : result) {
-					if (appInserted.getpackageName().equals(element)) {
-						already = true;
-					}
-				}
-
-				if (!already && appPack.getpackageName().equals(element)) {
-					result.add(appPack);
-				}
-			}
-		}
-		return result;
+		return checkIfAppExist(Interface.getInstance(mContext).getMostOpenings());
 	}
-	
+
 	public List<AppPack> getAppsLessOpens() {
-		List<AppPack> result = new ArrayList<AppPack>();
-		
-		for (String element : Interface.getInstance(mContext).getLessOpenings()) {
-			for (AppPack appPack : listApps) {
-				boolean already = false;
-				for (AppPack appInserted : result) {
-					if (appInserted.getpackageName().equals(element)) {
-						already = true;
-					}
-				}
-
-				if (!already && appPack.getpackageName().equals(element)) {
-					result.add(appPack);
-				}
-			}
-		}
-		return result;
+		return checkIfAppExist(Interface.getInstance(mContext).getLessOpenings());
 	}
-	
+
 	public List<AppPack> getAppsTime() {
-		List<AppPack> result = new ArrayList<AppPack>();
-
-		for (String element : Interface.getInstance(mContext)
-				.getElementsTime()) {
-			for (AppPack appPack : listApps) {
-				// Check if it is already added
-				boolean already = false;
-				for (AppPack appInserted : result) {
-					if (appInserted.getpackageName().equals(element)) {
-						already = true;
-					}
-				}
-
-				if (!already && appPack.getpackageName().equals(element)) {
-					result.add(appPack);
-				}
-			}
-		}
-		return result;
+		return checkIfAppExist(Interface.getInstance(mContext).getElementsTime());
 	}
 
 	public List<AppPack> getAppsWeekDayTime() {
-		List<AppPack> result = new ArrayList<AppPack>();
-
-		for (String element : Interface.getInstance(mContext)
-				.getElementsWeekDayTime()) {
-			for (AppPack appPack : listApps) {
-				// Check if it is already added
-				boolean already = false;
-				for (AppPack appInserted : result) {
-					if (appInserted.getpackageName().equals(element)) {
-						already = true;
-					}
-				}
-
-				if (!already && appPack.getpackageName().equals(element)) {
-					result.add(appPack);
-				}
-			}
-		}
-		return result;
+		return checkIfAppExist(Interface.getInstance(mContext).getElementsWeekDayTime());
 	}
 
 	public List<AppPack> getAppsWeekDayTimeLocation() {
 		// Ask for this apps to database
 		return Collections.emptyList();
+	}
+	
+	public List<AppPack> getNextApps(String app) {
+		return checkIfAppExist(Interface.getInstance(mContext).getNextElements(app));
 	}
 }

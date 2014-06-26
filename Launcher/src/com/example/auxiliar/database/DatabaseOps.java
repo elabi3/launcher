@@ -54,11 +54,31 @@ public class DatabaseOps {
 		return Collections.unmodifiableList(elements);
 	}
 
+	public List<String> getNext(String id, int currentTime) {
+		String[] columns = { DatabaseTableOpens.COLUMN_NAME };
+		String selection = DatabaseTableOpens.COLUMN_NAME + "=? AND "
+				+ DatabaseTableOpens.COLUMN_TIME + ">=?";
+		String[] selectionArgs = new String[2];
+		selectionArgs[0] = id;
+		selectionArgs[0] = Integer.toString(currentTime);
+
+		Cursor cursor = query(columns, selection, selectionArgs);
+		List<String> elements = new ArrayList<String>(cursor.getCount());
+
+		cursor.moveToFirst();
+		while (!cursor.isAfterLast()) {
+			elements.add(cursor.getString(0));
+			cursor.moveToNext();
+		}
+		cursor.close();
+		return Collections.unmodifiableList(elements);
+	}
+
 	// select name from opens where week_day = 1 and time > 1629 and time <
 	// 1637;
 	public List<String> getElementsWeekDayTime(int weekday, int interval[]) {
 		String[] columns = { DatabaseTableOpens.COLUMN_NAME };
-	
+
 		String selection;
 		String[] selectionArgs;
 		if (weekday == -1) {
@@ -88,12 +108,12 @@ public class DatabaseOps {
 		cursor.close();
 		return Collections.unmodifiableList(elements);
 	}
-	
+
 	public int getOpeningTimes(String name) {
 		String[] columns = { DatabaseTableOpens.COLUMN_NAME };
 		String selection = DatabaseTableOpens.COLUMN_NAME + "=?";
-		String[] selectionArgs = {name}; 
-		
+		String[] selectionArgs = { name };
+
 		Cursor cursor = query(columns, selection, selectionArgs);
 		return cursor.getCount();
 	}
