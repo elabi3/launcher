@@ -20,7 +20,7 @@ public class AppsFragment extends Fragment {
 				false);
 
 		loadGridRecommendedApps();
-		loadGridNextApps();
+		//loadGridNextApps();
 		loadGridMostUsedApps();
 		loadGridMostLessApps();
 		
@@ -54,7 +54,7 @@ public class AppsFragment extends Fragment {
 		// create and add grid
 		// 10min = 1800000ms
 		AppsGrid appsGrid = new AppsGrid(getActivity(),
-				AppsGrid.APPS_GRID_MOST_OPENS, 8, 600000);
+				AppsGrid.APPS_GRID_MOST_OPENS, 12, 600000);
 		layout.addView(appsGrid.getGridView());
 	}
 	
@@ -64,7 +64,7 @@ public class AppsFragment extends Fragment {
 		// create and add grid
 		// 10min = 1800000ms
 		AppsGrid appsGrid = new AppsGrid(getActivity(),
-				AppsGrid.APPS_GRID_LESS_OPENS, 8, 600000);
+				AppsGrid.APPS_GRID_LESS_OPENS, 12, 600000);
 		layout.addView(appsGrid.getGridView());
 	}
 }

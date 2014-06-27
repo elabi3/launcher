@@ -25,7 +25,7 @@ public class MainActivity extends FragmentActivity implements
 	private static MainActivity instance;
 
 	private static JazzyViewPager mJazzy;
-	private Class<?>[] mFragments = new Class<?>[] {AppsFragment.class, MinimalistFragment.class,
+	private Class<?>[] mFragments = new Class<?>[] {MinimalistFragment.class, AppsFragment.class,
 			AppsDrawerFragment.class };
 	private DrawerLayout mDrawerLayout;
 
@@ -61,7 +61,7 @@ public class MainActivity extends FragmentActivity implements
 		mJazzy.setAdapter(new HomePagerAdapter(getSupportFragmentManager(),
 				mFragments));
 		mJazzy.setPageMargin(30);
-		mJazzy.setCurrentItem(1);
+		mJazzy.setCurrentItem(0);
 		mJazzy.setOnPageChangeListener(this);
 	}
 
