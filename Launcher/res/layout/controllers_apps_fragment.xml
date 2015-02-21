@@ -9,43 +9,6 @@
         android:orientation="vertical" >
 
         <TextView
-            android:id="@+id/titleRecomended"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="15dp"
-            android:paddingTop="20dp"
-            android:text="Recomendadas"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp" />
-
-        <LinearLayout
-            android:id="@+id/recommended"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:orientation="horizontal"
-            android:paddingTop="10dp" >
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/titleNext"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="15dp"
-            android:paddingTop="10dp"
-            android:text="Próximas?"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp" 
-            android:visibility="gone"/>
-
-        <LinearLayout
-            android:id="@+id/next"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingTop="10dp" >
-        </LinearLayout>
-
-        <TextView
             android:id="@+id/titleMostUsed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -58,7 +21,7 @@
         <LinearLayout
             android:id="@+id/mostused"
             android:layout_width="match_parent"
-            android:layout_height="320dp"
+            android:layout_height="match_parent"
             android:orientation="horizontal"
             android:paddingTop="10dp" >
         </LinearLayout>
@@ -68,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="15dp"
-            android:paddingTop="10dp"
+            android:paddingTop="30dp"
             android:text="Menos usadas"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
@@ -76,7 +39,7 @@
         <LinearLayout
             android:id="@+id/lessused"
             android:layout_width="match_parent"
-            android:layout_height="320dp"
+            android:layout_height="match_parent"
             android:orientation="horizontal"
             android:paddingTop="10dp" >
         </LinearLayout>

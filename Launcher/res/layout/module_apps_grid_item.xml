@@ -7,19 +7,19 @@
 
     <ImageView
         android:id="@+id/icon_image"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
         android:contentDescription="@string/content_descriotion_app"
         android:padding="3dp" />
 
     <TextView
         android:id="@+id/icon_text"
         android:layout_width="75dp"
-        android:layout_height="30dp"
+        android:layout_height="40dp"
         android:layout_marginTop="5dp"
         android:gravity="top|center"
         android:maxLines="2"
         android:textColor="#FFFFFF"
-        android:textSize="13sp" />
+        android:textSize="15sp" />
 
 </LinearLayout>

@@ -19,33 +19,10 @@ public class AppsFragment extends Fragment {
 		mView = inflater.inflate(R.layout.controllers_apps_fragment, container,
 				false);
 
-		loadGridRecommendedApps();
-		//loadGridNextApps();
 		loadGridMostUsedApps();
 		loadGridMostLessApps();
 		
 		return mView;
-	}
-
-	private void loadGridRecommendedApps() {
-		LinearLayout layout = (LinearLayout) mView
-				.findViewById(R.id.recommended);
-
-		// create and add grid
-		// 10min = 1800000ms
-		AppsGrid appsGrid = new AppsGrid(getActivity(),
-				AppsGrid.APPS_GRID_WEEK_DAY_TIME, 8, 600000);
-		layout.addView(appsGrid.getGridView());
-	}
-	
-	private void loadGridNextApps() {
-		LinearLayout layout = (LinearLayout) mView.findViewById(R.id.next);
-
-		// create and add grid
-		// 10min = 1800000ms
-		AppsGrid appsGrid = new AppsGrid(getActivity(),
-				AppsGrid.APPS_GRID_MOST_OPENS, 8, 600000);
-		layout.addView(appsGrid.getGridView());
 	}
 
 	private void loadGridMostUsedApps() {
@@ -54,7 +31,7 @@ public class AppsFragment extends Fragment {
 		// create and add grid
 		// 10min = 1800000ms
 		AppsGrid appsGrid = new AppsGrid(getActivity(),
-				AppsGrid.APPS_GRID_MOST_OPENS, 12, 600000);
+				AppsGrid.APPS_GRID_MOST_OPENS, 8, 600000);
 		layout.addView(appsGrid.getGridView());
 	}
 	
@@ -64,7 +41,7 @@ public class AppsFragment extends Fragment {
 		// create and add grid
 		// 10min = 1800000ms
 		AppsGrid appsGrid = new AppsGrid(getActivity(),
-				AppsGrid.APPS_GRID_LESS_OPENS, 12, 600000);
+				AppsGrid.APPS_GRID_LESS_OPENS, 8, 600000);
 		layout.addView(appsGrid.getGridView());
 	}
 }

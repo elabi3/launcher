@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.GridView;
 
+import com.example.auxiliar.ExpandableHeightGridView;
 import com.example.launcher.R;
 import com.example.moduleApps.AppsManager;
 import com.example.moduleApps.auxiliar.SortApps;
@@ -39,7 +40,7 @@ public class AppsGrid implements Observer {
 
 	private Context mContext;
 	private View mView;
-	private GridView mAppsGrid;
+	private ExpandableHeightGridView mAppsGrid;
 	private AppsGridAdapter mAppsGridAdapter;
 	private List<AppPack> listApps;
 	private int gridType;
@@ -60,7 +61,7 @@ public class AppsGrid implements Observer {
 		LayoutInflater inflater = (LayoutInflater) mContext
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		mView = inflater.inflate(R.layout.module_apps_grid, null);
-		mAppsGrid = (GridView) mView.findViewById(R.id.appsGrid);
+		mAppsGrid = (ExpandableHeightGridView) mView.findViewById(R.id.appsGrid);
 
 		selectedOrder = APPS_GRID_DEFAULT_ORDER;
 		refreshListApps();
