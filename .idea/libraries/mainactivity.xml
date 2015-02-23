@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="mainactivity">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/LibsProjects/JazzyViewPager/bin/mainactivity.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

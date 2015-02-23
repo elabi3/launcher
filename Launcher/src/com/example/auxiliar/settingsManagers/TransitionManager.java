@@ -2,6 +2,7 @@ package com.example.auxiliar.settingsManagers;
 
 import com.jfeinstein.jazzyviewpager.JazzyViewPager.TransitionEffect;
 
+
 public class TransitionManager {
 	private static TransitionManager instance;
 	private TransitionEffect currentEffect = TransitionEffect.Standard;

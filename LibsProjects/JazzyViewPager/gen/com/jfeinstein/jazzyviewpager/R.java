@@ -57,38 +57,38 @@ containing a value of this type.
         public static int style=0x7f010000;
     }
     public static final class color {
-        public static int holo_blue=0x7f050000;
+        public static int holo_blue=0x7f040000;
     }
     public static final class drawable {
         public static int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static int accordion=0x7f04000b;
-        public static int cubein=0x7f040002;
-        public static int cubeout=0x7f040003;
-        public static int fliphorizontal=0x7f040005;
-        public static int flipvertical=0x7f040004;
-        public static int jazzy_key=0x7f04000c;
-        public static int jazzy_pager=0x7f04000d;
-        public static int menu_accordian=0x7f040019;
-        public static int menu_cube_in=0x7f040010;
-        public static int menu_cube_out=0x7f040011;
-        public static int menu_flip_horizontal=0x7f040013;
-        public static int menu_flip_vertical=0x7f040012;
-        public static int menu_rotate_down=0x7f040018;
-        public static int menu_rotate_up=0x7f040017;
-        public static int menu_stack=0x7f040014;
-        public static int menu_standard=0x7f04000e;
-        public static int menu_tablet=0x7f04000f;
-        public static int menu_zoom_in=0x7f040015;
-        public static int menu_zoom_out=0x7f040016;
-        public static int rotatedown=0x7f04000a;
-        public static int rotateup=0x7f040009;
-        public static int stack=0x7f040006;
-        public static int standard=0x7f040000;
-        public static int tablet=0x7f040001;
-        public static int zoomin=0x7f040007;
-        public static int zoomout=0x7f040008;
+        public static int accordion=0x7f050001;
+        public static int cubein=0x7f050002;
+        public static int cubeout=0x7f050003;
+        public static int fliphorizontal=0x7f050004;
+        public static int flipvertical=0x7f050005;
+        public static int jazzy_key=0x7f050000;
+        public static int jazzy_pager=0x7f05000d;
+        public static int menu_accordian=0x7f050019;
+        public static int menu_cube_in=0x7f050010;
+        public static int menu_cube_out=0x7f050011;
+        public static int menu_flip_horizontal=0x7f050013;
+        public static int menu_flip_vertical=0x7f050012;
+        public static int menu_rotate_down=0x7f050018;
+        public static int menu_rotate_up=0x7f050017;
+        public static int menu_stack=0x7f050014;
+        public static int menu_standard=0x7f05000e;
+        public static int menu_tablet=0x7f05000f;
+        public static int menu_zoom_in=0x7f050015;
+        public static int menu_zoom_out=0x7f050016;
+        public static int rotatedown=0x7f050006;
+        public static int rotateup=0x7f050007;
+        public static int stack=0x7f050008;
+        public static int standard=0x7f050009;
+        public static int tablet=0x7f05000a;
+        public static int zoomin=0x7f05000b;
+        public static int zoomout=0x7f05000c;
     }
     public static final class layout {
         public static int activity_main=0x7f030000;
@@ -159,7 +159,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.jfeinstein.jazzyviewpager:fadeEnabled
         */
-        public static final int JazzyViewPager_fadeEnabled = 1;
+        public static int JazzyViewPager_fadeEnabled = 1;
         /**
           <p>This symbol is the offset where the {@link com.jfeinstein.jazzyviewpager.R.attr#outlineColor}
           attribute's value can be found in the {@link #JazzyViewPager} array.
@@ -171,7 +171,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           @attr name com.jfeinstein.jazzyviewpager:outlineColor
         */
-        public static final int JazzyViewPager_outlineColor = 3;
+        public static int JazzyViewPager_outlineColor = 3;
         /**
           <p>This symbol is the offset where the {@link com.jfeinstein.jazzyviewpager.R.attr#outlineEnabled}
           attribute's value can be found in the {@link #JazzyViewPager} array.
@@ -185,7 +185,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.jfeinstein.jazzyviewpager:outlineEnabled
         */
-        public static final int JazzyViewPager_outlineEnabled = 2;
+        public static int JazzyViewPager_outlineEnabled = 2;
         /**
           <p>This symbol is the offset where the {@link com.jfeinstein.jazzyviewpager.R.attr#style}
           attribute's value can be found in the {@link #JazzyViewPager} array.
@@ -212,6 +212,6 @@ containing a value of this type.
 </table>
           @attr name com.jfeinstein.jazzyviewpager:style
         */
-        public static final int JazzyViewPager_style = 0;
+        public static int JazzyViewPager_style = 0;
     };
 }

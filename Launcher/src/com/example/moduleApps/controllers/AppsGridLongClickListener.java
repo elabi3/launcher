@@ -38,10 +38,12 @@ public class AppsGridLongClickListener implements OnItemLongClickListener,
 		packageName = listApps.get(pos).getpackageName();
 		mContext = view.getContext();
 		items[0] = mContext.getString(R.string.module_app_long_app_info);
-		items[1] = mContext.getString(R.string.module_app_long_app_detail);
-		items[2] = mContext.getString(R.string.module_app_long_app_unistall);
+		items[1] = mContext.getString(R.string.module_app_long_app_unistall);
+		items[2] = mContext.getString(R.string.module_app_long_app_detail);
 
-		AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+		AlertDialog.Builder builder = new AlertDialog.Builder(mContext,
+				AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
+		;
 		builder.setTitle(mContext.getString(R.string.module_app_long_app_title));
 		builder.setItems(items, this);
 
@@ -67,12 +69,12 @@ public class AppsGridLongClickListener implements OnItemLongClickListener,
 			}
 			break;
 		case 1:
-			intent = new Intent(Intent.ACTION_VIEW,
-					Uri.parse("market://details?id=" + packageName));
-			break;
-		case 2:
 			intent = new Intent(Intent.ACTION_DELETE, Uri.parse("package:"
 					+ packageName));
+			break;
+		case 2:
+			intent = new Intent(Intent.ACTION_VIEW,
+					Uri.parse("market://details?id=" + packageName));
 			break;
 		default:
 			break;

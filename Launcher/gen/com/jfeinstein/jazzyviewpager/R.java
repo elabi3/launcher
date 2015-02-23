@@ -17,38 +17,38 @@ public final class R {
 		public static final int style = 0x7f010000;
 	}
 	public static final class color {
-		public static final int holo_blue = 0x7f060000;
+		public static final int holo_blue = 0x7f050000;
 	}
 	public static final class drawable {
 		public static final int ic_launcher = 0x7f020000;
 	}
 	public static final class id {
-		public static final int accordion = 0x7f05000b;
-		public static final int cubein = 0x7f050002;
-		public static final int cubeout = 0x7f050003;
-		public static final int fliphorizontal = 0x7f050005;
-		public static final int flipvertical = 0x7f050004;
-		public static final int jazzy_key = 0x7f05000c;
-		public static final int jazzy_pager = 0x7f05000d;
-		public static final int menu_accordian = 0x7f050030;
-		public static final int menu_cube_in = 0x7f050027;
-		public static final int menu_cube_out = 0x7f050028;
-		public static final int menu_flip_horizontal = 0x7f05002a;
-		public static final int menu_flip_vertical = 0x7f050029;
-		public static final int menu_rotate_down = 0x7f05002f;
-		public static final int menu_rotate_up = 0x7f05002e;
-		public static final int menu_stack = 0x7f05002b;
-		public static final int menu_standard = 0x7f050025;
-		public static final int menu_tablet = 0x7f050026;
-		public static final int menu_zoom_in = 0x7f05002c;
-		public static final int menu_zoom_out = 0x7f05002d;
-		public static final int rotatedown = 0x7f05000a;
-		public static final int rotateup = 0x7f050009;
-		public static final int stack = 0x7f050006;
-		public static final int standard = 0x7f050000;
-		public static final int tablet = 0x7f050001;
-		public static final int zoomin = 0x7f050007;
-		public static final int zoomout = 0x7f050008;
+		public static final int accordion = 0x7f060001;
+		public static final int cubein = 0x7f060002;
+		public static final int cubeout = 0x7f060003;
+		public static final int fliphorizontal = 0x7f060004;
+		public static final int flipvertical = 0x7f060005;
+		public static final int jazzy_key = 0x7f060000;
+		public static final int jazzy_pager = 0x7f06000d;
+		public static final int menu_accordian = 0x7f060034;
+		public static final int menu_cube_in = 0x7f06002b;
+		public static final int menu_cube_out = 0x7f06002c;
+		public static final int menu_flip_horizontal = 0x7f06002e;
+		public static final int menu_flip_vertical = 0x7f06002d;
+		public static final int menu_rotate_down = 0x7f060033;
+		public static final int menu_rotate_up = 0x7f060032;
+		public static final int menu_stack = 0x7f06002f;
+		public static final int menu_standard = 0x7f060029;
+		public static final int menu_tablet = 0x7f06002a;
+		public static final int menu_zoom_in = 0x7f060030;
+		public static final int menu_zoom_out = 0x7f060031;
+		public static final int rotatedown = 0x7f060006;
+		public static final int rotateup = 0x7f060007;
+		public static final int stack = 0x7f060008;
+		public static final int standard = 0x7f060009;
+		public static final int tablet = 0x7f06000a;
+		public static final int zoomin = 0x7f06000b;
+		public static final int zoomout = 0x7f06000c;
 	}
 	public static final class layout {
 		public static final int activity_main = 0x7f030000;
