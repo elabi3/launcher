@@ -36,6 +36,9 @@ public class AppsGrid implements Observer {
 	public static final int APPS_GRID_UPDATE_ORDER = 2;
 	public static final int APPS_GRID_INSTALL_ORDER = 3;
 
+	public static final int GRID = R.layout.module_apps_grid;
+	public static final int GRID_COMPACT = R.layout.module_apps_grid_compact;
+
 	private int selectedOrder;
 
 	private Context mContext;
@@ -48,7 +51,8 @@ public class AppsGrid implements Observer {
 	private int refreshRate;
 
 	// Pasar tasa de refresco - cada X mn
-	public AppsGrid(Context mContext, int gridType, int maximun, int refreshRate) {
+	public AppsGrid(Context mContext, int type, int gridType, int maximun,
+			int refreshRate) {
 		this.mContext = mContext;
 		this.gridType = gridType;
 		this.maximun = maximun;
@@ -60,13 +64,13 @@ public class AppsGrid implements Observer {
 		// Layout and Grid
 		LayoutInflater inflater = (LayoutInflater) mContext
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		mView = inflater.inflate(R.layout.module_apps_grid, null);
+		mView = inflater.inflate(type, null);
 		mAppsGrid = (ExpandableHeightGridView) mView
 				.findViewById(R.id.appsGrid);
 
 		selectedOrder = APPS_GRID_DEFAULT_ORDER;
 		refreshListApps();
-		loadGridView();
+		loadGridView(type);
 
 		if (refreshRate > 0) {
 			refresh();
@@ -194,12 +198,12 @@ public class AppsGrid implements Observer {
 	 * Grid
 	 ********************************************/
 
-	private void loadGridView() {
+	private void loadGridView(int type) {
 		AppsGridClickListener gridClickListener = new AppsGridClickListener(
 				mContext, listApps);
 		AppsGridLongClickListener gridLongClickListener = new AppsGridLongClickListener(
 				listApps);
-		mAppsGridAdapter = new AppsGridAdapter(mContext, listApps,
+		mAppsGridAdapter = new AppsGridAdapter(mContext, type, listApps,
 				gridClickListener, gridLongClickListener);
 
 		mAppsGrid.setAdapter(mAppsGridAdapter);

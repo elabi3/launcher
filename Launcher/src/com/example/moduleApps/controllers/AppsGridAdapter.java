@@ -22,11 +22,13 @@ public class AppsGridAdapter extends BaseAdapter implements Filterable {
 	private List<AppPack> originalListApps;
 	private AppsGridClickListener gridClickListener;
 	private AppsGridLongClickListener gridLongClickListener;
+	private int type;
 
-	public AppsGridAdapter(Context c, List<AppPack> listApps,
+	public AppsGridAdapter(Context c, int type, List<AppPack> listApps,
 			AppsGridClickListener gridClickListener,
 			AppsGridLongClickListener gridLongClickListener) {
 		this.mContext = c;
+		this.type = type;
 		this.listApps = listApps;
 		this.originalListApps = listApps;
 		this.gridClickListener = gridClickListener;
@@ -67,22 +69,36 @@ public class AppsGridAdapter extends BaseAdapter implements Filterable {
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
 		if (convertView == null) {
-			convertView = li.inflate(R.layout.module_apps_grid_item, null);
+			if (this.type == AppsGrid.GRID) {
+				convertView = li.inflate(R.layout.module_apps_grid_item, null);
 
-			viewHolder = new ViewHolder();
-			viewHolder.icon = (ImageView) convertView
-					.findViewById(R.id.icon_image);
-			viewHolder.text = (TextView) convertView
-					.findViewById(R.id.icon_text);
+				viewHolder = new ViewHolder();
+				viewHolder.icon = (ImageView) convertView
+						.findViewById(R.id.icon_image);
+				viewHolder.text = (TextView) convertView
+						.findViewById(R.id.icon_text);
 
-			convertView.setTag(viewHolder);
+				convertView.setTag(viewHolder);
+			} else {
+				convertView = li.inflate(
+						R.layout.module_apps_grid_item_compact, null);
+
+				viewHolder = new ViewHolder();
+				viewHolder.icon = (ImageView) convertView
+						.findViewById(R.id.icon_image);
+
+				convertView.setTag(viewHolder);
+			}
 		} else {
 			viewHolder = (ViewHolder) convertView.getTag();
 		}
 
 		viewHolder.icon.setImageDrawable(listApps.get(pos).getIcon());
 		viewHolder.icon.setContentDescription(listApps.get(pos).getName());
-		viewHolder.text.setText(listApps.get(pos).getName());
+
+		if (this.type == AppsGrid.GRID) {
+			viewHolder.text.setText(listApps.get(pos).getName());
+		}
 		return convertView;
 	}
 

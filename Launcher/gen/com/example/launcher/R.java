@@ -31,8 +31,8 @@ public final class R {
         public static final int rounded_button=0x7f020001;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a0017;
-        public static final int appsGrid=0x7f0a0014;
+        public static final int action_settings=0x7f0a0019;
+        public static final int appsGrid=0x7f0a0016;
         public static final int button=0x7f0a0004;
         public static final int button_2=0x7f0a0007;
         public static final int button_3=0x7f0a0006;
@@ -44,15 +44,17 @@ public final class R {
         public static final int drawer_content=0x7f0a0011;
         public static final int drawer_element=0x7f0a000e;
         public static final int edit_text1=0x7f0a0001;
-        public static final int icon_image=0x7f0a0015;
-        public static final int icon_text=0x7f0a0016;
+        public static final int icon_image=0x7f0a0017;
+        public static final int icon_text=0x7f0a0018;
         public static final int mainContent=0x7f0a0012;
         public static final int newAlarm=0x7f0a000c;
         public static final int newContact=0x7f0a000a;
         public static final int newEvent=0x7f0a000b;
         public static final int pager=0x7f0a000f;
-        public static final int recommen=0x7f0a0013;
+        public static final int recommen=0x7f0a0015;
         public static final int sendEmail=0x7f0a0009;
+        public static final int timeHour=0x7f0a0013;
+        public static final int timeMin=0x7f0a0014;
         public static final int topBar=0x7f0a0000;
         public static final int torch=0x7f0a000d;
     }
@@ -63,7 +65,9 @@ public final class R {
         public static final int controllers_main_activity=0x7f030003;
         public static final int controllers_minimalist_fragment=0x7f030004;
         public static final int module_apps_grid=0x7f030005;
-        public static final int module_apps_grid_item=0x7f030006;
+        public static final int module_apps_grid_compact=0x7f030006;
+        public static final int module_apps_grid_item=0x7f030007;
+        public static final int module_apps_grid_item_compact=0x7f030008;
     }
     public static final class menu {
         public static final int main=0x7f090000;

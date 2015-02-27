@@ -13,6 +13,26 @@
         android:layout_weight=".30"
         android:orientation="horizontal"
         android:paddingTop="10dp" >
+
+        <TextView
+            android:id="@+id/timeHour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="sans-serif-thin"
+            android:textColor="#FFFFFF"
+            android:textSize="90sp" />
+
+        <TextView
+            android:id="@+id/timeMin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="sans-serif-thin"
+            android:textColor="#FFFFFF"
+            android:textSize="90sp" />
     </LinearLayout>
 
     <ScrollView
@@ -26,7 +46,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingBottom="60dp"
-            android:paddingTop="25dp" >
+            android:paddingTop="45dp" >
         </LinearLayout>
     </ScrollView>
 
