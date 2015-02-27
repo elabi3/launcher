@@ -61,7 +61,8 @@ public class AppsGrid implements Observer {
 		LayoutInflater inflater = (LayoutInflater) mContext
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		mView = inflater.inflate(R.layout.module_apps_grid, null);
-		mAppsGrid = (ExpandableHeightGridView) mView.findViewById(R.id.appsGrid);
+		mAppsGrid = (ExpandableHeightGridView) mView
+				.findViewById(R.id.appsGrid);
 
 		selectedOrder = APPS_GRID_DEFAULT_ORDER;
 		refreshListApps();
@@ -157,8 +158,7 @@ public class AppsGrid implements Observer {
 			listApps = temp;
 		} else {
 			if (temp.size() > 0) {
-				int until = maximun > temp.size() ? temp
-						.size() : maximun; 
+				int until = maximun > temp.size() ? temp.size() : maximun;
 				for (int i = 0; i < until; i++) {
 					listApps.add(temp.get(i));
 				}

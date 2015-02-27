@@ -1,69 +1,72 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="@color/Black_Dark_transparent" >
 
     <LinearLayout
+        android:id="@+id/topBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fitsSystemWindows="true"
-        android:orientation="vertical" >
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/Black_Dark2_transparent"
+        android:elevation="5dp"
+        android:orientation="horizontal" >
 
-        <LinearLayout
-            android:id="@+id/topBar"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="#00000000"
-            android:orientation="horizontal" >
+        <EditText
+            android:id="@+id/edit_text1"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:hint="@string/search_hint"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:textColor="#FFFFFF" >
+        </EditText>
 
-            <EditText
-                android:id="@+id/edit_text1"
-                android:layout_width="0dp"
-                android:layout_height="35dp"
-                android:layout_gravity="center"
-                android:paddingLeft="10dp"
-                android:layout_marginTop="0dp"
-                android:layout_weight="1"
-                android:hint="@string/search_hint"
-                android:imeOptions="actionSearch"
-                android:inputType="text"
-                android:textColor="#FFFFFF" >
-            </EditText>
-
-            <Button
-                android:id="@+id/button_close"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp" />
-        </LinearLayout>
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <LinearLayout
-                android:id="@+id/content"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal" >
-            </LinearLayout>
-        </ScrollView>
+        <Button
+            android:id="@+id/button_close"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp" />
     </LinearLayout>
 
-    <include layout="@layout/buttons" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="90dp"
+            android:paddingTop="95dp" >
+        </LinearLayout>
+    </ScrollView>
+
+    <include layout="@layout/controllers_buttons" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="15dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginBottom="60dp"
+        android:layout_marginLeft="10dp"
         android:background="@drawable/rounded_button"
+        android:elevation="5dp"
         android:text="Sort"
-        android:textSize="16sp"
-        android:textColor="@color/Black" />
+        android:textColor="@color/Black"
+        android:textSize="16sp" />
 
 </RelativeLayout>

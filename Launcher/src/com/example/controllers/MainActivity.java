@@ -1,11 +1,5 @@
 package com.example.controllers;
 
-import com.example.auxiliar.ActionsIntents;
-import com.example.auxiliar.settingsManagers.TransitionManager;
-import com.example.launcher.R;
-import com.jfeinstein.jazzyviewpager.JazzyViewPager;
-import com.jfeinstein.jazzyviewpager.JazzyViewPager.TransitionEffect;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -13,20 +7,22 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.auxiliar.ActionsIntents;
+import com.example.launcher.R;
+
 public class MainActivity extends FragmentActivity implements
-		com.jfeinstein.jazzyviewpager.JazzyViewPager.OnPageChangeListener,
-		OnClickListener {
+		ViewPager.OnPageChangeListener, OnClickListener {
 	private static MainActivity instance;
 
-	private static JazzyViewPager mJazzy;
-	private Class<?>[] mFragments = new Class<?>[] {MinimalistFragment.class, AppsFragment.class,
-			AppsDrawerFragment.class };
+	private ViewPager mViewPager;
+	private Class<?>[] mFragments = new Class<?>[] { AppsDrawerFragment.class,
+			MinimalistFragment.class };
 	private DrawerLayout mDrawerLayout;
 
 	// Acciones
@@ -46,7 +42,7 @@ public class MainActivity extends FragmentActivity implements
 		instance = this;
 
 		setContentView(R.layout.controllers_main_activity);
-		setupJazziness(TransitionManager.getInstance().getSelectedEffect());
+		setupViewPager();
 		// setup drawer
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_element);
 		mDrawerLayout.setScrimColor(Color.TRANSPARENT);
@@ -55,14 +51,13 @@ public class MainActivity extends FragmentActivity implements
 		loadActions();
 	}
 
-	private void setupJazziness(TransitionEffect effect) {
-		mJazzy = (JazzyViewPager) findViewById(R.id.jazzy_pager);
-		mJazzy.setTransitionEffect(effect);
-		mJazzy.setAdapter(new HomePagerAdapter(getSupportFragmentManager(),
-				mFragments));
-		mJazzy.setPageMargin(30);
-		mJazzy.setCurrentItem(0);
-		mJazzy.setOnPageChangeListener(this);
+	private void setupViewPager() {
+		mViewPager = (ViewPager) findViewById(R.id.pager);
+		mViewPager
+				.setAdapter(new HomePagerAdapter(getSupportFragmentManager(),
+						mFragments));
+		mViewPager.setOnPageChangeListener(this);
+		mViewPager.setCurrentItem(1);
 	}
 
 	@Override
@@ -101,23 +96,6 @@ public class MainActivity extends FragmentActivity implements
 			} catch (Exception e) {
 				return null;
 			}
-		}
-
-		// Metodos necesarios para JazzyViewPager
-		@Override
-		public boolean isViewFromObject(View view, Object object) {
-			if (object != null) {
-				return ((Fragment) object).getView() == view;
-			} else {
-				return false;
-			}
-		}
-
-		@Override
-		public Object instantiateItem(ViewGroup container, final int position) {
-			Object obj = super.instantiateItem(container, position);
-			mJazzy.setObjectForPosition(obj, position);
-			return obj;
 		}
 	}
 

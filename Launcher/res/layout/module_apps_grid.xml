@@ -6,10 +6,10 @@
     android:columnWidth="70dp"
     android:drawSelectorOnTop="true"
     android:gravity="center"
-    android:horizontalSpacing="15dp"
+    android:horizontalSpacing="10dp"
     android:numColumns="auto_fit"
     android:paddingLeft="8dp"
     android:paddingRight="8dp"
     android:stretchMode="columnWidth"
     android:textFilterEnabled="false"
-    android:verticalSpacing="15dp" />
+    android:verticalSpacing="5dp" />

@@ -86,7 +86,7 @@ public class AppsDrawerFragment extends Fragment implements OnClickListener {
 		open = true;
 		float width = wm.getDefaultDisplay().getWidth();
 		float percentage = 0.20f;
-		long duration = 300;
+		long duration = 150;
 
 		for (Button b : buttons) {
 			ObjectAnimator alpha = ObjectAnimator.ofFloat(b, "alpha", 0, 1);
@@ -94,7 +94,7 @@ public class AppsDrawerFragment extends Fragment implements OnClickListener {
 			alpha.start();
 
 			ObjectAnimator mover = ObjectAnimator.ofFloat(b, "translationX", 0,
-					-width * percentage);
+					+width * percentage);
 			mover.setDuration(duration);
 			mover.start();
 
@@ -106,7 +106,7 @@ public class AppsDrawerFragment extends Fragment implements OnClickListener {
 		open = false;
 		float width = wm.getDefaultDisplay().getWidth();
 		float percentage = 0.20f;
-		long duration = 300;
+		long duration = 150;
 
 		for (Button b : buttons) {
 			ObjectAnimator alpha = ObjectAnimator.ofFloat(b, "alpha", 1, 0);
@@ -114,7 +114,7 @@ public class AppsDrawerFragment extends Fragment implements OnClickListener {
 			alpha.start();
 
 			ObjectAnimator mover = ObjectAnimator.ofFloat(b, "translationX",
-					-width * percentage, 0);
+					+width * percentage, 0);
 			mover.setDuration(duration);
 			mover.start();
 

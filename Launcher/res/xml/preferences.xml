@@ -6,9 +6,6 @@
         <Preference
             android:key="spaces_order"
             android:title="@string/preferences_spaces_order_title" />
-        <Preference
-            android:key="spaces_transition"
-            android:title="@string/preferences_spaces_transition_title" />
     </PreferenceCategory>
     <PreferenceCategory
         android:summary=""
