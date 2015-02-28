@@ -1,7 +1,7 @@
 <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/drawer_element"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:clipToPadding="false"
     android:fitsSystemWindows="true" >
 
@@ -10,20 +10,12 @@
     <android.support.v4.view.ViewPager
         android:id="@+id/pager"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_weight="1"
-        android:fitsSystemWindows="true" >
+        android:layout_height="fill_parent" />
 
-        <FrameLayout
-            android:id="@+id/content_frame"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+    <!-- The navigation drawer -->
 
-        <!-- The navigation drawer -->
-
-        <include
-            android:id="@+id/drawer_content"
-            layout="@layout/controllers_left_drawer" />
-    </android.support.v4.view.ViewPager>
+    <include
+        android:id="@+id/drawer_content"
+        layout="@layout/controllers_left_drawer" />
 
 </android.support.v4.widget.DrawerLayout>

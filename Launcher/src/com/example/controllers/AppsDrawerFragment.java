@@ -62,7 +62,7 @@ public class AppsDrawerFragment extends Fragment implements OnClickListener {
 	}
 
 	/********************************************
-	 * Spinner
+	 * Button Sort
 	 ********************************************/
 
 	private void loadFilter() {
@@ -93,11 +93,19 @@ public class AppsDrawerFragment extends Fragment implements OnClickListener {
 			alpha.setDuration(duration);
 			alpha.start();
 
-			ObjectAnimator mover = ObjectAnimator.ofFloat(b, "translationX", 0,
-					+width * percentage);
-			mover.setDuration(duration);
-			mover.start();
-
+			ObjectAnimator moverX = ObjectAnimator.ofFloat(b, "translationX", 0,
+					width * percentage);
+			
+			moverX.setDuration(duration);
+			moverX.start();
+			
+			/*ObjectAnimator moverY = ObjectAnimator.ofFloat(b, "translationY", 0,
+					width * -percentage);
+			
+			moverY.setDuration(duration);
+			moverY.start();
+			 */
+			
 			percentage = percentage + 0.24f;
 		}
 	}
@@ -114,7 +122,7 @@ public class AppsDrawerFragment extends Fragment implements OnClickListener {
 			alpha.start();
 
 			ObjectAnimator mover = ObjectAnimator.ofFloat(b, "translationX",
-					+width * percentage, 0);
+					width * percentage, 0);
 			mover.setDuration(duration);
 			mover.start();
 

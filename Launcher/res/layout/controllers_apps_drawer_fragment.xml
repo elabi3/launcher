@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingBottom="110dp"
-            android:paddingTop="95dp" >
+            android:paddingTop="100dp" >
         </LinearLayout>
     </ScrollView>
 
