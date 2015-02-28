@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.example.auxiliar.ExpandableHeightGridView xmlns:android="http://schemas.android.com/apk/res/android"
+<GridView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/appsGrid"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="fill_parent"
     android:columnWidth="50dp"
     android:drawSelectorOnTop="true"
     android:gravity="center"

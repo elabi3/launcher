@@ -40,19 +40,12 @@
             android:layout_marginTop="10dp" />
     </LinearLayout>
 
-    <ScrollView
+    <LinearLayout
+        android:id="@+id/content"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <LinearLayout
-            android:id="@+id/content"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingBottom="110dp"
-            android:paddingTop="100dp" >
-        </LinearLayout>
-    </ScrollView>
+        android:layout_height="fill_parent"
+        android:orientation="horizontal" >
+    </LinearLayout>
 
     <include layout="@layout/controllers_buttons" />
 

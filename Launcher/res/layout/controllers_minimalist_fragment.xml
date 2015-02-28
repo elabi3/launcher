@@ -35,19 +35,15 @@
             android:textSize="90sp" />
     </LinearLayout>
 
-    <ScrollView
+    <LinearLayout
+        android:id="@+id/recommen"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight=".70" >
-
-        <LinearLayout
-            android:id="@+id/recommen"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingBottom="60dp"
-            android:paddingTop="45dp" >
-        </LinearLayout>
-    </ScrollView>
+        android:layout_height="fill_parent"
+        android:layout_weight=".70"
+        android:clipToPadding="false"
+        android:orientation="horizontal"
+        android:paddingBottom="60dp"
+        android:paddingTop="45dp" >
+    </LinearLayout>
 
 </LinearLayout>

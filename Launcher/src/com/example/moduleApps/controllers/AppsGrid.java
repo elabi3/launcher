@@ -43,7 +43,7 @@ public class AppsGrid implements Observer {
 
 	private Context mContext;
 	private View mView;
-	private ExpandableHeightGridView mAppsGrid;
+	private GridView mAppsGrid;
 	private AppsGridAdapter mAppsGridAdapter;
 	private List<AppPack> listApps;
 	private int gridType;
@@ -65,7 +65,7 @@ public class AppsGrid implements Observer {
 		LayoutInflater inflater = (LayoutInflater) mContext
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		mView = inflater.inflate(type, null);
-		mAppsGrid = (ExpandableHeightGridView) mView
+		mAppsGrid = (GridView) mView
 				.findViewById(R.id.appsGrid);
 
 		selectedOrder = APPS_GRID_DEFAULT_ORDER;
