@@ -5,8 +5,10 @@
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     -->
     <style name="AppTheme" parent="@android:Theme.Material.Wallpaper.NoTitleBar">
-        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:statusBarColor">@color/Transparent</item>
         <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:navigationBarColor">@color/Transparent</item>
     </style>
 
 </resources>

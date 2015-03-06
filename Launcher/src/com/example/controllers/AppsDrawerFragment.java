@@ -5,6 +5,7 @@ import java.util.List;
 
 import android.animation.ObjectAnimator;
 import android.os.Bundle;
+import android.renderscript.RenderScript;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
