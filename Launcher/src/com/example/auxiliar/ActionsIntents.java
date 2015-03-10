@@ -42,7 +42,12 @@ public class ActionsIntents {
 		context.startActivity(launchIntent);
 	}
 	
-	public static void newPhoneCall() {
+	public static void newPhoneCall(Context context) {
+		Intent intent = new Intent(Intent.ACTION_DIAL); 
+		context.startActivity(intent); 
+	}
+	
+	public static void newPhoto() {
 		
 	}
 	

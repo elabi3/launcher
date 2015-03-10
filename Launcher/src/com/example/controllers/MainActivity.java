@@ -129,9 +129,7 @@ public class MainActivity extends FragmentActivity implements
 			} else if (v.equals(newAlarm)) {
 				ActionsIntents.newAlarm(this);
 			} else {
-				Intent intent = new Intent(this, Settings.class);
-				startActivity(intent);
-				// ActionsIntents.turnTorch();
+				ActionsIntents.newPhoneCall(this);
 			}
 		}
 	}
