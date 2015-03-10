@@ -9,6 +9,7 @@ import java.util.TimerTask;
 
 import android.content.Context;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.GridView;
@@ -61,8 +62,7 @@ public class AppsGrid implements Observer {
 		LayoutInflater inflater = (LayoutInflater) mContext
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		mView = inflater.inflate(type, null);
-		mAppsGrid = (GridView) mView
-				.findViewById(R.id.appsGrid);
+		mAppsGrid = (GridView) mView.findViewById(R.id.appsGrid);
 
 		selectedOrder = APPS_GRID_DEFAULT_ORDER;
 		refreshListApps();
@@ -112,7 +112,6 @@ public class AppsGrid implements Observer {
 		}
 		if (mAppsGridAdapter != null) {
 			mAppsGridAdapter.updateList(listApps);
-			mAppsGridAdapter.notifyDataSetChanged();
 		}
 	}
 
@@ -156,6 +155,10 @@ public class AppsGrid implements Observer {
 					listApps.add(temp.get(i));
 				}
 			}
+		}
+
+		if (mAppsGridAdapter != null) {
+			mAppsGridAdapter.updateList(listApps);
 		}
 
 		if (selectedOrder >= 0) {

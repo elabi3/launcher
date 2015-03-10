@@ -20,7 +20,7 @@ public class AppsManager extends Observable {
 	private static AppsManager instance = null;
 	private Context mContext;
 	private PackageManager pm;
-	private List<AppPack> listApps;
+	public static List<AppPack> listApps;
 
 	public static AppsManager getInstance(Context context) {
 		if (instance == null) {

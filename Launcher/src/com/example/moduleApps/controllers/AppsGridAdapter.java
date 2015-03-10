@@ -40,6 +40,7 @@ public class AppsGridAdapter extends BaseAdapter implements Filterable {
 		this.originalListApps = listApps;
 		gridClickListener.setListApps(originalListApps);
 		gridLongClickListener.setListApps(originalListApps);
+		this.notifyDataSetChanged();
 	}
 
 	@Override
