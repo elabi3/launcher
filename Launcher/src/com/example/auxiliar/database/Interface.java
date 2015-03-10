@@ -8,7 +8,6 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
 
 import android.content.Context;
 import android.util.Log;
@@ -163,12 +162,6 @@ public class Interface {
 		List<String> result = DatabaseOps.getInstance(mContext).getAll();
 		return sortElementsByMostOpen(result, true);
 	}
-	
-	public List<String> getLessOpenings() {
-		// Obtenemos las apps
-		List<String> result = DatabaseOps.getInstance(mContext).getAll();
-		return sortElementsByMostOpen(result, false);
-	}
 
 	public List<String> getElementsWeekDayTime() {
 		int interval[] = getInterval(120);
@@ -176,7 +169,6 @@ public class Interface {
 
 		List<String> result = DatabaseOps.getInstance(mContext).getElementsWeekDayTime(
 				weekDay, interval);
-		Log.v("HEREEEE", result.toString());
 		Log.v("HEREEEE", sortElementsByMostOpen(result, true).toString());
 		return sortElementsByMostOpen(result, true);
 	}

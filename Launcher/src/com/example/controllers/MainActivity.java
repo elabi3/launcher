@@ -21,7 +21,7 @@ public class MainActivity extends FragmentActivity implements
 	private static MainActivity instance;
 
 	private ViewPager mViewPager;
-	private Class<?>[] mFragments = new Class<?>[] { AppsDrawerFragment.class,
+	private Class<?>[] mFragments = new Class<?>[] { DrawerFragment.class,
 			MinimalistFragment.class };
 	private DrawerLayout mDrawerLayout;
 
@@ -41,6 +41,10 @@ public class MainActivity extends FragmentActivity implements
 		super.onCreate(savedInstanceState);
 		instance = this;
 
+		// Important!!! Navigation Bar transparent
+		getWindow().getDecorView().setSystemUiVisibility(
+		        View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
+		
 		setContentView(R.layout.controllers_main_activity);
 		setupViewPager();
 		// setup drawer
@@ -53,9 +57,8 @@ public class MainActivity extends FragmentActivity implements
 
 	private void setupViewPager() {
 		mViewPager = (ViewPager) findViewById(R.id.pager);
-		mViewPager
-				.setAdapter(new HomePagerAdapter(getSupportFragmentManager(),
-						mFragments));
+		mViewPager.setAdapter(new HomePagerAdapter(getSupportFragmentManager(),
+				mFragments));
 		mViewPager.setOnPageChangeListener(this);
 		mViewPager.setCurrentItem(1);
 	}

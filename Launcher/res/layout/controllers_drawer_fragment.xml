@@ -47,7 +47,7 @@
         android:orientation="horizontal" >
     </LinearLayout>
 
-    <include layout="@layout/controllers_buttons" />
+    <include layout="@layout/controllers_drawer_buttons" />
 
     <Button
         android:id="@+id/button"

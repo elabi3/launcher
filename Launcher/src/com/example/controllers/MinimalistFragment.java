@@ -35,8 +35,8 @@ public class MinimalistFragment extends Fragment {
 		LinearLayout layout = (LinearLayout) mView.findViewById(R.id.recommen);
 
 		// 3min = 180000ms
-		AppsGrid appsGrid = new AppsGrid(getActivity(), AppsGrid.GRID_COMPACT,
-				AppsGrid.APPS_GRID_WEEK_DAY_TIME, 10, 180000);
+		AppsGrid appsGrid = new AppsGrid(getActivity(), AppsGrid.GRID,
+				AppsGrid.APPS_GRID_WEEK_DAY_TIME, 12, 180000);
 		layout.addView(appsGrid.getGridView());
 	}
 

@@ -9,12 +9,10 @@ import java.util.TimerTask;
 
 import android.content.Context;
 import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.GridView;
 
-import com.example.auxiliar.ExpandableHeightGridView;
 import com.example.launcher.R;
 import com.example.moduleApps.AppsManager;
 import com.example.moduleApps.auxiliar.SortApps;
@@ -24,7 +22,6 @@ public class AppsGrid implements Observer {
 	public static final int APPS_GRID_ALL = 0;
 	public static final int APPS_GRID_RECENTS = 1;
 	public static final int APPS_GRID_MOST_OPENS = 2;
-	public static final int APPS_GRID_LESS_OPENS = 3;
 	public static final int APPS_GRID_WEEK_DAY_TIME = 7;
 	public static final int APPS_GRID_WEEK_DAY_TIME_LOCATION = 8;
 
@@ -32,12 +29,11 @@ public class AppsGrid implements Observer {
 
 	public static final int APPS_GRID_DEFAULT_ORDER = -1;
 	public static final int APPS_GRID_AZ_ORDER = 0;
-	public static final int APPS_GRID_ZA_ORDER = 1;
 	public static final int APPS_GRID_UPDATE_ORDER = 2;
 	public static final int APPS_GRID_INSTALL_ORDER = 3;
 
+	public static final int GRID_DRAWER = R.layout.module_apps_grid_drawer;
 	public static final int GRID = R.layout.module_apps_grid;
-	public static final int GRID_COMPACT = R.layout.module_apps_grid_compact;
 
 	private int selectedOrder;
 
@@ -103,10 +99,6 @@ public class AppsGrid implements Observer {
 			SortApps.sortByName(listApps, false);
 			selectedOrder = APPS_GRID_AZ_ORDER;
 			break;
-		case APPS_GRID_ZA_ORDER:
-			SortApps.sortByName(listApps, true);
-			selectedOrder = APPS_GRID_ZA_ORDER;
-			break;
 		case APPS_GRID_UPDATE_ORDER:
 			SortApps.sortByLastUpdateTime(listApps);
 			selectedOrder = APPS_GRID_UPDATE_ORDER;
@@ -139,9 +131,6 @@ public class AppsGrid implements Observer {
 			break;
 		case APPS_GRID_MOST_OPENS:
 			temp = AppsManager.getInstance(mContext).getAppsMostOpens();
-			break;
-		case APPS_GRID_LESS_OPENS:
-			temp = AppsManager.getInstance(mContext).getAppsLessOpens();
 			break;
 		case APPS_GRID_WEEK_DAY_TIME:
 			temp = AppsManager.getInstance(mContext).getAppsWeekDayTime();

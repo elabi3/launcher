@@ -33,16 +33,16 @@ public final class R {
     public static final class id {
         public static final int action_settings=0x7f0a0018;
         public static final int appsGrid=0x7f0a0015;
-        public static final int button=0x7f0a0004;
-        public static final int button_2=0x7f0a0007;
-        public static final int button_3=0x7f0a0006;
-        public static final int button_4=0x7f0a0005;
-        public static final int button_close=0x7f0a0002;
-        public static final int content=0x7f0a0003;
+        public static final int button=0x7f0a0007;
+        public static final int button_2=0x7f0a0002;
+        public static final int button_3=0x7f0a0001;
+        public static final int button_4=0x7f0a0000;
+        public static final int button_close=0x7f0a0005;
+        public static final int content=0x7f0a0006;
         public static final int contentLayout=0x7f0a0008;
         public static final int drawer_content=0x7f0a0010;
         public static final int drawer_element=0x7f0a000e;
-        public static final int edit_text1=0x7f0a0001;
+        public static final int edit_text1=0x7f0a0004;
         public static final int icon_image=0x7f0a0016;
         public static final int icon_text=0x7f0a0017;
         public static final int mainContent=0x7f0a0011;
@@ -54,19 +54,19 @@ public final class R {
         public static final int sendEmail=0x7f0a0009;
         public static final int timeHour=0x7f0a0012;
         public static final int timeMin=0x7f0a0013;
-        public static final int topBar=0x7f0a0000;
+        public static final int topBar=0x7f0a0003;
         public static final int torch=0x7f0a000d;
     }
     public static final class layout {
-        public static final int controllers_apps_drawer_fragment=0x7f030000;
-        public static final int controllers_buttons=0x7f030001;
+        public static final int controllers_drawer_buttons=0x7f030000;
+        public static final int controllers_drawer_fragment=0x7f030001;
         public static final int controllers_left_drawer=0x7f030002;
         public static final int controllers_main_activity=0x7f030003;
         public static final int controllers_minimalist_fragment=0x7f030004;
         public static final int module_apps_grid=0x7f030005;
-        public static final int module_apps_grid_compact=0x7f030006;
+        public static final int module_apps_grid_drawer=0x7f030006;
         public static final int module_apps_grid_item=0x7f030007;
-        public static final int module_apps_grid_item_compact=0x7f030008;
+        public static final int module_apps_grid_item_drawer=0x7f030008;
     }
     public static final class menu {
         public static final int main=0x7f090000;
@@ -76,10 +76,9 @@ public final class R {
         public static final int app_name=0x7f070000;
         public static final int content_descriotion_app=0x7f070009;
         public static final int hello_world=0x7f070002;
-        public static final int module_app_long_app_detail=0x7f07001c;
-        public static final int module_app_long_app_info=0x7f07001b;
-        public static final int module_app_long_app_title=0x7f07001a;
-        public static final int module_app_long_app_unistall=0x7f07001d;
+        public static final int module_app_long_app_detail=0x7f07001b;
+        public static final int module_app_long_app_info=0x7f07001a;
+        public static final int module_app_long_app_unistall=0x7f07001c;
         public static final int new_alarm=0x7f070007;
         public static final int new_contact=0x7f070005;
         public static final int new_event=0x7f070006;
@@ -104,11 +103,6 @@ public final class R {
         public static final int torch=0x7f070008;
     }
     public static final class style {
-        /** 
-        Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
-    
-         */
         public static final int AppTheme=0x7f080000;
     }
     public static final class xml {

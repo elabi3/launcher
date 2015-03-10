@@ -15,7 +15,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-import android.util.Log;
 
 public class AppsManager extends Observable {
 	private static AppsManager instance = null;
@@ -108,10 +107,6 @@ public class AppsManager extends Observable {
 	// Example implementation - generic method maybe
 	public List<AppPack> getAppsMostOpens() {
 		return checkIfAppExist(Interface.getInstance(mContext).getMostOpenings());
-	}
-
-	public List<AppPack> getAppsLessOpens() {
-		return checkIfAppExist(Interface.getInstance(mContext).getLessOpenings());
 	}
 
 	public List<AppPack> getAppsTime() {

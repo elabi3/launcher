@@ -69,8 +69,8 @@ public class AppsGridAdapter extends BaseAdapter implements Filterable {
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
 		if (convertView == null) {
-			if (this.type == AppsGrid.GRID) {
-				convertView = li.inflate(R.layout.module_apps_grid_item, null);
+			if (this.type == AppsGrid.GRID_DRAWER) {
+				convertView = li.inflate(R.layout.module_apps_grid_item_drawer, null);
 
 				viewHolder = new ViewHolder();
 				viewHolder.icon = (ImageView) convertView
@@ -81,7 +81,7 @@ public class AppsGridAdapter extends BaseAdapter implements Filterable {
 				convertView.setTag(viewHolder);
 			} else {
 				convertView = li.inflate(
-						R.layout.module_apps_grid_item_compact, null);
+						R.layout.module_apps_grid_item, null);
 
 				viewHolder = new ViewHolder();
 				viewHolder.icon = (ImageView) convertView
@@ -96,7 +96,7 @@ public class AppsGridAdapter extends BaseAdapter implements Filterable {
 		viewHolder.icon.setImageDrawable(listApps.get(pos).getIcon());
 		viewHolder.icon.setContentDescription(listApps.get(pos).getName());
 
-		if (this.type == AppsGrid.GRID) {
+		if (this.type == AppsGrid.GRID_DRAWER) {
 			viewHolder.text.setText(listApps.get(pos).getName());
 		}
 		return convertView;
