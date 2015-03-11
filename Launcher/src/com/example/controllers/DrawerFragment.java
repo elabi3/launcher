@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.animation.ObjectAnimator;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
@@ -30,7 +31,6 @@ public class DrawerFragment extends Fragment implements OnClickListener {
 	private Button button;
 	private List<Button> buttons;
 	private Boolean open = false;
-	private WindowManager wm;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -38,16 +38,9 @@ public class DrawerFragment extends Fragment implements OnClickListener {
 		mView = inflater.inflate(R.layout.controllers_drawer_fragment,
 				container, false);
 
-		wm = (WindowManager) getActivity().getSystemService(
-				getActivity().WINDOW_SERVICE);
-
 		loadGridApps();
 		loadTextSearch();
 		loadFilter();
-
-		getActivity().getWindow().setSoftInputMode(
-				WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-
 		return mView;
 	}
 
@@ -58,7 +51,6 @@ public class DrawerFragment extends Fragment implements OnClickListener {
 	private void loadGridApps() {
 		LinearLayout layout = (LinearLayout) mView.findViewById(R.id.content);
 
-		// create and add grid
 		appsGrid = new AppsGrid(getActivity(), AppsGrid.GRID_DRAWER,
 				AppsGrid.APPS_GRID_ALL, AppsGrid.NO_MAXIMUN_LIMIT, 0);
 		layout.addView(appsGrid.getGridView());
@@ -69,88 +61,67 @@ public class DrawerFragment extends Fragment implements OnClickListener {
 	 ********************************************/
 
 	private void loadFilter() {
+		int[] buttonsIds = { R.id.button_1, R.id.button_2, R.id.button_3,
+				R.id.button_4, R.id.button_5 };
 		button = (Button) mView.findViewById(R.id.button);
 		button.setOnClickListener(this);
 
 		buttons = new ArrayList<Button>();
-		buttons.add((Button) mView.findViewById(R.id.button_1));
-		buttons.add((Button) mView.findViewById(R.id.button_2));
-		buttons.add((Button) mView.findViewById(R.id.button_3));
-		buttons.add((Button) mView.findViewById(R.id.button_4));
-		buttons.add((Button) mView.findViewById(R.id.button_5));
-
-		for (Button b : buttons) {
+		for (int id : buttonsIds) {
+			Button b = (Button) mView.findViewById(id);
 			b.setOnClickListener(this);
+			buttons.add(b);
 		}
 	}
 
 	private void openMenu() {
-		open = true;
-		float height = wm.getDefaultDisplay().getHeight();
+		Point point = new Point();
+		((WindowManager) getActivity().getSystemService(getActivity().WINDOW_SERVICE))
+				.getDefaultDisplay().getSize(point);
 		float percentage = 0.10f;
 		long duration = 200;
 
 		for (Button b : buttons) {
-			ObjectAnimator alpha = ObjectAnimator.ofFloat(b, "alpha", 0, 1);
+			ObjectAnimator alpha;
+			ObjectAnimator mover;
+
+			if (!open) {
+				alpha = ObjectAnimator.ofFloat(b, "alpha", 0, 1);
+				mover = ObjectAnimator.ofFloat(b, "translationY", 0, point.y
+						* percentage);
+			} else {
+				alpha = ObjectAnimator.ofFloat(b, "alpha", 1, 0);
+				mover = ObjectAnimator.ofFloat(b, "translationY", point.y
+						* percentage, 0);
+			}
+
 			alpha.setDuration(duration);
-			alpha.start();
-
-			ObjectAnimator moverX = ObjectAnimator.ofFloat(b, "translationY",
-					0, height * percentage);
-
-			moverX.setDuration(duration);
-			moverX.start();
-
-			percentage = percentage + 0.10f;
-		}
-	}
-
-	private void closeMenu() {
-		open = false;
-		float height = wm.getDefaultDisplay().getHeight();
-		float percentage = 0.10f;
-		long duration = 200;
-
-		for (Button b : buttons) {
-			ObjectAnimator alpha = ObjectAnimator.ofFloat(b, "alpha", 1, 0);
-			alpha.setDuration(duration);
-			alpha.start();
-
-			ObjectAnimator mover = ObjectAnimator.ofFloat(b, "translationY",
-					height * percentage, 0);
 			mover.setDuration(duration);
+
+			alpha.start();
 			mover.start();
 
 			percentage = percentage + 0.10f;
 		}
+		open = !open;
 	}
 
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.button:
-			if (!open) {
-				openMenu();
-			} else {
-				closeMenu();
-			}
-			break;
 		case R.id.button_2:
-			closeMenu();
 			break;
 		case R.id.button_1:
 			appsGrid.sortAppsBy(AppsGrid.APPS_GRID_AZ_ORDER);
-			closeMenu();
 			break;
 		case R.id.button_4:
 			appsGrid.sortAppsBy(AppsGrid.APPS_GRID_INSTALL_ORDER);
-			closeMenu();
 			break;
 		case R.id.button_5:
 			appsGrid.sortAppsBy(AppsGrid.APPS_GRID_UPDATE_ORDER);
-			closeMenu();
 			break;
 		}
+		openMenu();
 	}
 
 	/********************************************

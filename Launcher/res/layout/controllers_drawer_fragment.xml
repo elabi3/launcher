@@ -1,5 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/Black_Dark_transparent" >
@@ -14,7 +15,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginTop="30dp"
         android:background="@color/Black_Dark2_transparent"
-        android:elevation="5dp"
+        android:elevation="8dp"
         android:orientation="horizontal" >
 
         <Button

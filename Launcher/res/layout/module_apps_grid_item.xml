@@ -10,7 +10,6 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:contentDescription="@string/content_descriotion_app"
-        android:elevation="6dp"
         android:padding="3dp" />
 
 </LinearLayout>

@@ -12,14 +12,16 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" />
 
-    <!-- The navigation drawer -->
+    <!-- The navigation drawer left -->
 
     <include
         android:id="@+id/drawer_content"
-        layout="@layout/controllers_left_drawer" />
+        layout="@layout/controllers_main_left_drawer" />
+
+    <!-- The navigation drawer rigth -->
 
     <include
         android:id="@+id/drawer_content"
-        layout="@layout/controllers_right_drawer" />
+        layout="@layout/controllers_main_right_drawer" />
 
 </android.support.v4.widget.DrawerLayout>

@@ -1,8 +1,12 @@
 package com.example.controllers;
 
-import android.content.Intent;
-import android.graphics.Color;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.renderscript.Allocation;
+import android.renderscript.RenderScript;
+import android.renderscript.ScriptIntrinsicBlur;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -10,27 +14,17 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.TextView;
+import android.view.ViewTreeObserver;
 
-import com.example.auxiliar.ActionsIntents;
 import com.example.launcher.R;
 
 public class MainActivity extends FragmentActivity implements
-		ViewPager.OnPageChangeListener, OnClickListener {
+		ViewPager.OnPageChangeListener {
 	private static MainActivity instance;
-
-	private ViewPager mViewPager;
 	private Class<?>[] mFragments = new Class<?>[] { DrawerFragment.class,
 			MinimalistFragment.class };
+	private ViewPager mViewPager;
 	private DrawerLayout mDrawerLayout;
-
-	// Acciones
-	private TextView sendEmail;
-	private TextView newContact;
-	private TextView newEvent;
-	private TextView newAlarm;
-	private TextView torch;
 
 	public static MainActivity getInstance() {
 		return instance;
@@ -43,39 +37,62 @@ public class MainActivity extends FragmentActivity implements
 
 		// Important!!! Navigation Bar transparent
 		getWindow().getDecorView().setSystemUiVisibility(
-		        View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
-		
+				View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+						| View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
+
+		// Init elements 
 		setContentView(R.layout.controllers_main_activity);
 		setupViewPager();
+
 		// setup drawer
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_element);
-		mDrawerLayout.setScrimColor(Color.TRANSPARENT);
-
-		// Load Actions
-		loadActions();
+		// mDrawerLayout.setScrimColor(Color.TRANSPARENT);
 	}
 
 	private void setupViewPager() {
 		mViewPager = (ViewPager) findViewById(R.id.pager);
+
+		/*
+		 * mViewPager.getViewTreeObserver().addOnPreDrawListener( new
+		 * ViewTreeObserver.OnPreDrawListener() {
+		 * 
+		 * @Override public boolean onPreDraw() { Bitmap bmp = ((BitmapDrawable)
+		 * getWallpaper()) .getBitmap();
+		 * 
+		 * blur(Bitmap.createScaledBitmap(bmp, mViewPager.getWidth(),
+		 * mViewPager.getHeight(), true), mViewPager); System.gc(); return true;
+		 * } });
+		 */
+
 		mViewPager.setAdapter(new HomePagerAdapter(getSupportFragmentManager(),
 				mFragments));
 		mViewPager.setOnPageChangeListener(this);
 		mViewPager.setCurrentItem(1);
 	}
 
-	@Override
-	public void onPageScrollStateChanged(int arg0) {
+	private void blur(Bitmap bkg, View view) {
+		float radius = 25;
 
-	}
+		Bitmap overlay = Bitmap.createBitmap((int) (view.getMeasuredWidth()),
+				(int) (view.getMeasuredHeight()), Bitmap.Config.ARGB_8888);
+		Canvas canvas = new Canvas(overlay);
 
-	@Override
-	public void onPageScrolled(int arg0, float arg1, int arg2) {
+		canvas.translate(-view.getLeft(), -view.getTop());
+		canvas.drawBitmap(bkg, 0, 0, null);
 
-	}
+		RenderScript rs = RenderScript.create(this);
+		Allocation overlayAlloc = Allocation.createFromBitmap(rs, overlay);
+		ScriptIntrinsicBlur blur = ScriptIntrinsicBlur.create(rs,
+				overlayAlloc.getElement());
 
-	@Override
-	public void onPageSelected(int arg0) {
+		blur.setInput(overlayAlloc);
+		blur.setRadius(radius);
+		blur.forEach(overlayAlloc);
+		overlayAlloc.copyTo(overlay);
 
+		view.setBackground(new BitmapDrawable(getResources(), overlay));
+		overlayAlloc.destroy();
+		rs.destroy();
 	}
 
 	private static class HomePagerAdapter extends FragmentPagerAdapter {
@@ -102,36 +119,18 @@ public class MainActivity extends FragmentActivity implements
 		}
 	}
 
-	// Acciones
-	public void loadActions() {
-		sendEmail = (TextView) findViewById(R.id.sendEmail);
-		newContact = (TextView) findViewById(R.id.newContact);
-		newEvent = (TextView) findViewById(R.id.newEvent);
-		newAlarm = (TextView) findViewById(R.id.newAlarm);
-		torch = (TextView) findViewById(R.id.torch);
+	@Override
+	public void onPageScrollStateChanged(int arg0) {
 
-		sendEmail.setOnClickListener(this);
-		newContact.setOnClickListener(this);
-		newEvent.setOnClickListener(this);
-		newAlarm.setOnClickListener(this);
-		torch.setOnClickListener(this);
 	}
 
 	@Override
-	public void onClick(View v) {
-		if (v instanceof TextView) {
-			if (v.equals(sendEmail)) {
-				ActionsIntents.senEmail(this);
-			} else if (v.equals(newContact)) {
-				ActionsIntents.newContact(this);
-			} else if (v.equals(newEvent)) {
-				ActionsIntents.newEvent(this);
-			} else if (v.equals(newAlarm)) {
-				ActionsIntents.newAlarm(this);
-			} else {
-				ActionsIntents.newPhoneCall(this);
-			}
-		}
+	public void onPageScrolled(int arg0, float arg1, int arg2) {
+
 	}
 
+	@Override
+	public void onPageSelected(int arg0) {
+
+	}
 }

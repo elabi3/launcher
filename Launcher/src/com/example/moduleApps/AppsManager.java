@@ -59,7 +59,6 @@ public class AppsManager extends Observable {
 						already = true;
 					}
 				}
-
 				if (!already && appPack.getpackageName().equals(element)) {
 					result.add(appPack);
 				}
@@ -84,7 +83,6 @@ public class AppsManager extends Observable {
 		Interface.getInstance(mContext).newOpening(element);
 	}
 
-	
 	/********************************************
 	 * Get List of apps
 	 ********************************************/
@@ -106,23 +104,27 @@ public class AppsManager extends Observable {
 
 	// Example implementation - generic method maybe
 	public List<AppPack> getAppsMostOpens() {
-		return checkIfAppExist(Interface.getInstance(mContext).getMostOpenings());
+		return checkIfAppExist(Interface.getInstance(mContext)
+				.getMostOpenings());
 	}
 
 	public List<AppPack> getAppsTime() {
-		return checkIfAppExist(Interface.getInstance(mContext).getElementsTime());
+		return checkIfAppExist(Interface.getInstance(mContext)
+				.getElementsTime());
 	}
 
 	public List<AppPack> getAppsWeekDayTime() {
-		return checkIfAppExist(Interface.getInstance(mContext).getElementsWeekDayTime());
+		return checkIfAppExist(Interface.getInstance(mContext)
+				.getElementsWeekDayTime());
 	}
 
 	public List<AppPack> getAppsWeekDayTimeLocation() {
 		// Ask for this apps to database
 		return Collections.emptyList();
 	}
-	
+
 	public List<AppPack> getNextApps(String app) {
-		return checkIfAppExist(Interface.getInstance(mContext).getNextElements(app));
+		return checkIfAppExist(Interface.getInstance(mContext).getNextElements(
+				app));
 	}
 }
