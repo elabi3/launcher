@@ -6,7 +6,7 @@
     <color name="Black">#FF000000</color>
     <color name="Black_transparent">#50000000</color>
     <color name="Black_Dark_transparent">#99000000</color>
-    <color name="Black_Dark2_transparent">#BB000000</color>
+    <color name="Black_Dark2_transparent">#EE000000</color>
     <color name="White">#FFFFFFFF</color>
     <color name="White_transparent">#50FFFFFF</color>
     <color name="White_Light_transparent">#75FFFFFF</color>

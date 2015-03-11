@@ -17,6 +17,14 @@
         android:elevation="5dp"
         android:orientation="horizontal" >
 
+        <Button
+            android:id="@+id/button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/ic_action_action_list" />
+
         <EditText
             android:id="@+id/edit_text1"
             android:layout_width="0dp"
@@ -24,8 +32,9 @@
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="0dp"
             android:layout_weight="1"
+            android:background="@color/Transparent"
             android:hint="@string/search_hint"
             android:imeOptions="actionSearch"
             android:inputType="text"
@@ -37,7 +46,9 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="5dp"
+            android:background="@drawable/ic_action_content_clear"
+            android:visibility="gone" />
     </LinearLayout>
 
     <LinearLayout
@@ -48,18 +59,5 @@
     </LinearLayout>
 
     <include layout="@layout/controllers_drawer_buttons" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="60dp"
-        android:layout_marginLeft="10dp"
-        android:background="@drawable/rounded_button"
-        android:elevation="5dp"
-        android:text="Sort"
-        android:textColor="@color/Black"
-        android:textSize="16sp" />
 
 </RelativeLayout>

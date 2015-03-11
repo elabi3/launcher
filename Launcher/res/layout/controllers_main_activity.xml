@@ -18,4 +18,8 @@
         android:id="@+id/drawer_content"
         layout="@layout/controllers_left_drawer" />
 
+    <include
+        android:id="@+id/drawer_content"
+        layout="@layout/controllers_right_drawer" />
+
 </android.support.v4.widget.DrawerLayout>

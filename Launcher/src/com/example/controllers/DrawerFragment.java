@@ -73,9 +73,11 @@ public class DrawerFragment extends Fragment implements OnClickListener {
 		button.setOnClickListener(this);
 
 		buttons = new ArrayList<Button>();
+		buttons.add((Button) mView.findViewById(R.id.button_1));
 		buttons.add((Button) mView.findViewById(R.id.button_2));
 		buttons.add((Button) mView.findViewById(R.id.button_3));
 		buttons.add((Button) mView.findViewById(R.id.button_4));
+		buttons.add((Button) mView.findViewById(R.id.button_5));
 
 		for (Button b : buttons) {
 			b.setOnClickListener(this);
@@ -84,47 +86,42 @@ public class DrawerFragment extends Fragment implements OnClickListener {
 
 	private void openMenu() {
 		open = true;
-		float width = wm.getDefaultDisplay().getWidth();
-		float percentage = 0.20f;
-		long duration = 150;
+		float height = wm.getDefaultDisplay().getHeight();
+		float percentage = 0.10f;
+		long duration = 200;
 
 		for (Button b : buttons) {
 			ObjectAnimator alpha = ObjectAnimator.ofFloat(b, "alpha", 0, 1);
 			alpha.setDuration(duration);
 			alpha.start();
 
-			ObjectAnimator moverX = ObjectAnimator.ofFloat(b, "translationX",
-					0, width * percentage);
+			ObjectAnimator moverX = ObjectAnimator.ofFloat(b, "translationY",
+					0, height * percentage);
 
 			moverX.setDuration(duration);
 			moverX.start();
 
-			/*
-			 * ObjectAnimator moverY = ObjectAnimator.ofFloat(b, "translationY",
-			 * 0, width * -percentage);
-			 * moverY.setDuration(duration); moverY.start();
-			 */
-			percentage = percentage + 0.24f;
+			percentage = percentage + 0.10f;
 		}
 	}
 
 	private void closeMenu() {
 		open = false;
-		float width = wm.getDefaultDisplay().getWidth();
-		float percentage = 0.20f;
-		long duration = 150;
+		float height = wm.getDefaultDisplay().getHeight();
+		float percentage = 0.10f;
+		long duration = 200;
 
 		for (Button b : buttons) {
 			ObjectAnimator alpha = ObjectAnimator.ofFloat(b, "alpha", 1, 0);
 			alpha.setDuration(duration);
 			alpha.start();
 
-			ObjectAnimator mover = ObjectAnimator.ofFloat(b, "translationX",
-					width * percentage, 0);
+			ObjectAnimator mover = ObjectAnimator.ofFloat(b, "translationY",
+					height * percentage, 0);
 			mover.setDuration(duration);
 			mover.start();
 
-			percentage = percentage + 0.24f;
+			percentage = percentage + 0.10f;
 		}
 	}
 
@@ -139,14 +136,18 @@ public class DrawerFragment extends Fragment implements OnClickListener {
 			}
 			break;
 		case R.id.button_2:
-			appsGrid.sortAppsBy(AppsGrid.APPS_GRID_INSTALL_ORDER);
 			closeMenu();
 			break;
-		case R.id.button_3:
+		case R.id.button_1:
+			appsGrid.sortAppsBy(AppsGrid.APPS_GRID_AZ_ORDER);
 			closeMenu();
 			break;
 		case R.id.button_4:
-			appsGrid.sortAppsBy(AppsGrid.APPS_GRID_AZ_ORDER);
+			appsGrid.sortAppsBy(AppsGrid.APPS_GRID_INSTALL_ORDER);
+			closeMenu();
+			break;
+		case R.id.button_5:
+			appsGrid.sortAppsBy(AppsGrid.APPS_GRID_UPDATE_ORDER);
 			closeMenu();
 			break;
 		}
@@ -163,6 +164,7 @@ public class DrawerFragment extends Fragment implements OnClickListener {
 			@Override
 			public void onClick(View v) {
 				textSearch.setText("");
+				buttonClose.setVisibility(View.GONE);
 				InputMethodManager imm = (InputMethodManager) getActivity()
 						.getSystemService(getActivity().INPUT_METHOD_SERVICE);
 				imm.hideSoftInputFromWindow(textSearch.getWindowToken(), 0);
@@ -185,6 +187,7 @@ public class DrawerFragment extends Fragment implements OnClickListener {
 
 		public void onTextChanged(CharSequence s, int start, int before,
 				int count) {
+			buttonClose.setVisibility(View.VISIBLE);
 			appsGrid.filterList(s);
 		}
 	};
