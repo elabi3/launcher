@@ -1,5 +1,6 @@
 package com.example.controllers;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
@@ -21,7 +22,7 @@ import com.example.launcher.R;
 public class MainActivity extends FragmentActivity implements
 		ViewPager.OnPageChangeListener {
 	private static MainActivity instance;
-	private Class<?>[] mFragments = new Class<?>[] { DrawerFragment.class,
+	private Class<?>[] mFragments = new Class<?>[] { DrawerAppsFragment.class,
 			MinimalistFragment.class };
 	private ViewPager mViewPager;
 	private DrawerLayout mDrawerLayout;
@@ -40,13 +41,23 @@ public class MainActivity extends FragmentActivity implements
 				View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
 						| View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
 
-		// Init elements 
+		// Init elements
 		setContentView(R.layout.controllers_main_activity);
 		setupViewPager();
 
 		// setup drawer
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_element);
 		// mDrawerLayout.setScrimColor(Color.TRANSPARENT);
+	}
+
+	@Override
+	public void onBackPressed() {
+		mViewPager.setCurrentItem(1);
+	}
+
+	@Override
+	protected void onNewIntent(Intent intent) {
+		mViewPager.setCurrentItem(1);
 	}
 
 	private void setupViewPager() {

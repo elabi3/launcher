@@ -59,6 +59,6 @@
         android:orientation="horizontal" >
     </LinearLayout>
 
-    <include layout="@layout/controllers_drawer_buttons" />
+    <include layout="@layout/controllers_drawer_apps_buttons" />
 
 </RelativeLayout>

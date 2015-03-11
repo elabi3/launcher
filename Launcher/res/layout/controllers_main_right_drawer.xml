@@ -32,7 +32,7 @@
             android:layout_weight="0.7"
             android:paddingLeft="15dp"
             android:paddingTop="15dp"
-            android:text="Spaces"
+            android:text="@string/drawer_right_title"
             android:textColor="@color/Black"
             android:textSize="20sp" />
     </LinearLayout>

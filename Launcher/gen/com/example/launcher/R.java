@@ -63,8 +63,8 @@ public final class R {
         public static final int torch=0x7f0a0013;
     }
     public static final class layout {
-        public static final int controllers_drawer_buttons=0x7f030000;
-        public static final int controllers_drawer_fragment=0x7f030001;
+        public static final int controllers_drawer_apps_buttons=0x7f030000;
+        public static final int controllers_drawer_apps_fragment=0x7f030001;
         public static final int controllers_main_activity=0x7f030002;
         public static final int controllers_main_left_drawer=0x7f030003;
         public static final int controllers_main_right_drawer=0x7f030004;
@@ -81,31 +81,31 @@ public final class R {
         public static final int action_settings=0x7f070001;
         public static final int app_name=0x7f070000;
         public static final int content_descriotion_app=0x7f070009;
-        public static final int hello_world=0x7f070002;
+        public static final int drawer_apps_order_az=0x7f07000a;
+        public static final int drawer_apps_order_install=0x7f07000c;
+        public static final int drawer_apps_order_most_used=0x7f07000d;
+        public static final int drawer_apps_order_recently_used=0x7f07000e;
+        public static final int drawer_apps_order_update=0x7f07000b;
+        public static final int drawer_right_title=0x7f07000f;
         public static final int module_app_long_app_detail=0x7f07001b;
         public static final int module_app_long_app_info=0x7f07001a;
         public static final int module_app_long_app_unistall=0x7f07001c;
-        public static final int new_alarm=0x7f070007;
-        public static final int new_contact=0x7f070005;
-        public static final int new_event=0x7f070006;
+        public static final int new_alarm=0x7f070006;
+        public static final int new_contact=0x7f070004;
+        public static final int new_event=0x7f070005;
+        public static final int new_phone=0x7f070007;
         public static final int preferences_about_author_title=0x7f070019;
         public static final int preferences_about_title=0x7f070017;
         public static final int preferences_about_version_title=0x7f070018;
-        public static final int preferences_spaces_order_title=0x7f07000f;
-        public static final int preferences_spaces_title=0x7f07000e;
-        public static final int preferences_spaces_transition_chooser_title=0x7f070011;
-        public static final int preferences_spaces_transition_title=0x7f070010;
+        public static final int preferences_spaces_order_title=0x7f070011;
+        public static final int preferences_spaces_title=0x7f070010;
         public static final int preferences_theme_font_title=0x7f070015;
         public static final int preferences_theme_icon_pack_title=0x7f070016;
         public static final int preferences_theme_theme_title=0x7f070013;
         public static final int preferences_theme_title=0x7f070012;
         public static final int preferences_theme_wallpaper_title=0x7f070014;
-        public static final int search_hint=0x7f070003;
-        public static final int send_email=0x7f070004;
-        public static final int spinner_all_order_az=0x7f07000a;
-        public static final int spinner_all_order_install=0x7f07000d;
-        public static final int spinner_all_order_update=0x7f07000c;
-        public static final int spinner_all_order_za=0x7f07000b;
+        public static final int search_hint=0x7f070002;
+        public static final int send_email=0x7f070003;
         public static final int torch=0x7f070008;
     }
     public static final class style {

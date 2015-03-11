@@ -13,7 +13,7 @@
         android:alpha="0"
         android:background="@drawable/background_button"
         android:fontFamily="sans-serif-light"
-        android:text="Last update"
+        android:text="@string/drawer_apps_order_update"
         android:textColor="@color/Black"
         android:textSize="15sp" />
 
@@ -27,7 +27,7 @@
         android:alpha="0"
         android:background="@drawable/background_button"
         android:fontFamily="sans-serif-light"
-        android:text="Last install"
+        android:text="@string/drawer_apps_order_install"
         android:textColor="@color/Black"
         android:textSize="15sp" />
 
@@ -41,7 +41,7 @@
         android:alpha="0"
         android:background="@drawable/background_button"
         android:fontFamily="sans-serif-light"
-        android:text="Recently used"
+        android:text="@string/drawer_apps_order_recently_used"
         android:textColor="@color/Black"
         android:textSize="15sp" />
 
@@ -55,7 +55,7 @@
         android:alpha="0"
         android:background="@drawable/background_button"
         android:fontFamily="sans-serif-light"
-        android:text="Most used"
+        android:text="@string/drawer_apps_order_most_used"
         android:textColor="@color/Black"
         android:textSize="15sp" />
 
@@ -69,7 +69,7 @@
         android:alpha="0"
         android:background="@drawable/background_button"
         android:fontFamily="sans-serif-light"
-        android:text="AZ"
+        android:text="@string/drawer_apps_order_az"
         android:textColor="@color/Black"
         android:textSize="15sp" />
 

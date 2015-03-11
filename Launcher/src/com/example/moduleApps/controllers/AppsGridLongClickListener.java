@@ -43,7 +43,6 @@ public class AppsGridLongClickListener implements OnItemLongClickListener,
 
 		AlertDialog.Builder builder = new AlertDialog.Builder(mContext,
 				AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
-		;
 		builder.setTitle(listApps.get(pos).getName());
 		builder.setItems(items, this);
 

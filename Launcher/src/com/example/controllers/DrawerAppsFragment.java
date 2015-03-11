@@ -22,7 +22,7 @@ import android.widget.LinearLayout;
 import com.example.launcher.R;
 import com.example.moduleApps.controllers.AppsGrid;
 
-public class DrawerFragment extends Fragment implements OnClickListener {
+public class DrawerAppsFragment extends Fragment implements OnClickListener {
 	private View mView;
 	private EditText textSearch;
 	private Button buttonClose;
@@ -35,7 +35,7 @@ public class DrawerFragment extends Fragment implements OnClickListener {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		mView = inflater.inflate(R.layout.controllers_drawer_fragment,
+		mView = inflater.inflate(R.layout.controllers_drawer_apps_fragment,
 				container, false);
 
 		loadGridApps();
