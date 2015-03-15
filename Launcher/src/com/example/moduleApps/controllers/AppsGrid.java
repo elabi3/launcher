@@ -23,8 +23,8 @@ public class AppsGrid implements Observer {
 	public static final int APPS_GRID_ALL = 0;
 	public static final int APPS_GRID_RECENTS = 1;
 	public static final int APPS_GRID_MOST_OPENS = 2;
-	public static final int APPS_GRID_WEEK_DAY_TIME = 7;
-	public static final int APPS_GRID_WEEK_DAY_TIME_LOCATION = 8;
+	public static final int APPS_GRID_RECOMENDED = 7;
+	public static final int APPS_GRID_NEXT = 8;
 
 	public static final int NO_MAXIMUN_LIMIT = -1;
 
@@ -32,6 +32,9 @@ public class AppsGrid implements Observer {
 	public static final int APPS_GRID_AZ_ORDER = 0;
 	public static final int APPS_GRID_UPDATE_ORDER = 2;
 	public static final int APPS_GRID_INSTALL_ORDER = 3;
+	public static final int APPS_GRID_USED_ORDER = 4;
+	public static final int APPS_GRID_MOST_OPENS_ORDER = 5;
+
 
 	public static final int GRID_DRAWER = R.layout.module_apps_grid_drawer;
 	public static final int GRID = R.layout.module_apps_grid;
@@ -131,15 +134,8 @@ public class AppsGrid implements Observer {
 		case APPS_GRID_MOST_OPENS:
 			temp = AppsManager.getInstance(mContext).getAppsMostOpens();
 			break;
-		case APPS_GRID_WEEK_DAY_TIME:
-			temp = AppsManager.getInstance(mContext).getAppsWeekDayTime();
-			if (temp.size() < maximun - 2) {
-				temp = AppsManager.getInstance(mContext).getAppsTime();
-			}
-			break;
-		case APPS_GRID_WEEK_DAY_TIME_LOCATION:
-			temp = AppsManager.getInstance(mContext)
-					.getAppsWeekDayTimeLocation();
+		case APPS_GRID_RECOMENDED: 
+			temp = AppsManager.getInstance(mContext).getAppsRecomended(maximun);
 			break;
 		default:
 			break;
@@ -195,7 +191,7 @@ public class AppsGrid implements Observer {
 				mContext, listApps);
 		AppsGridLongClickListener gridLongClickListener = new AppsGridLongClickListener(
 				listApps);
-		mAppsGridAdapter = new AppsGridAdapter(mContext, type, listApps,
+		mAppsGridAdapter = new AppsGridAdapter(type, listApps,
 				gridClickListener, gridLongClickListener);
 
 		mAppsGrid.setAdapter(mAppsGridAdapter);

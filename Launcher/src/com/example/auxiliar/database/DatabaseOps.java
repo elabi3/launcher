@@ -8,7 +8,6 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
 public class DatabaseOps {
 	private static DatabaseOps instance = null;
@@ -76,7 +75,7 @@ public class DatabaseOps {
 
 	// select name from opens where week_day = 1 and time > 1629 and time <
 	// 1637;
-	public List<String> getElementsWeekDayTime(int weekday, int interval[]) {
+	public List<String> getRecomended(int weekday, int interval[]) {
 		String[] columns = { DatabaseTableOpens.COLUMN_NAME };
 
 		String selection;

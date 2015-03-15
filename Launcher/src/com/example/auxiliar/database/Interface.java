@@ -1,191 +1,60 @@
 package com.example.auxiliar.database;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import android.content.Context;
-import android.util.Log;
 
 public class Interface {
 	private static Interface instance = null;
-	private Context mContext;
+	private static Context mContext;
 
 	public static Interface getInstance(Context context) {
 		if (instance == null) {
-			instance = new Interface(context);
+			instance = new Interface();
+		}
+		Interface.mContext = context;
+		return instance;
+	}
+
+	public static Interface getInstance() {
+		if (instance == null) {
+			instance = new Interface();
 		}
 		return instance;
 	}
 
-	private Interface(Context context) {
-		mContext = context;
-	}
-
-	/********************************************
-	 * Private Methods
-	 ********************************************/
-
-	// Check integer 4 digits
-	// Check time 24h
-	private int getTime() {
-		Calendar calendar = Calendar.getInstance();
-		SimpleDateFormat dateFormatDate = new SimpleDateFormat("HHmm");
-		String strDate = dateFormatDate.format(calendar.getTime());
-		return Integer.parseInt(strDate);
-	}
-
-	private int getWeekDay() {
-		Calendar c = Calendar.getInstance();
-		c.setTime(c.getTime());
-		return c.get(Calendar.DAY_OF_WEEK);
-	}
-
-	private int getMonthDay() {
-		Calendar c = Calendar.getInstance();
-		c.setTime(c.getTime());
-		return c.get(Calendar.DAY_OF_MONTH);
-	}
-
-	private String getLocation() {
-		return "";
-	}
-
-	private int[] getInterval(int interval) {
-		int currentTime = getTime();
-		int result[] = new int[2];
-
-		if ((currentTime % 100) + interval >= 60) {
-			int time = (currentTime / 100) == 23 ? 0 : (currentTime / 100) + 1;
-			int hour = ((currentTime % 100) + interval) - 60;
-			result[0] = time * 100 + hour;
-		} else {
-			result[0] = currentTime + interval;
-		}
-
-		if ((currentTime % 100) - interval < 0) {
-			int time = (currentTime / 100) == 0 ? 23 : (currentTime / 100) - 1;
-			int hour = ((currentTime % 100) - interval) + 60;
-			result[1] = time * 100 + hour;
-		} else {
-			result[1] = currentTime - interval;
-		}
-
-		return result;
-	}
-	
-	private List<String> sortElementsByMostOpen(List<String> elements, boolean bool) {
-		// Creamos un hashMap
-		Map<String, Integer> mappedData = new HashMap<String, Integer>();
-		for (String string : elements) {
-			if (mappedData.get(string) == null) {
-				mappedData.put(string, getOpeningsTimes(string));
-			} 
-		}
-		
-		// Ordenamos de mayor a menor
-		List<Map.Entry> sortedList = new ArrayList<Map.Entry>(mappedData.entrySet());
-		if (bool) {
-			Collections.sort(sortedList,
-			         new Comparator() {
-			             public int compare(Object o1, Object o2) {
-			                 Map.Entry e1 = (Map.Entry) o1;
-			                 Map.Entry e2 = (Map.Entry) o2;
-			                 return ((Comparable) e2.getValue()).compareTo(e1.getValue());
-			             }
-			         });
-		} else {
-			Collections.sort(sortedList,
-			         new Comparator() {
-			             public int compare(Object o1, Object o2) {
-			                 Map.Entry e1 = (Map.Entry) o1;
-			                 Map.Entry e2 = (Map.Entry) o2;
-			                 return ((Comparable) e1.getValue()).compareTo(e2.getValue());
-			             }
-			         });
-		}
-
-		List<String> resultList = new ArrayList<String>();
-		for (Map.Entry e : sortedList) {
-		        resultList.add(e.getKey().toString());
-		}
-   
-		return resultList;
-	}
-	
-	private class ValueComparator implements Comparator<String> {
-
-	    Map<String, Integer> base;
-	    public ValueComparator(Map<String, Integer> base) {
-	        this.base = base;
-	    }
-
-	    // Note: this comparator imposes orderings that are inconsistent with equals.    
-	    public int compare(String a, String b) {
-	        if (base.get(a) <= base.get(b)) {
-	            return -1;
-	        } else {
-	            return 1;
-	        } // returning 0 would merge keys
-	    }
-	}
-
-	/********************************************
-	 * Public Interface
-	 ********************************************/
-
 	public void newOpening(DatabaseElementOpen newElement) {
-		newElement.setTime(getTime());
-		newElement.setWeek_day(getWeekDay());
-		newElement.setMonth_day(getMonthDay());
-		newElement.setLatitude("");
-		newElement.setLatitude("");
-
 		DatabaseOps.getInstance(mContext).insertNewOpen(newElement);
 	}
 
 	public List<String> getNextElements(String id) {
-		return DatabaseOps.getInstance(mContext).getNext(id, getTime());
+		return DatabaseOps.getInstance(mContext).getNext(id,
+				DataBaseAux.getInstance().getTime());
 	}
 
 	public int getOpeningsTimes(String id) {
 		return DatabaseOps.getInstance(mContext).getOpeningTimes(id);
 	}
-	
+
 	public List<String> getMostOpenings() {
 		// Obtenemos las apps
 		List<String> result = DatabaseOps.getInstance(mContext).getAll();
-		return sortElementsByMostOpen(result, true);
+		return DataBaseAux.getInstance(mContext).sortElementsByMostOpen(result,
+				true);
 	}
 
-	public List<String> getElementsWeekDayTime() {
-		int interval[] = getInterval(120);
-		int weekDay = getWeekDay();
+	public List<String> getRecomended(int number) {
+		// 1hora = 3600000 milisec
+		int interval[] = DataBaseAux.getInstance().getInterval(3600000);
+		int weekDay = DataBaseAux.getInstance().getWeekDay();
 
-		List<String> result = DatabaseOps.getInstance(mContext).getElementsWeekDayTime(
+		List<String> result = DatabaseOps.getInstance(mContext).getRecomended(
 				weekDay, interval);
-		Log.v("HEREEEE", sortElementsByMostOpen(result, true).toString());
-		return sortElementsByMostOpen(result, true);
-	}
 
-	public List<String> getElementsTime() {
-		int interval[] = getInterval(120);
-		int weekDay = -1;
-
-		List<String> result = DatabaseOps.getInstance(mContext).getElementsWeekDayTime(
-				weekDay, interval);
-		return sortElementsByMostOpen(result, true);
+		if (result.size() < number) {
+			result = DatabaseOps.getInstance(mContext).getRecomended(-1,
+					interval);
+		}
+		return DataBaseAux.getInstance().sortElementsByMostOpen(result, true);
 	}
-	
-	public List<DatabaseElementOpen> getElementsWeekDayTimeLocation() {
-		int interval[] = getInterval(120);
-		int weekDay = getWeekDay();
-		return Collections.emptyList();
-	}
-
 }

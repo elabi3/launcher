@@ -3,31 +3,24 @@ package com.example.moduleApps.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Filter;
 import android.widget.Filterable;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.example.launcher.R;
 import com.example.moduleApps.model.AppPack;
 
 public class AppsGridAdapter extends BaseAdapter implements Filterable {
-	private Context mContext;
 	private List<AppPack> listApps;
 	private List<AppPack> originalListApps;
 	private AppsGridClickListener gridClickListener;
 	private AppsGridLongClickListener gridLongClickListener;
 	private int type;
 
-	public AppsGridAdapter(Context c, int type, List<AppPack> listApps,
+	public AppsGridAdapter(int type, List<AppPack> listApps,
 			AppsGridClickListener gridClickListener,
 			AppsGridLongClickListener gridLongClickListener) {
-		this.mContext = c;
 		this.type = type;
 		this.listApps = listApps;
 		this.originalListApps = listApps;
@@ -58,49 +51,13 @@ public class AppsGridAdapter extends BaseAdapter implements Filterable {
 		return 0;
 	}
 
-	private static class ViewHolder {
-		ImageView icon;
-		TextView text;
-	}
-
 	@Override
 	public View getView(int pos, View convertView, ViewGroup arg2) {
-		ViewHolder viewHolder;
-		LayoutInflater li = (LayoutInflater) this.mContext
-				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-		if (convertView == null) {
-			if (this.type == AppsGrid.GRID_DRAWER) {
-				convertView = li.inflate(R.layout.module_apps_grid_item_drawer, null);
-
-				viewHolder = new ViewHolder();
-				viewHolder.icon = (ImageView) convertView
-						.findViewById(R.id.icon_image);
-				viewHolder.text = (TextView) convertView
-						.findViewById(R.id.icon_text);
-
-				convertView.setTag(viewHolder);
-			} else {
-				convertView = li.inflate(
-						R.layout.module_apps_grid_item, null);
-
-				viewHolder = new ViewHolder();
-				viewHolder.icon = (ImageView) convertView
-						.findViewById(R.id.icon_image);
-
-				convertView.setTag(viewHolder);
-			}
-		} else {
-			viewHolder = (ViewHolder) convertView.getTag();
-		}
-
-		viewHolder.icon.setImageDrawable(listApps.get(pos).getIcon());
-		viewHolder.icon.setContentDescription(listApps.get(pos).getName());
-
 		if (this.type == AppsGrid.GRID_DRAWER) {
-			viewHolder.text.setText(listApps.get(pos).getName());
+			return listApps.get(pos).getView();
 		}
-		return convertView;
+
+		return listApps.get(pos).getViewCompact();
 	}
 
 	public Filter getFilter() {

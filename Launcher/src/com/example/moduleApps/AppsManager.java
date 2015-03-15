@@ -1,7 +1,6 @@
 package com.example.moduleApps;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Observable;
 
@@ -79,8 +78,8 @@ public class AppsManager extends Observable {
 
 	// Call newOpening from click listener
 	public void newOpening(String id) {
-		DatabaseElementOpen element = new DatabaseElementOpen(id, "app", "", "");
-		Interface.getInstance(mContext).newOpening(element);
+		Interface.getInstance(mContext).newOpening(
+				new DatabaseElementOpen(id, "app", "", ""));
 	}
 
 	/********************************************
@@ -102,25 +101,13 @@ public class AppsManager extends Observable {
 		return SortApps.sortByRecents(result, runningAppProcessInfo);
 	}
 
-	// Example implementation - generic method maybe
 	public List<AppPack> getAppsMostOpens() {
 		return checkIfAppExist(Interface.getInstance(mContext)
 				.getMostOpenings());
 	}
 
-	public List<AppPack> getAppsTime() {
-		return checkIfAppExist(Interface.getInstance(mContext)
-				.getElementsTime());
-	}
-
-	public List<AppPack> getAppsWeekDayTime() {
-		return checkIfAppExist(Interface.getInstance(mContext)
-				.getElementsWeekDayTime());
-	}
-
-	public List<AppPack> getAppsWeekDayTimeLocation() {
-		// Ask for this apps to database
-		return Collections.emptyList();
+	public List<AppPack> getAppsRecomended(int maximun) {
+		return checkIfAppExist(Interface.getInstance(mContext).getRecomended(maximun));
 	}
 
 	public List<AppPack> getNextApps(String app) {

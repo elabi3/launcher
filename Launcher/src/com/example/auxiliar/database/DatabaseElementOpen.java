@@ -18,6 +18,10 @@ public class DatabaseElementOpen {
 		this.type = type;
 		this.category = category;
 		this.description = description;
+
+		this.time = DataBaseAux.getInstance().getTime();
+		this.week_day = DataBaseAux.getInstance().getWeekDay();
+		this.month_day = DataBaseAux.getInstance().getMonthDay();
 	}
 
 	public String getId() {

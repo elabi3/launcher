@@ -1,10 +1,16 @@
 package com.example.moduleApps.model;
 
+import com.example.launcher.R;
+
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class AppPack {
 	private Drawable icon;
@@ -14,6 +20,7 @@ public class AppPack {
 	private long firsIntall;
 	private long lastUpdate;
 
+	private LayoutInflater mInflater;
 	private Context mContext;
 
 	/********************************************
@@ -27,6 +34,8 @@ public class AppPack {
 		this.name = name;
 		this.packageName = packageName;
 		this.mContext = context;
+		this.mInflater = LayoutInflater.from(this.mContext);
+
 		refreshIntallUpdateInfo();
 	}
 
@@ -106,6 +115,35 @@ public class AppPack {
 			e.printStackTrace();
 		}
 		return 0;
+	}
+
+	/********************************************
+	 * View
+	 ********************************************/
+
+	public View getView() {
+		View returnView = mInflater.inflate(
+				R.layout.module_apps_grid_item_drawer, null);
+
+		ImageView icon = (ImageView) returnView.findViewById(R.id.icon_image);
+		TextView text = (TextView) returnView.findViewById(R.id.icon_text);
+
+		icon.setImageDrawable(this.icon);
+		icon.setContentDescription(this.name);
+		text.setText(this.name);
+
+		return returnView;
+	}
+
+	public View getViewCompact() {
+		View returnView = mInflater.inflate(R.layout.module_apps_grid_item,
+				null);
+
+		ImageView icon = (ImageView) returnView.findViewById(R.id.icon_image);
+		icon.setImageDrawable(this.icon);
+		icon.setContentDescription(this.name);
+
+		return returnView;
 	}
 
 }
