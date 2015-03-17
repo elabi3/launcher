@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -76,8 +77,9 @@ public class DrawerAppsFragment extends Fragment implements OnClickListener {
 
 	private void openMenu() {
 		Point point = new Point();
-		((WindowManager) getActivity().getSystemService(getActivity().WINDOW_SERVICE))
-				.getDefaultDisplay().getSize(point);
+		((WindowManager) getActivity().getSystemService(
+				getActivity().WINDOW_SERVICE)).getDefaultDisplay().getSize(
+				point);
 		float percentage = 0.10f;
 		long duration = 200;
 
@@ -149,7 +151,6 @@ public class DrawerAppsFragment extends Fragment implements OnClickListener {
 	private TextWatcher filterTextWatcher = new TextWatcher() {
 
 		public void afterTextChanged(Editable s) {
-
 		}
 
 		public void beforeTextChanged(CharSequence s, int start, int count,
@@ -158,7 +159,8 @@ public class DrawerAppsFragment extends Fragment implements OnClickListener {
 
 		public void onTextChanged(CharSequence s, int start, int before,
 				int count) {
-			buttonClose.setVisibility(View.VISIBLE);
+			buttonClose.setVisibility(s.length() == 0 ? View.GONE
+					: View.VISIBLE);
 			appsGrid.filterList(s);
 		}
 	};

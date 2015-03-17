@@ -10,9 +10,9 @@ import android.provider.ContactsContract;
 
 public class ActionsIntents {
 	// Set boolean flag when torch is turned on/off
-	//private static boolean isFlashOn = false;
-	//private static Camera camera = Camera.open();
-	//private static Parameters p = camera.getParameters();
+	// private static boolean isFlashOn = false;
+	// private static Camera camera = Camera.open();
+	// private static Parameters p = camera.getParameters();
 
 	public static void senEmail(Context context) {
 		Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:"));
@@ -41,33 +41,43 @@ public class ActionsIntents {
 	public static void openApp(Context context, Intent launchIntent) {
 		context.startActivity(launchIntent);
 	}
-	
+
 	public static void newPhoneCall(Context context) {
-		Intent intent = new Intent(Intent.ACTION_DIAL); 
-		context.startActivity(intent); 
-	}
-	
-	public static void newPhoto() {
-		
-	}
-	
-	public static void newTweet() {
-		
-	}
-	
-	public static void newFacebookPost() {
-		
+		Intent intent = new Intent(Intent.ACTION_DIAL);
+		context.startActivity(intent);
 	}
 
-	/*public static void turnTorch() {
-		if (isFlashOn) {
-			p.setFlashMode(Parameters.FLASH_MODE_OFF); // Set the flashmode to off
-			camera.setParameters(p); // Pass the parameter ti camera object
-			isFlashOn = false; // Set flag to false
-		} else {
-			p.setFlashMode(Parameters.FLASH_MODE_TORCH); // Set the flashmode to on
-			camera.setParameters(p); // Pass the parameter ti camera object
-			isFlashOn = true; // Set flag to true
-		}
-	}*/
+	public static void newPhoto() {
+
+	}
+
+	public static void newTweet() {
+
+	}
+
+	public static void newFacebookPost() {
+
+	}
+
+	/*
+	 * public static void turnTorch() { if (isFlashOn) {
+	 * p.setFlashMode(Parameters.FLASH_MODE_OFF); // Set the flashmode to off
+	 * camera.setParameters(p); // Pass the parameter ti camera object isFlashOn
+	 * = false; // Set flag to false } else {
+	 * p.setFlashMode(Parameters.FLASH_MODE_TORCH); // Set the flashmode to on
+	 * camera.setParameters(p); // Pass the parameter ti camera object isFlashOn
+	 * = true; // Set flag to true } }
+	 */
+
+	/*
+	 * private void calculateMemoryUsage() { MemoryInfo mi = new MemoryInfo();
+	 * ActivityManager activityManager = (ActivityManager)
+	 * getSystemService(ACTIVITY_SERVICE); activityManager.getMemoryInfo(mi);
+	 * long availableMegs = mi.availMem / 1048576L;
+	 * 
+	 * Log.v("", "Memory" + availableMegs);
+	 * 
+	 * //Percentage can be calculated for API 16+ long percentAvail =
+	 * mi.availMem / mi.totalMem; }
+	 */
 }
