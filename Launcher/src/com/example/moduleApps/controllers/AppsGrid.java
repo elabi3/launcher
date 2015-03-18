@@ -35,7 +35,6 @@ public class AppsGrid implements Observer {
 	public static final int APPS_GRID_USED_ORDER = 4;
 	public static final int APPS_GRID_MOST_OPENS_ORDER = 5;
 
-
 	public static final int GRID_DRAWER = R.layout.module_apps_grid_drawer;
 	public static final int GRID = R.layout.module_apps_grid;
 
@@ -134,8 +133,15 @@ public class AppsGrid implements Observer {
 		case APPS_GRID_MOST_OPENS:
 			temp = AppsManager.getInstance(mContext).getAppsMostOpens();
 			break;
-		case APPS_GRID_RECOMENDED: 
+		case APPS_GRID_RECOMENDED:
 			temp = AppsManager.getInstance(mContext).getAppsRecomended(maximun);
+			break;
+		case APPS_GRID_NEXT:
+			temp = AppsManager.getInstance(mContext).getNextApps();
+			if (temp == null) {
+				temp = AppsManager.getInstance(mContext).getAppsRecomended(
+						maximun);
+			}
 			break;
 		default:
 			break;

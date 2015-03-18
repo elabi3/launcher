@@ -8,6 +8,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 public class DatabaseOps {
 	private static DatabaseOps instance = null;
@@ -54,23 +55,28 @@ public class DatabaseOps {
 	}
 
 	public List<String> getNext(String id, int currentTime) {
-		String[] columns = { DatabaseTableOpens.COLUMN_NAME };
-		String selection = DatabaseTableOpens.COLUMN_NAME + "=? AND "
-				+ DatabaseTableOpens.COLUMN_TIME + ">=?";
-		String[] selectionArgs = new String[2];
+		String[] columns = { DatabaseTableOpens.COLUMN_ID };
+		String selection = DatabaseTableOpens.COLUMN_NAME + "=?";
+		String[] selectionArgs = new String[1];
 		selectionArgs[0] = id;
-		selectionArgs[0] = Integer.toString(currentTime);
 
 		Cursor cursor = query(columns, selection, selectionArgs);
 		List<String> elements = new ArrayList<String>(cursor.getCount());
 
 		cursor.moveToFirst();
-		while (!cursor.isAfterLast()) {
-			elements.add(cursor.getString(0));
+		for (int i = 0; i < cursor.getCount() - 1; i++) {
+			// Sacamos el siguiente elemento
+			String[] columns2 = { DatabaseTableOpens.COLUMN_NAME };
+			String selection2 = DatabaseTableOpens.COLUMN_ID + "=" + "?+1";
+			String[] selectionArgs2 = new String[1];
+			selectionArgs2[0] = cursor.getString(0);
+			Cursor cursor2 = query(columns2, selection2, selectionArgs2);
+			cursor2.moveToFirst();
+			elements.add(cursor2.getString(0));
 			cursor.moveToNext();
 		}
 		cursor.close();
-		return Collections.unmodifiableList(elements);
+		return elements;
 	}
 
 	// select name from opens where week_day = 1 and time > 1629 and time <

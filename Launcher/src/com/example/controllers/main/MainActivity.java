@@ -23,8 +23,9 @@ public class MainActivity extends FragmentActivity implements
 	public static List<SpaceItem> spaces;
 	public static int mainSpace = 1;
 	public static int selectedSpace = 1;
-	
+
 	private ViewPager mViewPager;
+	private static HomePagerAdapter mHomePagerAdapter;
 	private MainRightDrawer mainRightDrawer;
 
 	public static MainActivity getInstance() {
@@ -49,8 +50,9 @@ public class MainActivity extends FragmentActivity implements
 		mViewPager = (ViewPager) findViewById(R.id.pager);
 
 		// Setup drawers
-		mainRightDrawer = new MainRightDrawer((DrawerLayout) findViewById(R.id.drawer_layout), mViewPager);
-		
+		mainRightDrawer = new MainRightDrawer(
+				(DrawerLayout) findViewById(R.id.drawer_layout), mViewPager);
+
 		// SetupViewPager
 		setupViewPager();
 	}
@@ -70,20 +72,43 @@ public class MainActivity extends FragmentActivity implements
 				R.drawable.ic_launcher, CustomFragment.class));
 	}
 
+	/*public static void removeSpace(Object object) {
+		for (SpaceItem item : spaces) {
+			if (item.getClass().equals(object)) {
+				spaces.remove(object);
+				mHomePagerAdapter.setFragments(spaces);
+				mHomePagerAdapter.notifyDataSetChanged();
+				break;
+			}
+		}
+	}*/
+
 	private void setupViewPager() {
-		mViewPager.setAdapter(new HomePagerAdapter(getSupportFragmentManager(),
-				spaces));
+		mHomePagerAdapter = new HomePagerAdapter(getSupportFragmentManager(),
+				spaces);
+		mViewPager.setAdapter(mHomePagerAdapter);
 		mViewPager.setOnPageChangeListener(this);
 		mViewPager.setCurrentItem(mainSpace);
 	}
 
 	private static class HomePagerAdapter extends FragmentPagerAdapter {
-		private final List<SpaceItem> mFragments;
+		private List<SpaceItem> mFragments;
 
 		public HomePagerAdapter(FragmentManager fragmentManager,
 				List<SpaceItem> fragments) {
 			super(fragmentManager);
 			this.mFragments = fragments;
+		}
+
+		public void setFragments(List<SpaceItem> mFragments) {
+			this.mFragments = mFragments;
+		}
+
+		@Override
+		public void destroyItem(View collection, int position, Object o) {
+			View view = (View) o;
+			((ViewPager) collection).removeView(view);
+			view = null;
 		}
 
 		@Override

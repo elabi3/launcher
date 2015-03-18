@@ -1,5 +1,7 @@
 package com.example.controllers.main;
 
+import com.example.launcher.R;
+
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -27,6 +29,10 @@ public class MainRightDrawerAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		return MainActivity.spaces.get(position).getView(parent);
+		View returnView = MainActivity.spaces.get(position).getView(parent);
+		if (position == MainActivity.selectedSpace) {
+			returnView.setBackgroundResource(R.color.White_transparent);
+		}
+		return returnView;
 	}
 }

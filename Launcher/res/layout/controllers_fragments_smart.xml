@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        android:layout_weight=".50"
+        android:layout_weight=".52"
         android:orientation="horizontal"
         android:paddingTop="10dp" >
 
@@ -49,7 +49,7 @@
         android:layout_height="fill_parent"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
-        android:layout_weight=".50"
+        android:layout_weight=".48"
         android:orientation="horizontal"
         android:paddingTop="5dp" >
     </LinearLayout>
@@ -57,8 +57,36 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight=".60"
-        android:orientation="horizontal" >
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_weight=".50"
+        android:orientation="horizontal"
+        android:paddingBottom="20dp" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="50"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center_vertical|center_horizontal"
+            android:shadowColor="@color/Black"
+            android:shadowDx="1"
+            android:shadowDy="0"
+            android:shadowRadius="1"
+            android:text="Maybe you want..."
+            android:textColor="@color/White"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:id="@+id/nextApps"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="25dp"
+            android:layout_weight="50"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal" >
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

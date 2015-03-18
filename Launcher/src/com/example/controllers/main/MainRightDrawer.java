@@ -31,7 +31,7 @@ public class MainRightDrawer implements OnItemClickListener {
 	}
 
 	public void setSelectedView(int selected) {
-
+		adapter.notifyDataSetChanged();
 	}
 
 	@Override

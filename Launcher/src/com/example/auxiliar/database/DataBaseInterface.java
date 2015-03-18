@@ -1,24 +1,31 @@
 package com.example.auxiliar.database;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 import android.content.Context;
+import android.util.Log;
 
-public class Interface {
-	private static Interface instance = null;
+public class DataBaseInterface {
+	private static DataBaseInterface instance = null;
 	private static Context mContext;
 
-	public static Interface getInstance(Context context) {
+	public static DataBaseInterface getInstance(Context context) {
 		if (instance == null) {
-			instance = new Interface();
+			instance = new DataBaseInterface();
 		}
-		Interface.mContext = context;
+		DataBaseInterface.mContext = context;
 		return instance;
 	}
 
-	public static Interface getInstance() {
+	public static DataBaseInterface getInstance() {
 		if (instance == null) {
-			instance = new Interface();
+			instance = new DataBaseInterface();
 		}
 		return instance;
 	}
@@ -28,8 +35,28 @@ public class Interface {
 	}
 
 	public List<String> getNextElements(String id) {
-		return DatabaseOps.getInstance(mContext).getNext(id,
+		List<String> strings = DatabaseOps.getInstance(mContext).getNext(id,
 				DataBaseAux.getInstance().getTime());
+		strings.removeAll(Collections.singleton(id));
+
+		// Count occurences
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		for (String s : strings) {
+			if (map.containsKey(s)) {
+				map.put(s, map.get(s) + 1);
+			} else {
+				map.put(s, 1);
+			}
+		}
+
+		DataBaseAux.ValueComparatorNext<String, Integer> comparator = new DataBaseAux.ValueComparatorNext<String, Integer>(
+				map);
+		Map<String, Integer> sortedMap = new TreeMap<String, Integer>(
+				comparator);
+		sortedMap.putAll(map);
+
+		// Si hay muchas de una sola apertura no nos las devuelve
+		return new ArrayList<String>(sortedMap.keySet());
 	}
 
 	public int getOpeningsTimes(String id) {

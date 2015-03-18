@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 
-import com.example.auxiliar.database.Interface;
+import com.example.auxiliar.database.DataBaseInterface;
 import com.example.auxiliar.database.DatabaseElementOpen;
 import com.example.moduleApps.auxiliar.SortApps;
 import com.example.moduleApps.model.AppPack;
@@ -14,12 +14,19 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.res.Resources;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.StateListDrawable;
+import android.util.Log;
 
 public class AppsManager extends Observable {
 	private static AppsManager instance = null;
 	private Context mContext;
 	private PackageManager pm;
 	public static List<AppPack> listApps;
+	public static List<AppPack> nextApps;
 
 	public static AppsManager getInstance(Context context) {
 		if (instance == null) {
@@ -78,8 +85,14 @@ public class AppsManager extends Observable {
 
 	// Call newOpening from click listener
 	public void newOpening(String id) {
-		Interface.getInstance(mContext).newOpening(
+		DataBaseInterface.getInstance(mContext).newOpening(
 				new DatabaseElementOpen(id, "app", "", ""));
+
+		// Next apps
+		nextApps = checkIfAppExist(DataBaseInterface.getInstance(mContext)
+				.getNextElements(id));
+		setChanged();
+		notifyObservers();
 	}
 
 	/********************************************
@@ -102,16 +115,16 @@ public class AppsManager extends Observable {
 	}
 
 	public List<AppPack> getAppsMostOpens() {
-		return checkIfAppExist(Interface.getInstance(mContext)
+		return checkIfAppExist(DataBaseInterface.getInstance(mContext)
 				.getMostOpenings());
 	}
 
 	public List<AppPack> getAppsRecomended(int maximun) {
-		return checkIfAppExist(Interface.getInstance(mContext).getRecomended(maximun));
+		return checkIfAppExist(DataBaseInterface.getInstance(mContext)
+				.getRecomended(maximun));
 	}
 
-	public List<AppPack> getNextApps(String app) {
-		return checkIfAppExist(Interface.getInstance(mContext).getNextElements(
-				app));
+	public List<AppPack> getNextApps() {
+		return nextApps;
 	}
 }

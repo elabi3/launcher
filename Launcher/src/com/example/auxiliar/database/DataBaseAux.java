@@ -58,7 +58,7 @@ public class DataBaseAux {
 		result[0] = Integer.parseInt(sdf.format(cal.getTimeInMillis()
 				+ interval));
 		result[1] = Integer.parseInt(sdf.format(cal.getTimeInMillis()
-				- interval));		
+				- interval));
 		return result;
 	}
 
@@ -118,6 +118,20 @@ public class DataBaseAux {
 			} else {
 				return 1;
 			}
+		}
+	}
+
+	public static class ValueComparatorNext<K, V extends Comparable<V>> implements
+			Comparator<K> {
+		private Map<K, V> map;
+
+		public ValueComparatorNext(Map<K, V> base) {
+			this.map = base;
+		}
+
+		@Override
+		public int compare(K o1, K o2) {
+			return map.get(o2).compareTo(map.get(o1));
 		}
 	}
 }

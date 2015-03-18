@@ -25,13 +25,13 @@ public class DatabaseTableOpens {
 
 	public static void onCreate(SQLiteDatabase database) {
 		database.execSQL(DATABASE_CREATE);
-		Log.i("BookmarksTable", DATABASE_CREATE);
+		Log.i("OpenTable", DATABASE_CREATE);
 	}
 
 	public static void onUpgrade(SQLiteDatabase database, int oldVersion,
 			int newVersion) {
 		database.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
-		Log.i("BookmarksTable", "DROP TABLE IF EXISTS " + TABLE_NAME);
+		Log.i("OpenTable", "DROP TABLE IF EXISTS " + TABLE_NAME);
 		onCreate(database);
 	}
 

@@ -12,7 +12,7 @@ public class CustomAppWidgetHost extends AppWidgetHost {
 	}
 
 	@Override
-	protected AppWidgetHostView onCreateView(Context context, int appWidgetId,
+	public AppWidgetHostView onCreateView(Context context, int appWidgetId,
 			AppWidgetProviderInfo appWidget) {
 		return new CustomAppWidgetHostView(context);
 	}
