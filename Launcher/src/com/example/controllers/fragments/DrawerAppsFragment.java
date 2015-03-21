@@ -36,6 +36,7 @@ public class DrawerAppsFragment extends Fragment implements OnClickListener {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		setRetainInstance(true);
 		appsGrid = new AppsGrid(getActivity(), AppsGrid.GRID_DRAWER,
 				AppsGrid.APPS_GRID_ALL, AppsGrid.NO_MAXIMUN_LIMIT, 0);
 	}

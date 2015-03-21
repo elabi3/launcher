@@ -43,11 +43,17 @@ public class CustomFragment extends Fragment implements OnLongClickListener,
 	private AppWidgetHost mAppWidgetHost;
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setRetainInstance(true);
+
 		mAppWidgetManager = AppWidgetManager.getInstance(getActivity());
 		mAppWidgetHost = new AppWidgetHost(getActivity(), 1000);
+	}
 
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
 		mView = inflater.inflate(R.layout.controllers_fragments_custom,
 				container, false);
 		mView.setOnLongClickListener(this);

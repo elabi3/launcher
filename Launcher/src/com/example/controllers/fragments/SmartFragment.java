@@ -27,6 +27,7 @@ public class SmartFragment extends Fragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		setRetainInstance(true);
 		appsRecommended = new AppsGrid(getActivity(), AppsGrid.GRID,
 				AppsGrid.APPS_GRID_RECOMENDED, 12, 30000);
 
