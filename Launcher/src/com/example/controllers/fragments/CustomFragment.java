@@ -30,7 +30,7 @@ import android.widget.TextView;
 
 import com.example.controllers.main.MainActivity;
 import com.example.launcher.R;
-import com.example.moduleCustom.ShortcutClickListener;
+import com.example.moduleCustomSpace.ShortcutClickListener;
 
 public class CustomFragment extends Fragment implements OnLongClickListener,
 		android.content.DialogInterface.OnClickListener {
@@ -97,6 +97,7 @@ public class CustomFragment extends Fragment implements OnLongClickListener,
 		case 2:
 			break;
 		case 3:
+			MainActivity.removeSpace(this);
 			break;
 		}
 	}

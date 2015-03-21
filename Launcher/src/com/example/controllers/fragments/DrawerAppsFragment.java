@@ -34,27 +34,24 @@ public class DrawerAppsFragment extends Fragment implements OnClickListener {
 	private Boolean open = false;
 
 	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		appsGrid = new AppsGrid(getActivity(), AppsGrid.GRID_DRAWER,
+				AppsGrid.APPS_GRID_ALL, AppsGrid.NO_MAXIMUN_LIMIT, 0);
+	}
+
+	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		mView = inflater.inflate(R.layout.controllers_fragments_drawer_apps,
 				container, false);
 
-		loadGridApps();
+		LinearLayout layout = (LinearLayout) mView.findViewById(R.id.content);
+		layout.addView(appsGrid.getGridView());
+
 		loadTextSearch();
 		loadFilter();
 		return mView;
-	}
-
-	/********************************************
-	 * Grid apps
-	 ********************************************/
-
-	private void loadGridApps() {
-		LinearLayout layout = (LinearLayout) mView.findViewById(R.id.content);
-
-		appsGrid = new AppsGrid(getActivity(), AppsGrid.GRID_DRAWER,
-				AppsGrid.APPS_GRID_ALL, AppsGrid.NO_MAXIMUN_LIMIT, 0);
-		layout.addView(appsGrid.getGridView());
 	}
 
 	/********************************************
@@ -73,6 +70,8 @@ public class DrawerAppsFragment extends Fragment implements OnClickListener {
 			b.setOnClickListener(this);
 			buttons.add(b);
 		}
+
+		buttons.get(0).setBackgroundResource(R.color.White_transparent);
 	}
 
 	private void openMenu() {
@@ -84,8 +83,7 @@ public class DrawerAppsFragment extends Fragment implements OnClickListener {
 		long duration = 200;
 
 		for (Button b : buttons) {
-			ObjectAnimator alpha;
-			ObjectAnimator mover;
+			ObjectAnimator alpha, mover;
 
 			if (!open) {
 				alpha = ObjectAnimator.ofFloat(b, "alpha", 0, 1);
@@ -96,13 +94,8 @@ public class DrawerAppsFragment extends Fragment implements OnClickListener {
 				mover = ObjectAnimator.ofFloat(b, "translationY", point.y
 						* percentage, 0);
 			}
-
-			alpha.setDuration(duration);
-			mover.setDuration(duration);
-
-			alpha.start();
-			mover.start();
-
+			alpha.setDuration(duration).start();
+			mover.setDuration(duration).start();
 			percentage = percentage + 0.10f;
 		}
 		open = !open;

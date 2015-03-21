@@ -23,7 +23,7 @@ import android.util.Log;
 
 public class AppsManager extends Observable {
 	private static AppsManager instance = null;
-	private Context mContext;
+	private static Context mContext;
 	private PackageManager pm;
 	public static List<AppPack> listApps;
 	public static List<AppPack> nextApps;
@@ -32,6 +32,7 @@ public class AppsManager extends Observable {
 		if (instance == null) {
 			instance = new AppsManager(context);
 		}
+		instance.mContext = context;
 		return instance;
 	}
 

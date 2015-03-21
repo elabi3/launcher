@@ -1,4 +1,4 @@
-package com.example.moduleCustom;
+package com.example.moduleCustomSpace;
 
 import android.appwidget.AppWidgetHost;
 import android.appwidget.AppWidgetHostView;

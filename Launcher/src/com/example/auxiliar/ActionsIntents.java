@@ -38,10 +38,6 @@ public class ActionsIntents {
 		context.startActivity(alarmClockIntent);
 	}
 
-	public static void openApp(Context context, Intent launchIntent) {
-		context.startActivity(launchIntent);
-	}
-
 	public static void newPhoneCall(Context context) {
 		Intent intent = new Intent(Intent.ACTION_DIAL);
 		context.startActivity(intent);
@@ -51,12 +47,20 @@ public class ActionsIntents {
 
 	}
 
+	public static void openGallery() {
+
+	}
+
 	public static void newTweet() {
 
 	}
 
 	public static void newFacebookPost() {
 
+	}
+
+	public static void openApp(Context context, Intent launchIntent) {
+		context.startActivity(launchIntent);
 	}
 
 	/*
