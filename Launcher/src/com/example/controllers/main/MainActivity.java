@@ -82,6 +82,8 @@ public class MainActivity extends FragmentActivity implements
 		mViewPager.setOnPageChangeListener(this);
 		mViewPager.setCurrentItem(mainSpace);
 		mViewPager.setOffscreenPageLimit(spaces.size());
+		mViewPager.setPageTransformer(false, new ViewPagerTransitions(
+				ViewPagerTransitions.TRANSITION_TABLET));
 	}
 
 	public static void removeSpace(Fragment fragment) {

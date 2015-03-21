@@ -2,6 +2,7 @@ package com.example.controllers.main;
 
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.DrawerLayout.DrawerListener;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -9,7 +10,7 @@ import android.widget.ListView;
 
 import com.example.launcher.R;
 
-public class MainRightDrawer implements OnItemClickListener {
+public class MainRightDrawer implements OnItemClickListener, DrawerListener {
 
 	private DrawerLayout mLayout;
 	private ViewPager mViewPager;
@@ -20,6 +21,8 @@ public class MainRightDrawer implements OnItemClickListener {
 		mLayout = layout;
 		mViewPager = viewPager;
 		setupListView();
+
+		mLayout.setDrawerListener(this);
 	}
 
 	private void setupListView() {
@@ -42,5 +45,25 @@ public class MainRightDrawer implements OnItemClickListener {
 
 		MainActivity.selectedSpace = position;
 		mViewPager.setCurrentItem(MainActivity.selectedSpace);
+	}
+
+	@Override
+	public void onDrawerClosed(View view) {
+
+	}
+
+	@Override
+	public void onDrawerOpened(View view) {
+
+	}
+
+	@Override
+	public void onDrawerSlide(View view, float position) {
+		view.setAlpha(position);
+	}
+
+	@Override
+	public void onDrawerStateChanged(int arg0) {
+
 	}
 }
