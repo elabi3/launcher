@@ -32,20 +32,6 @@
         android:textSize="15sp" />
 
     <Button
-        android:id="@+id/button_3"
-        android:layout_width="180dp"
-        android:layout_height="50dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="40dp"
-        android:alpha="0"
-        android:background="@drawable/background_button"
-        android:fontFamily="sans-serif-light"
-        android:text="@string/drawer_apps_order_recently_used"
-        android:textColor="@color/Black"
-        android:textSize="15sp" />
-
-    <Button
         android:id="@+id/button_2"
         android:layout_width="180dp"
         android:layout_height="50dp"

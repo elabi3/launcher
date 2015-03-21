@@ -22,7 +22,6 @@
     <string name="drawer_apps_order_update">Last Update</string>
     <string name="drawer_apps_order_install">Last Install</string>
     <string name="drawer_apps_order_most_used">Most used</string>
-    <string name="drawer_apps_order_recently_used">Recently used</string>
     <string name="drawer_right_title">Spaces</string>
     <string name="preferences_spaces_title">Spaces</string>
     <string name="preferences_spaces_order_title">Order</string>
@@ -35,6 +34,7 @@
     <string name="preferences_about_version_title">Version</string>
     <string name="preferences_about_author_title">Author</string>
     <string name="module_app_long_app_info">Information</string>
+    <string name="module_app_long_app_share">Share</string>
     <string name="module_app_long_app_detail">Google Play Info</string>
     <string name="module_app_long_app_unistall">Unistall</string>
 

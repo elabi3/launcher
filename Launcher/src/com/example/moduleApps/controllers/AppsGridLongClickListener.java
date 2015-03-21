@@ -20,8 +20,8 @@ public class AppsGridLongClickListener implements OnItemLongClickListener,
 		android.content.DialogInterface.OnClickListener {
 	private List<AppPack> listApps;
 	private Context mContext;
-	private String packageName;
-	private String[] items = new String[3];
+	private AppPack appPack;
+	private String[] items = new String[4];
 
 	public AppsGridLongClickListener(List<AppPack> listApps) {
 		super();
@@ -35,11 +35,12 @@ public class AppsGridLongClickListener implements OnItemLongClickListener,
 	@Override
 	public boolean onItemLongClick(AdapterView<?> arg0, View view, int pos,
 			long arg3) {
-		packageName = listApps.get(pos).getpackageName();
+		appPack = listApps.get(pos);
 		mContext = view.getContext();
 		items[0] = mContext.getString(R.string.module_app_long_app_info);
-		items[1] = mContext.getString(R.string.module_app_long_app_unistall);
-		items[2] = mContext.getString(R.string.module_app_long_app_detail);
+		items[1] = mContext.getString(R.string.module_app_long_app_share);
+		items[2] = mContext.getString(R.string.module_app_long_app_unistall);
+		items[3] = mContext.getString(R.string.module_app_long_app_detail);
 
 		AlertDialog.Builder builder = new AlertDialog.Builder(mContext,
 				AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
@@ -60,7 +61,7 @@ public class AppsGridLongClickListener implements OnItemLongClickListener,
 				// Open the specific App Info page:
 				intent = new Intent(
 						android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-				intent.setData(Uri.parse("package:" + packageName));
+				intent.setData(Uri.parse("package:" + appPack.getpackageName()));
 			} catch (ActivityNotFoundException e) {
 				// Open the generic Apps page:
 				intent = new Intent(
@@ -68,12 +69,17 @@ public class AppsGridLongClickListener implements OnItemLongClickListener,
 			}
 			break;
 		case 1:
-			intent = new Intent(Intent.ACTION_DELETE, Uri.parse("package:"
-					+ packageName));
+			intent = new Intent(Intent.ACTION_SEND);
+			intent.setType("*/*");
+			intent.putExtra(Intent.EXTRA_TEXT, appPack.getName());
 			break;
 		case 2:
+			intent = new Intent(Intent.ACTION_DELETE, Uri.parse("package:"
+					+ appPack.getpackageName()));
+			break;
+		case 3:
 			intent = new Intent(Intent.ACTION_VIEW,
-					Uri.parse("market://details?id=" + packageName));
+					Uri.parse("market://details?id=" + appPack.getpackageName()));
 			break;
 		default:
 			break;

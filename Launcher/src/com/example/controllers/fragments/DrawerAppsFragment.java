@@ -62,8 +62,8 @@ public class DrawerAppsFragment extends Fragment implements OnClickListener {
 	 ********************************************/
 
 	private void loadFilter() {
-		int[] buttonsIds = { R.id.button_1, R.id.button_2, R.id.button_3,
-				R.id.button_4, R.id.button_5 };
+		int[] buttonsIds = { R.id.button_1, R.id.button_2, R.id.button_4,
+				R.id.button_5 };
 		button = (Button) mView.findViewById(R.id.button);
 		button.setOnClickListener(this);
 
@@ -111,10 +111,10 @@ public class DrawerAppsFragment extends Fragment implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.button_2:
-			break;
 		case R.id.button_1:
 			appsGrid.sortAppsBy(AppsGrid.APPS_GRID_AZ_ORDER);
+			break;
+		case R.id.button_2:
 			break;
 		case R.id.button_4:
 			appsGrid.sortAppsBy(AppsGrid.APPS_GRID_INSTALL_ORDER);
@@ -122,6 +122,12 @@ public class DrawerAppsFragment extends Fragment implements OnClickListener {
 		case R.id.button_5:
 			appsGrid.sortAppsBy(AppsGrid.APPS_GRID_UPDATE_ORDER);
 			break;
+		}
+		if (v.getId() != R.id.button) {
+			for (Button b : buttons) {
+				b.setBackgroundResource(R.color.White);
+			}
+			v.setBackgroundResource(R.color.White_transparent);
 		}
 		openMenu();
 	}

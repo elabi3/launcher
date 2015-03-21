@@ -89,6 +89,7 @@ public class MainActivity extends FragmentActivity implements
 		mViewPager.setAdapter(mHomePagerAdapter);
 		mViewPager.setOnPageChangeListener(this);
 		mViewPager.setCurrentItem(mainSpace);
+		mViewPager.setOffscreenPageLimit(spaces.size());
 	}
 
 	private static class HomePagerAdapter extends FragmentPagerAdapter {
@@ -104,12 +105,12 @@ public class MainActivity extends FragmentActivity implements
 			this.mFragments = mFragments;
 		}
 
-		@Override
+		/*@Override
 		public void destroyItem(View collection, int position, Object o) {
 			View view = (View) o;
 			((ViewPager) collection).removeView(view);
 			view = null;
-		}
+		}*/
 
 		@Override
 		public int getCount() {
