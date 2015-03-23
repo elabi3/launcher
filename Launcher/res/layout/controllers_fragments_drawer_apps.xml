@@ -3,7 +3,7 @@
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Drawer_apps_background"
+    android:background="?attr/spaces_background_color"
     android:focusableInTouchMode="true" >
 
     <LinearLayout
@@ -15,7 +15,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="30dp"
-        android:background="@color/Bar_drawer_apps"
+        android:background="?attr/spaces_bars"
         android:elevation="8dp"
         android:orientation="horizontal" >
 
@@ -29,6 +29,7 @@
 
         <EditText
             android:id="@+id/edit_text1"
+            style="@style/SpacesText"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
@@ -39,8 +40,7 @@
             android:background="@color/Transparent"
             android:hint="@string/search_hint"
             android:imeOptions="actionSearch"
-            android:inputType="text"
-            android:textColor="#FFFFFF" >
+            android:inputType="text" >
         </EditText>
 
         <Button

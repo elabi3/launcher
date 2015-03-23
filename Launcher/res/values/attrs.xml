@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="Spaces">
+        <attr name="spaces_background_color" format="color" />
+        <attr name="spaces_bars" format="color" />
+        <attr name="spaces_text_color" format="color" />
+    </declare-styleable>
+    
+    <declare-styleable name="Drawer_Spaces">
+        <attr name="drawer_spaces_background_color" format="color" />
+        <attr name="drawer_spaces_text_color" format="color" />
+    </declare-styleable>
+
+</resources>

@@ -21,7 +21,6 @@ import com.example.moduleApps.AppsManager;
 
 public class MainActivity extends FragmentActivity implements
 		ViewPager.OnPageChangeListener {
-	private static MainActivity instance;
 	public static List<SpaceItem> spaces;
 	public static int mainSpace = 1;
 	public static int selectedSpace = 1;
@@ -29,15 +28,12 @@ public class MainActivity extends FragmentActivity implements
 	private ViewPager mViewPager;
 	private static HomePagerAdapter mHomePagerAdapter;
 	private MainRightDrawer mainRightDrawer;
-
-	public static MainActivity getInstance() {
-		return instance;
-	}
+	private MainLeftDrawer mainLeftDrawer;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		instance = this;
+		getActionBar().hide();
 		AppsManager.getInstance(this);
 
 		// Important!!! Navigation Bar transparent
@@ -55,6 +51,8 @@ public class MainActivity extends FragmentActivity implements
 		// Setup drawers
 		mainRightDrawer = new MainRightDrawer(
 				(DrawerLayout) findViewById(R.id.drawer_layout), mViewPager);
+		mainLeftDrawer = new MainLeftDrawer(
+				(DrawerLayout) findViewById(R.id.drawer_layout), this);
 
 		// SetupViewPager
 		setupViewPager();
@@ -82,10 +80,9 @@ public class MainActivity extends FragmentActivity implements
 		mViewPager.setOnPageChangeListener(this);
 		mViewPager.setCurrentItem(mainSpace);
 		mViewPager.setOffscreenPageLimit(spaces.size());
-		mViewPager.setPageTransformer(false, new ViewPagerTransitions(
-				ViewPagerTransitions.TRANSITION_TABLET));
+		mViewPager.setPageTransformer(false, new ViewPagerTransitions());
 	}
-
+	
 	public static void removeSpace(Fragment fragment) {
 		for (SpaceItem item : spaces) {
 			if (item.getFragment().equals(fragment)) {

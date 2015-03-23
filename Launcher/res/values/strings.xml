@@ -10,6 +10,7 @@
     <string name="new_alarm">New Alarm</string>
     <string name="new_phone">New Phone Call</string>
     <string name="torch">Torch</string>
+    <string name="settings_title">Settings</string>
     <string name="custom_dialog_title">Select Action</string>
     <string name="custom_dialog_widget">Add Widget</string>
     <string name="custom_dialog_shortcat">Add Shortcat</string>
@@ -26,6 +27,7 @@
     <string name="drawer_right_title">Spaces</string>
     <string name="preferences_spaces_title">Spaces</string>
     <string name="preferences_spaces_order_title">Order</string>
+    <string name="preferences_spaces_transition">Transition</string>
     <string name="preferences_theme_title">Appearance</string>
     <string name="preferences_theme_theme_title">Theme</string>
     <string name="preferences_theme_wallpaper_title">Wallpaper</string>
