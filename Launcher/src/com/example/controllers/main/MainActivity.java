@@ -80,7 +80,7 @@ public class MainActivity extends FragmentActivity implements
 		mViewPager.setOnPageChangeListener(this);
 		mViewPager.setCurrentItem(mainSpace);
 		mViewPager.setOffscreenPageLimit(spaces.size());
-		mViewPager.setPageTransformer(false, new ViewPagerTransitions());
+		mViewPager.setPageTransformer(false, new ViewPagerTransitions(this));
 	}
 	
 	public static void removeSpace(Fragment fragment) {

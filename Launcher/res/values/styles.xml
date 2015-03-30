@@ -8,10 +8,14 @@
     </style>
 
     <style name="DarkTheme" parent="AppTheme">
-        <item name="spaces_background_color">#AA000000</item>
-        <item name="spaces_bars">#BB000000</item>
-        <item name="spaces_text_color">#FFFFFFFF</item>
-        <item name="drawer_spaces_background_color">#DD000000</item>
+        <item name="spaces_background_color">#BB000000</item>
+        <item name="spaces_bars">#CC07527A</item>
+        <item name="spaces_text_color">#FFFFFF</item>
+        <item name="drawer_spaces_background_color">#FF042A3F</item>
+        <item name="spaces_button_color">#FF07527A</item>
+        <item name="spaces_button_border_color">#FF042A3F</item>
+        <item name="spaces_button_color_selected">#FF0D91D8</item>
+        <item name="spaces_button_border_color_selected">#FF0D91D8</item>
     </style>
 
     <style name="LightTheme" parent="AppTheme">

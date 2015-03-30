@@ -31,7 +31,7 @@ public class MainRightDrawerAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View returnView = MainActivity.spaces.get(position).getView(parent);
 		if (position == MainActivity.selectedSpace) {
-			returnView.setBackgroundResource(R.color.White_transparent);
+			returnView.setBackgroundResource(R.drawable.background_list_item_selected);
 		}
 		return returnView;
 	}

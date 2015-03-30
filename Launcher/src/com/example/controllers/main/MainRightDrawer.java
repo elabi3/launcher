@@ -59,7 +59,7 @@ public class MainRightDrawer implements OnItemClickListener, DrawerListener {
 
 	@Override
 	public void onDrawerSlide(View view, float position) {
-		view.setAlpha(position);
+		//view.setAlpha(position);
 	}
 
 	@Override

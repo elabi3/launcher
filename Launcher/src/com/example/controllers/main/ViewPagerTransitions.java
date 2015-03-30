@@ -1,5 +1,8 @@
 package com.example.controllers.main;
 
+import com.example.auxiliar.Prefs;
+
+import android.content.Context;
 import android.graphics.Camera;
 import android.graphics.Matrix;
 import android.support.v4.view.ViewPager;
@@ -22,77 +25,52 @@ public class ViewPagerTransitions implements ViewPager.PageTransformer {
 	private static final Camera OFFSET_CAMERA = new Camera();
 	private static final float[] OFFSET_TEMP_FLOAT = new float[2];
 
-	private static int selected = TRANSITION_DEFAULT;
+	private static int selected;
+	private static Context mContext;
 
-	public ViewPagerTransitions() {
-
+	public ViewPagerTransitions(Context context) {
+		mContext = context;
+		selected = Prefs.getFromPrefs(mContext, Prefs.PREFS_TRANSITION,
+				TRANSITION_DEFAULT);
 	}
 
 	public static String getSelectedTransition() {
 		return transitions[selected];
 	}
-	
+
 	public static void setSelectedTransition(int transition) {
 		selected = transition;
+		Prefs.saveToPrefs(mContext, Prefs.PREFS_TRANSITION, transition);
 	}
 
 	@Override
 	public void transformPage(View view, float position) {
 		onPreTransform(view, position);
-		// Alpha
 		final float normalizedposition = Math.abs(Math.abs(position) - 1);
 		view.setAlpha(normalizedposition);
 
 		switch (selected) {
-		case TRANSITION_CUBE_OUT: {
-			view.setPivotX(position < 0f ? view.getWidth() : 0f);
-			view.setPivotY(view.getHeight() * 0.5f);
-			view.setRotationY(90f * position);
+		case TRANSITION_CUBE_OUT:
+			cubeOut(view, position);
 			break;
-		}
-		case TRANSITION_SCALE: {
-			view.setScaleX(normalizedposition / 2 + 0.5f);
-			view.setScaleY(normalizedposition / 2 + 0.5f);
+		case TRANSITION_SCALE:
+			scale(view, normalizedposition);
 			break;
-		}
-		case TRANSITION_TABLET: {
-			final float rotation = (position < 0 ? 30f : -30f)
-					* Math.abs(position);
-			view.setTranslationX(getOffsetXForRotation(rotation,
-					view.getWidth(), view.getHeight()));
-			view.setPivotX(view.getWidth() * 0.5f);
-			view.setPivotY(0);
-			view.setRotationY(rotation);
+		case TRANSITION_TABLET:
+			tablet(view, position);
 			break;
-		}
-		case TRANSITION_ROTATE_UP: {
-			final float width = view.getWidth();
-			final float rotation = -15f * position;
-
-			view.setPivotX(width * 0.5f);
-			view.setPivotY(0f);
-			view.setTranslationX(0f);
-			view.setRotation(rotation);
+		case TRANSITION_ROTATE_UP:
+			rotateUp(view, position);
 			break;
-		}
-		case TRANSITION_ROTATE_DOWN: {
-			final float width = view.getWidth();
-			final float height = view.getHeight();
-			final float rotation = -15f * position * -1.25f;
-
-			view.setPivotX(width * 0.5f);
-			view.setPivotY(height);
-			view.setRotation(rotation);
+		case TRANSITION_ROTATE_DOWN:
+			rotateDown(view, position);
 			break;
-		}
-		case TRANSITION_ZOOM_OUT_SLIDE: {
+		case TRANSITION_ZOOM_OUT_SLIDE:
 			zoomOutSlideTransform(view, position);
 			break;
-		}
-		case TRANSITION_DEPTH_PAGE: {
+		case TRANSITION_DEPTH_PAGE:
 			depthPageTransform(view, position);
 			break;
-		}
 		default: {
 
 			break;
@@ -111,6 +89,46 @@ public class ViewPagerTransitions implements ViewPager.PageTransformer {
 		page.setTranslationY(0);
 		page.setTranslationX(0);
 		page.setAlpha(position <= -1f || position >= 1f ? 0f : 1f);
+	}
+
+	private void cubeOut(View view, float position) {
+		view.setPivotX(position < 0f ? view.getWidth() : 0f);
+		view.setPivotY(view.getHeight() * 0.5f);
+		view.setRotationY(90f * position);
+	}
+
+	private void scale(View view, float position) {
+		view.setScaleX(position / 2 + 0.5f);
+		view.setScaleY(position / 2 + 0.5f);
+	}
+
+	private void tablet(View view, float position) {
+		final float rotation = (position < 0 ? 30f : -30f) * Math.abs(position);
+		view.setTranslationX(getOffsetXForRotation(rotation, view.getWidth(),
+				view.getHeight()));
+		view.setPivotX(view.getWidth() * 0.5f);
+		view.setPivotY(0);
+		view.setRotationY(rotation);
+	}
+
+	private void rotateUp(View view, float position) {
+		final float width = view.getWidth();
+		final float rotation = -15f * position;
+
+		view.setPivotX(width * 0.5f);
+		view.setPivotY(0f);
+		view.setTranslationX(0f);
+		view.setRotation(rotation);
+	}
+
+	private void rotateDown(View view, float position) {
+		final float width = view.getWidth();
+		final float height = view.getHeight();
+		final float rotation = -15f * position * -1.25f;
+
+		view.setPivotX(width * 0.5f);
+		view.setPivotY(height);
+		view.setRotation(rotation);
 	}
 
 	private void zoomOutSlideTransform(View view, float position) {

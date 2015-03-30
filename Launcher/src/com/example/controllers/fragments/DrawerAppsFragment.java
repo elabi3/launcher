@@ -72,7 +72,7 @@ public class DrawerAppsFragment extends Fragment implements OnClickListener {
 			buttons.add(b);
 		}
 
-		buttons.get(0).setBackgroundResource(R.color.White_transparent);
+		buttons.get(0).setBackgroundResource(R.drawable.background_button_selected);
 	}
 
 	private void openMenu() {
@@ -119,9 +119,9 @@ public class DrawerAppsFragment extends Fragment implements OnClickListener {
 		}
 		if (v.getId() != R.id.button) {
 			for (Button b : buttons) {
-				b.setBackgroundResource(R.color.White);
+				b.setBackgroundResource(R.drawable.background_button);
 			}
-			v.setBackgroundResource(R.color.White_transparent);
+			v.setBackgroundResource(R.drawable.background_button_selected);
 		}
 		openMenu();
 	}
