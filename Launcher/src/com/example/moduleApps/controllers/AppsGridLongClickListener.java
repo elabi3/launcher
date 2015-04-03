@@ -23,8 +23,9 @@ public class AppsGridLongClickListener implements OnItemLongClickListener,
 	private AppPack appPack;
 	private String[] items = new String[4];
 
-	public AppsGridLongClickListener(List<AppPack> listApps) {
+	public AppsGridLongClickListener(Context context, List<AppPack> listApps) {
 		super();
+		this.mContext = context;
 		this.listApps = listApps;
 	}
 
@@ -36,7 +37,6 @@ public class AppsGridLongClickListener implements OnItemLongClickListener,
 	public boolean onItemLongClick(AdapterView<?> arg0, View view, int pos,
 			long arg3) {
 		appPack = listApps.get(pos);
-		mContext = view.getContext();
 		items[0] = mContext.getString(R.string.module_app_long_app_info);
 		items[1] = mContext.getString(R.string.module_app_long_app_share);
 		items[2] = mContext.getString(R.string.module_app_long_app_unistall);

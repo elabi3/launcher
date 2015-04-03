@@ -80,7 +80,7 @@ public class DataBaseInterface {
 
 		if (result.size() < number) {
 			result = DatabaseOps.getInstance(mContext).getRecomended(-1,
-					interval);
+					DataBaseAux.getInstance().getInterval(3600000*2));
 		}
 		return DataBaseAux.getInstance().sortElementsByMostOpen(result, true);
 	}

@@ -1,12 +1,8 @@
 package com.example.moduleApps.auxiliar;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.example.moduleApps.model.AppPack;
-
-import android.app.ActivityManager;
-import android.app.ActivityManager.RunningAppProcessInfo;
 
 public class SortApps {
 
@@ -70,20 +66,21 @@ public class SortApps {
 		}
 	}
 
-	// Sacamos los procesos que se parezcan
-	public static List<AppPack> sortByRecents(List<AppPack> listApps,
-			List<ActivityManager.RunningAppProcessInfo> running) {
-		List<AppPack> returnList = new ArrayList<AppPack>();
+	// Opens
+	public static void sortByOpens(List<AppPack> listApps) {
+		int i, j;
+		AppPack temp;
 
-		for (RunningAppProcessInfo runningAppProcessInfo : running) {
-			for (int i = 0; i < listApps.size(); i++) {
-				if (listApps.get(i).getpackageName()
-						.equals(runningAppProcessInfo.processName)) {
-					returnList.add(listApps.get(i));
+		for (i = 0; i < listApps.size() - 1; i++) {
+			for (j = i + 1; j < listApps.size(); j++) {
+				if (listApps.get(i).getOpens() < listApps.get(j)
+						.getOpens()) {
+					temp = listApps.get(i);
+					listApps.set(i, listApps.get(j));
+					listApps.set(j, temp);
 				}
 			}
 		}
-		return returnList;
 	}
 
 }

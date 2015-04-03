@@ -109,6 +109,7 @@ public class DrawerAppsFragment extends Fragment implements OnClickListener {
 			appsGrid.sortAppsBy(AppsGrid.APPS_GRID_AZ_ORDER);
 			break;
 		case R.id.button_2:
+			appsGrid.sortAppsBy(AppsGrid.APPS_GRID_MOST_OPENS_ORDER);
 			break;
 		case R.id.button_4:
 			appsGrid.sortAppsBy(AppsGrid.APPS_GRID_INSTALL_ORDER);

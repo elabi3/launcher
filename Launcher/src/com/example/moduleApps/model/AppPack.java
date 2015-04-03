@@ -1,25 +1,24 @@
 package com.example.moduleApps.model;
 
-import com.example.launcher.R;
-
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
-import android.content.res.Resources.Theme;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
-import android.util.Log;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.auxiliar.database.DataBaseInterface;
+import com.example.launcher.R;
 
 public class AppPack {
 	private Drawable icon;
 	private String name;
 	private String packageName;
 
+	private int opens;
 	private long firsIntall;
 	private long lastUpdate;
 
@@ -70,6 +69,10 @@ public class AppPack {
 		this.packageName = packageName;
 	}
 
+	public int getOpens() {
+		return opens;
+	}
+
 	public long getFirsIntall() {
 		return firsIntall;
 	}
@@ -89,10 +92,16 @@ public class AppPack {
 	private class InstallInformation extends AsyncTask<Void, Void, Void> {
 		@Override
 		protected Void doInBackground(Void... params) {
+			opens = getNumberOfOpens();
 			firsIntall = getAppFirstInstallTime();
 			lastUpdate = getAppLastUpdateTime();
 			return null;
 		}
+	}
+
+	private int getNumberOfOpens() {
+		return DataBaseInterface.getInstance(mContext).getOpeningsTimes(
+				this.packageName);
 	}
 
 	private long getAppFirstInstallTime() {
@@ -135,17 +144,6 @@ public class AppPack {
 		icon.setContentDescription(this.name);
 		text.setText(this.name);
 
-		
-		TypedValue typedValue = new TypedValue();
-		Theme theme = mContext.getTheme();
-		theme.resolveAttribute(R.attr.customAttribute, typedValue, true);
-		int color = typedValue.data;
-		
-	
-		//text.setTextColor(color);
-		
-		Log.v("", color + "");
-		
 		return returnView;
 	}
 

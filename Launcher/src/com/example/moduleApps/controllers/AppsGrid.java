@@ -21,19 +21,17 @@ import com.example.moduleApps.model.AppPack;
 
 public class AppsGrid implements Observer {
 	public static final int APPS_GRID_ALL = 0;
-	public static final int APPS_GRID_RECENTS = 1;
-	public static final int APPS_GRID_MOST_OPENS = 2;
-	public static final int APPS_GRID_RECOMENDED = 7;
-	public static final int APPS_GRID_NEXT = 8;
+	public static final int APPS_GRID_MOST_OPENS = 1;
+	public static final int APPS_GRID_RECOMENDED = 2;
+	public static final int APPS_GRID_NEXT = 3;
 
 	public static final int NO_MAXIMUN_LIMIT = -1;
 
 	public static final int APPS_GRID_DEFAULT_ORDER = -1;
 	public static final int APPS_GRID_AZ_ORDER = 0;
-	public static final int APPS_GRID_UPDATE_ORDER = 2;
-	public static final int APPS_GRID_INSTALL_ORDER = 3;
-	public static final int APPS_GRID_USED_ORDER = 4;
-	public static final int APPS_GRID_MOST_OPENS_ORDER = 5;
+	public static final int APPS_GRID_UPDATE_ORDER = 1;
+	public static final int APPS_GRID_INSTALL_ORDER = 2;
+	public static final int APPS_GRID_MOST_OPENS_ORDER = 4;
 
 	public static final int GRID_DRAWER = R.layout.module_apps_grid_drawer;
 	public static final int GRID = R.layout.module_apps_grid;
@@ -109,6 +107,10 @@ public class AppsGrid implements Observer {
 			SortApps.sortByInstallTime(listApps);
 			selectedOrder = APPS_GRID_INSTALL_ORDER;
 			break;
+		case APPS_GRID_MOST_OPENS_ORDER:
+			SortApps.sortByOpens(listApps);
+			selectedOrder = APPS_GRID_MOST_OPENS_ORDER;
+			break;
 		default:
 			break;
 		}
@@ -127,9 +129,6 @@ public class AppsGrid implements Observer {
 		case APPS_GRID_ALL:
 			temp = AppsManager.getInstance(mContext).getAppsByName();
 			break;
-		case APPS_GRID_RECENTS:
-			temp = AppsManager.getInstance(mContext).getAppsRecents();
-			break;
 		case APPS_GRID_MOST_OPENS:
 			temp = AppsManager.getInstance(mContext).getAppsMostOpens();
 			break;
@@ -138,10 +137,6 @@ public class AppsGrid implements Observer {
 			break;
 		case APPS_GRID_NEXT:
 			temp = AppsManager.getInstance(mContext).getNextApps();
-			if (temp == null) {
-				temp = AppsManager.getInstance(mContext).getAppsRecomended(
-						maximun);
-			}
 			break;
 		default:
 			break;
@@ -151,7 +146,7 @@ public class AppsGrid implements Observer {
 		if (maximun == NO_MAXIMUN_LIMIT) {
 			listApps = temp;
 		} else {
-			if (temp.size() > 0) {
+			if (temp != null && temp.size() > 0) {
 				int until = maximun > temp.size() ? temp.size() : maximun;
 				for (int i = 0; i < until; i++) {
 					listApps.add(temp.get(i));
@@ -195,7 +190,7 @@ public class AppsGrid implements Observer {
 	private void loadGridView(int type) {
 		AppsGridClickListener gridClickListener = new AppsGridClickListener(
 				mContext, listApps);
-		AppsGridLongClickListener gridLongClickListener = new AppsGridLongClickListener(
+		AppsGridLongClickListener gridLongClickListener = new AppsGridLongClickListener(mContext,
 				listApps);
 		mAppsGridAdapter = new AppsGridAdapter(type, listApps,
 				gridClickListener, gridLongClickListener);

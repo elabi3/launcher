@@ -4,26 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+
 import com.example.auxiliar.database.DataBaseInterface;
 import com.example.auxiliar.database.DatabaseElementOpen;
 import com.example.moduleApps.auxiliar.SortApps;
 import com.example.moduleApps.model.AppPack;
 
-import android.app.ActivityManager;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
-import android.content.pm.PackageManager.NameNotFoundException;
-import android.content.res.Resources;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.StateListDrawable;
-import android.util.Log;
-
 public class AppsManager extends Observable {
 	private static AppsManager instance = null;
-	private static Context mContext;
+	private Context mContext;
 	private PackageManager pm;
 	public static List<AppPack> listApps;
 	public static List<AppPack> nextApps;
@@ -101,18 +94,9 @@ public class AppsManager extends Observable {
 	 ********************************************/
 
 	public List<AppPack> getAppsByName() {
-		List<AppPack> result = this.listApps;
+		List<AppPack> result = listApps;
 		SortApps.sortByName(result, false);
 		return result;
-	}
-
-	public List<AppPack> getAppsRecents() {
-		List<AppPack> result = this.listApps;
-		ActivityManager am = (ActivityManager) mContext
-				.getSystemService(mContext.ACTIVITY_SERVICE);
-		List<ActivityManager.RunningAppProcessInfo> runningAppProcessInfo = am
-				.getRunningAppProcesses();
-		return SortApps.sortByRecents(result, runningAppProcessInfo);
 	}
 
 	public List<AppPack> getAppsMostOpens() {
