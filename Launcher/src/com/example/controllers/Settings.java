@@ -34,7 +34,6 @@ public class Settings extends PreferenceActivity implements
 		findPreference("spaces_transition").setSummary(ViewPagerTransitions.getSelectedTransition());
 		findPreference("spaces_transition").setOnPreferenceClickListener(this);
 
-		findPreference("theme_chooser").setOnPreferenceClickListener(this);
 		findPreference("version").setSummary(getVersionName());
 	}
 
@@ -52,9 +51,6 @@ public class Settings extends PreferenceActivity implements
 	public boolean onPreferenceClick(Preference preference) {
 		if (preference.getKey().equals("spaces_transition")) {
 			showTransitions();
-		}
-		if (preference.getKey().equals("theme_chooser")) {
-
 		}
 		return false;
 	}

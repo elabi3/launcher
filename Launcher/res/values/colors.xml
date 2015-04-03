@@ -7,5 +7,14 @@
     <color name="White">#FFFFFFFF</color>
     <color name="White_transparent">#50FFFFFF</color>
     <color name="White_Light_transparent">#75FFFFFF</color>
+    <color name="spaces_background_color">#BB000000</color>
+    <color name="spaces_bars">#CC07527A</color>
+    <color name="customAttribute">#FFFFFF</color>
+    <color name="drawer_spaces_right_background_color">#FF042A3F</color>
+    <color name="drawer_spaces_left_background_color">#EE000000</color>
+    <color name="spaces_button_color">#FF07527A</color>
+    <color name="spaces_button_border_color">#FF042A3F</color>
+    <color name="spaces_button_color_selected">#FF0D91D8</color>
+    <color name="spaces_button_border_color_selected">#FF0D91D8</color>
 
 </resources>

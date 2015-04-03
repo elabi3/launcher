@@ -2,10 +2,10 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle" >
 
-    <solid android:color="?attr/spaces_button_color" />
+    <solid android:color="@color/spaces_button_color" />
     
     <stroke
         android:width="2px"
-        android:color="?attr/spaces_button_border_color" />
+        android:color="@color/spaces_button_border_color" />
 
 </shape>

@@ -12,13 +12,6 @@
     </PreferenceCategory>
     <PreferenceCategory
         android:summary=""
-        android:title="@string/preferences_theme_title" >
-        <Preference
-            android:key="theme_chooser"
-            android:title="@string/preferences_theme_theme_title" />
-    </PreferenceCategory>
-    <PreferenceCategory
-        android:summary=""
         android:title="@string/preferences_about_title" >
         <Preference
             android:key="version"

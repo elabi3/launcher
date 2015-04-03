@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="start"
     android:layout_marginRight="15dp"
-    android:background="?attr/drawer_spaces_left_background_color"
+    android:background="@color/drawer_spaces_left_background_color"
     android:choiceMode="singleChoice"
     android:divider="@android:color/transparent"
     android:dividerHeight="0dp"
