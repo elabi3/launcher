@@ -6,6 +6,8 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
@@ -23,7 +25,11 @@ public class Settings extends PreferenceActivity implements
 		super.onCreate(savedInstanceState);
 	    getActionBar().setDisplayHomeAsUpEnabled(true);
 		getActionBar().setTitle("Settings");
-
+		getActionBar().setElevation(0);
+		ColorDrawable colorDrawable = new ColorDrawable(Color.DKGRAY);
+		getActionBar().setBackgroundDrawable(colorDrawable);
+		getWindow().getDecorView().setBackgroundColor(Color.DKGRAY);
+		
 		addPreferencesFromResource(R.xml.preferences);
 		findPreference("spaces_transition").setSummary(ViewPagerTransitions.getSelectedTransition());
 		findPreference("spaces_transition").setOnPreferenceClickListener(this);
