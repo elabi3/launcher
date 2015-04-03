@@ -10,8 +10,11 @@
     <style name="DarkTheme" parent="AppTheme">
         <item name="spaces_background_color">#BB000000</item>
         <item name="spaces_bars">#CC07527A</item>
-        <item name="spaces_text_color">#FFFFFF</item>
-        <item name="drawer_spaces_background_color">#FF042A3F</item>
+        <item name="spaces_text_style">@style/SpacesText</item>
+        <item name="customAttribute">#FFFFFF</item>
+        <item name="spaces_edit_style">@style/EditText</item>
+        <item name="drawer_spaces_right_background_color">#FF042A3F</item>
+        <item name="drawer_spaces_left_background_color">#EE000000</item>
         <item name="spaces_button_color">#FF07527A</item>
         <item name="spaces_button_border_color">#FF042A3F</item>
         <item name="spaces_button_color_selected">#FF0D91D8</item>
@@ -19,15 +22,27 @@
     </style>
 
     <style name="LightTheme" parent="AppTheme">
-        <item name="spaces_background_color">#AAFFFFFF</item>
-        <item name="spaces_bars">#BBFFFFFF</item>
-        <item name="spaces_text_color">#FF000000</item>
-        <item name="drawer_spaces_background_color">#DDFFFFFF</item>
+        <item name="spaces_background_color">#BBFFFFFF</item>
+        <item name="spaces_bars">#CC07527A</item>
+        <item name="spaces_text_style">@style/SpacesText</item>
+        <item name="customAttribute">@color/Black</item>
+        <item name="spaces_edit_style">@style/EditText</item>
+        <item name="drawer_spaces_right_background_color">#FF042A3F</item>
+        <item name="drawer_spaces_left_background_color">#EEFFFFFF</item>
+        <item name="spaces_button_color">#FF07527A</item>
+        <item name="spaces_button_border_color">#FF042A3F</item>
+        <item name="spaces_button_color_selected">#FF0D91D8</item>
+        <item name="spaces_button_border_color_selected">#FF0D91D8</item>
     </style>
 
-    <style name="SpacesText">
-        <item name="android:typeface">sans</item>
-        <item name="android:textColor">?attr/spaces_text_color</item>
+    <style name="SpacesText" parent="@android:style/Widget.TextView">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <style name="EditText">
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">sans-serif-light</item>
     </style>
 
 </resources>

@@ -17,7 +17,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int drawer_spaces_background_color=0x7f010007;
+        public static final int customAttribute=0x7f010002;
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
@@ -26,7 +26,25 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int drawer_spaces_text_color=0x7f010008;
+        public static final int drawer_spaces_left_background_color=0x7f010009;
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int drawer_spaces_right_background_color=0x7f01000a;
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int drawer_spaces_text_color=0x7f01000b;
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
@@ -53,7 +71,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int spaces_button_border_color=0x7f010004;
+        public static final int spaces_button_border_color=0x7f010006;
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
@@ -62,7 +80,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int spaces_button_border_color_selected=0x7f010006;
+        public static final int spaces_button_border_color_selected=0x7f010008;
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
@@ -71,7 +89,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int spaces_button_color=0x7f010003;
+        public static final int spaces_button_color=0x7f010005;
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
@@ -80,16 +98,15 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int spaces_button_color_selected=0x7f010005;
-        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
-"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
+        public static final int spaces_button_color_selected=0x7f010007;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int spaces_text_color=0x7f010002;
+        public static final int spaces_edit_style=0x7f010004;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int spaces_text_style=0x7f010003;
     }
     public static final class color {
         public static final int Black=0x7f050001;
@@ -210,6 +227,7 @@ containing a value of this type.
     public static final class style {
         public static final int AppTheme=0x7f080000;
         public static final int DarkTheme=0x7f080001;
+        public static final int EditText=0x7f080004;
         public static final int LightTheme=0x7f080002;
         public static final int SpacesText=0x7f080003;
     }
@@ -223,17 +241,19 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #Drawer_Spaces_drawer_spaces_background_color com.example.launcher:drawer_spaces_background_color}</code></td><td></td></tr>
+           <tr><td><code>{@link #Drawer_Spaces_drawer_spaces_left_background_color com.example.launcher:drawer_spaces_left_background_color}</code></td><td></td></tr>
+           <tr><td><code>{@link #Drawer_Spaces_drawer_spaces_right_background_color com.example.launcher:drawer_spaces_right_background_color}</code></td><td></td></tr>
            <tr><td><code>{@link #Drawer_Spaces_drawer_spaces_text_color com.example.launcher:drawer_spaces_text_color}</code></td><td></td></tr>
            </table>
-           @see #Drawer_Spaces_drawer_spaces_background_color
+           @see #Drawer_Spaces_drawer_spaces_left_background_color
+           @see #Drawer_Spaces_drawer_spaces_right_background_color
            @see #Drawer_Spaces_drawer_spaces_text_color
          */
         public static final int[] Drawer_Spaces = {
-            0x7f010007, 0x7f010008
+            0x7f010009, 0x7f01000a, 0x7f01000b
         };
         /**
-          <p>This symbol is the offset where the {@link com.example.launcher.R.attr#drawer_spaces_background_color}
+          <p>This symbol is the offset where the {@link com.example.launcher.R.attr#drawer_spaces_left_background_color}
           attribute's value can be found in the {@link #Drawer_Spaces} array.
 
 
@@ -244,9 +264,24 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.launcher:drawer_spaces_background_color
+          @attr name com.example.launcher:drawer_spaces_left_background_color
         */
-        public static final int Drawer_Spaces_drawer_spaces_background_color = 0;
+        public static final int Drawer_Spaces_drawer_spaces_left_background_color = 0;
+        /**
+          <p>This symbol is the offset where the {@link com.example.launcher.R.attr#drawer_spaces_right_background_color}
+          attribute's value can be found in the {@link #Drawer_Spaces} array.
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.example.launcher:drawer_spaces_right_background_color
+        */
+        public static final int Drawer_Spaces_drawer_spaces_right_background_color = 1;
         /**
           <p>This symbol is the offset where the {@link com.example.launcher.R.attr#drawer_spaces_text_color}
           attribute's value can be found in the {@link #Drawer_Spaces} array.
@@ -261,33 +296,53 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.example.launcher:drawer_spaces_text_color
         */
-        public static final int Drawer_Spaces_drawer_spaces_text_color = 1;
+        public static final int Drawer_Spaces_drawer_spaces_text_color = 2;
         /** Attributes that can be used with a Spaces.
            <p>Includes the following attributes:</p>
            <table>
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #Spaces_customAttribute com.example.launcher:customAttribute}</code></td><td></td></tr>
            <tr><td><code>{@link #Spaces_spaces_background_color com.example.launcher:spaces_background_color}</code></td><td></td></tr>
            <tr><td><code>{@link #Spaces_spaces_bars com.example.launcher:spaces_bars}</code></td><td></td></tr>
            <tr><td><code>{@link #Spaces_spaces_button_border_color com.example.launcher:spaces_button_border_color}</code></td><td></td></tr>
            <tr><td><code>{@link #Spaces_spaces_button_border_color_selected com.example.launcher:spaces_button_border_color_selected}</code></td><td></td></tr>
            <tr><td><code>{@link #Spaces_spaces_button_color com.example.launcher:spaces_button_color}</code></td><td></td></tr>
            <tr><td><code>{@link #Spaces_spaces_button_color_selected com.example.launcher:spaces_button_color_selected}</code></td><td></td></tr>
-           <tr><td><code>{@link #Spaces_spaces_text_color com.example.launcher:spaces_text_color}</code></td><td></td></tr>
+           <tr><td><code>{@link #Spaces_spaces_edit_style com.example.launcher:spaces_edit_style}</code></td><td></td></tr>
+           <tr><td><code>{@link #Spaces_spaces_text_style com.example.launcher:spaces_text_style}</code></td><td></td></tr>
            </table>
+           @see #Spaces_customAttribute
            @see #Spaces_spaces_background_color
            @see #Spaces_spaces_bars
            @see #Spaces_spaces_button_border_color
            @see #Spaces_spaces_button_border_color_selected
            @see #Spaces_spaces_button_color
            @see #Spaces_spaces_button_color_selected
-           @see #Spaces_spaces_text_color
+           @see #Spaces_spaces_edit_style
+           @see #Spaces_spaces_text_style
          */
         public static final int[] Spaces = {
             0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003,
-            0x7f010004, 0x7f010005, 0x7f010006
+            0x7f010004, 0x7f010005, 0x7f010006, 0x7f010007,
+            0x7f010008
         };
+        /**
+          <p>This symbol is the offset where the {@link com.example.launcher.R.attr#customAttribute}
+          attribute's value can be found in the {@link #Spaces} array.
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.example.launcher:customAttribute
+        */
+        public static final int Spaces_customAttribute = 2;
         /**
           <p>This symbol is the offset where the {@link com.example.launcher.R.attr#spaces_background_color}
           attribute's value can be found in the {@link #Spaces} array.
@@ -332,7 +387,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.example.launcher:spaces_button_border_color
         */
-        public static final int Spaces_spaces_button_border_color = 4;
+        public static final int Spaces_spaces_button_border_color = 6;
         /**
           <p>This symbol is the offset where the {@link com.example.launcher.R.attr#spaces_button_border_color_selected}
           attribute's value can be found in the {@link #Spaces} array.
@@ -347,7 +402,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.example.launcher:spaces_button_border_color_selected
         */
-        public static final int Spaces_spaces_button_border_color_selected = 6;
+        public static final int Spaces_spaces_button_border_color_selected = 8;
         /**
           <p>This symbol is the offset where the {@link com.example.launcher.R.attr#spaces_button_color}
           attribute's value can be found in the {@link #Spaces} array.
@@ -362,7 +417,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.example.launcher:spaces_button_color
         */
-        public static final int Spaces_spaces_button_color = 3;
+        public static final int Spaces_spaces_button_color = 5;
         /**
           <p>This symbol is the offset where the {@link com.example.launcher.R.attr#spaces_button_color_selected}
           attribute's value can be found in the {@link #Spaces} array.
@@ -377,21 +432,26 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.example.launcher:spaces_button_color_selected
         */
-        public static final int Spaces_spaces_button_color_selected = 5;
+        public static final int Spaces_spaces_button_color_selected = 7;
         /**
-          <p>This symbol is the offset where the {@link com.example.launcher.R.attr#spaces_text_color}
+          <p>This symbol is the offset where the {@link com.example.launcher.R.attr#spaces_edit_style}
           attribute's value can be found in the {@link #Spaces} array.
 
 
-          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
-"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-          @attr name com.example.launcher:spaces_text_color
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.example.launcher:spaces_edit_style
         */
-        public static final int Spaces_spaces_text_color = 2;
+        public static final int Spaces_spaces_edit_style = 4;
+        /**
+          <p>This symbol is the offset where the {@link com.example.launcher.R.attr#spaces_text_style}
+          attribute's value can be found in the {@link #Spaces} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.example.launcher:spaces_text_style
+        */
+        public static final int Spaces_spaces_text_style = 3;
     };
 }
