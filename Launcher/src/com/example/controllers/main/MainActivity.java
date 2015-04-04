@@ -13,9 +13,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.view.View;
 
-import com.example.controllers.fragments.CustomFragment;
-import com.example.controllers.fragments.DrawerAppsFragment;
-import com.example.controllers.fragments.SmartFragment;
+import com.example.controllers.fragments.*;
 import com.example.launcher.R;
 import com.example.moduleApps.AppsManager;
 
