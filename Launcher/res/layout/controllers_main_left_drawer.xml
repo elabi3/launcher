@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="start"
-    android:layout_marginRight="15dp"
+    android:layout_marginRight="20dp"
     android:background="@color/drawer_spaces_left_background_color"
     android:clickable="true"
     android:divider="@android:color/transparent"
@@ -56,13 +56,14 @@
         android:orientation="horizontal" >
 
         <ImageView
+            android:id="@+id/new_phone_call"
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:layout_marginLeft="-15dp"
             android:background="@drawable/background_circle"
             android:contentDescription="Description"
             android:elevation="2dp"
-            android:src="@drawable/ic_action_content_clear" />
+            android:src="@drawable/ic_action_action_view_carousel" />
 
         <TextView
             android:id="@+id/newPhone"

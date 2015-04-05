@@ -35,9 +35,9 @@
     <string name="preferences_about_title">About</string>
     <string name="preferences_about_version_title">Version</string>
     <string name="preferences_about_author_title">Author</string>
-    <string name="module_app_long_app_info">Information</string>
+    <string name="module_app_long_app_info">Info</string>
     <string name="module_app_long_app_share">Share</string>
-    <string name="module_app_long_app_detail">Google Play Info</string>
+    <string name="module_app_long_app_detail">Store Info</string>
     <string name="module_app_long_app_unistall">Unistall</string>
 
 </resources>

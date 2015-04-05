@@ -1,5 +1,6 @@
 package com.example.auxiliar;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
@@ -17,7 +18,19 @@ public class ContactsManager {
 		this.mContext = context;
 	}
 
-	public List<String> favoritesContacts() {
+	public class People {
+		public String name;
+		public String intentUriString;
+		public String photo;
+
+		public People(String name, String intentUriString, String photo) {
+			this.name = name;
+			this.intentUriString = intentUriString;
+			this.photo = photo;
+		}
+	}
+
+	public List<People> favoritesContacts() {
 		Uri queryUri = ContactsContract.Contacts.CONTENT_URI;
 
 		String[] projection = new String[] { ContactsContract.Contacts._ID,
@@ -30,7 +43,13 @@ public class ContactsManager {
 		Cursor cursor = mContext.getContentResolver().query(queryUri,
 				projection, selection, null, null);
 
+		List<People> people = new ArrayList<People>();
 		while (cursor.moveToNext()) {
+			// title - name
+			String title = (cursor.getString(cursor
+					.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME)));
+
+			// intentURI
 			String contactID = cursor.getString(cursor
 					.getColumnIndex(ContactsContract.Contacts._ID));
 
@@ -41,14 +60,16 @@ public class ContactsManager {
 			intent.setData(uri);
 			String intentUriString = intent.toUri(0);
 
-			String title = (cursor.getString(cursor
-					.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME)));
+			// photo
+			String photo = (cursor
+					.getString(cursor
+							.getColumnIndex(ContactsContract.Contacts.PHOTO_THUMBNAIL_URI)));
 
-			Log.v("", title);
+			people.add(new People(title, intentUriString, photo));
 		}
 		cursor.close();
 
-		return null;
+		return people;
 	}
 
 	public List<String> recentsContacts() {

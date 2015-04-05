@@ -7,11 +7,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal" >
 
         <LinearLayout
+            android:id="@+id/contact_0"
             android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
@@ -35,6 +36,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/contact_1"
             android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
@@ -58,6 +60,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/contact_2"
             android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
@@ -84,11 +87,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal" >
 
         <LinearLayout
+            android:id="@+id/contact_3"
             android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
@@ -112,6 +116,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/contact_4"
             android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
@@ -135,6 +140,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/contact_5"
             android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"

@@ -10,8 +10,7 @@ import android.view.View;
 
 public class ViewPagerTransitions implements ViewPager.PageTransformer {
 	public static String[] transitions = { "Default", "Cube Out", "Scale",
-			"Tablet", "Rotate Up", "Rotate Down", "Zoom Out Slide",
-			"Depth Page" };
+			"Tablet", "Rotate Up", "Rotate Down", "Zoom Out Slide"};
 	public static final int TRANSITION_DEFAULT = 0;
 	public static final int TRANSITION_CUBE_OUT = 1;
 	public static final int TRANSITION_SCALE = 2;
@@ -19,7 +18,6 @@ public class ViewPagerTransitions implements ViewPager.PageTransformer {
 	public static final int TRANSITION_ROTATE_UP = 4;
 	public static final int TRANSITION_ROTATE_DOWN = 5;
 	public static final int TRANSITION_ZOOM_OUT_SLIDE = 6;
-	public static final int TRANSITION_DEPTH_PAGE = 7;
 
 	private static final Matrix OFFSET_MATRIX = new Matrix();
 	private static final Camera OFFSET_CAMERA = new Camera();
@@ -67,9 +65,6 @@ public class ViewPagerTransitions implements ViewPager.PageTransformer {
 			break;
 		case TRANSITION_ZOOM_OUT_SLIDE:
 			zoomOutSlideTransform(view, position);
-			break;
-		case TRANSITION_DEPTH_PAGE:
-			depthPageTransform(view, position);
 			break;
 		default: {
 
@@ -153,24 +148,6 @@ public class ViewPagerTransitions implements ViewPager.PageTransformer {
 			}
 
 			// Scale the page down (between MIN_SCALE and 1)
-			view.setScaleX(scaleFactor);
-			view.setScaleY(scaleFactor);
-		}
-	}
-
-	private void depthPageTransform(View view, float position) {
-		final float MIN_SCALE = 0.75f;
-
-		if (position <= 0f) {
-			view.setTranslationX(0f);
-			view.setScaleX(1f);
-			view.setScaleY(1f);
-		} else if (position <= 1f) {
-			final float scaleFactor = MIN_SCALE + (1 - MIN_SCALE)
-					* (1 - Math.abs(position));
-			view.setAlpha(1 - position);
-			view.setPivotY(0.5f * view.getHeight());
-			view.setTranslationX(view.getWidth() * -position);
 			view.setScaleX(scaleFactor);
 			view.setScaleY(scaleFactor);
 		}
