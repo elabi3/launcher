@@ -126,7 +126,6 @@ public class MainLeftDrawer implements OnClickListener {
 		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
 		dialog.setCanceledOnTouchOutside(true);
-		dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
 
 		// inflate the layout dialog_layout.xml and set it as contentView
 		LayoutInflater inflater = LayoutInflater.from(mContext);

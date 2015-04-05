@@ -72,8 +72,10 @@
             android:layout_marginLeft="-15dp"
             android:layout_marginTop="20dp"
             android:background="@color/Black_transparent"
+            android:fontFamily="sans-serif-bold"
             android:gravity="center_vertical|center_horizontal"
             android:text="@string/new_phone"
+            android:textColor="@color/White"
             android:textSize="20sp" />
     </LinearLayout>
 

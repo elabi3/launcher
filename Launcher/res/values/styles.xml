@@ -7,9 +7,4 @@
         <item name="android:navigationBarColor">@color/Transparent</item>
     </style>
 
-    <style name="DialogAnimation">
-        <item name="android:windowEnterAnimation">@drawable/slide_up_dialog</item>
-        <item name="android:windowExitAnimation">@drawable/slide_down_dialog</item>
-    </style>
-
 </resources>

@@ -25,6 +25,7 @@ public class AppsGridLongClickListener implements OnItemLongClickListener,
 	private List<AppPack> listApps;
 	private Context mContext;
 	private AppPack appPack;
+	private Dialog dialog;
 
 	public AppsGridLongClickListener(Context context, List<AppPack> listApps) {
 		super();
@@ -41,12 +42,11 @@ public class AppsGridLongClickListener implements OnItemLongClickListener,
 			long arg3) {
 		appPack = listApps.get(pos);
 
-		final Dialog dialog = new Dialog(mContext);
+		dialog = new Dialog(mContext);
 		// hide to default title for Dialog
 		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
 		dialog.setCanceledOnTouchOutside(true);
-		dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
 
 		// inflate the layout dialog_layout.xml and set it as contentView
 		LayoutInflater inflater = LayoutInflater.from(mContext);
@@ -107,6 +107,7 @@ public class AppsGridLongClickListener implements OnItemLongClickListener,
 		default:
 			break;
 		}
+		dialog.cancel();
 		mContext.startActivity(intent);
 	}
 }

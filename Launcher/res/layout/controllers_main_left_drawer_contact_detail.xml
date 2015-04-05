@@ -27,11 +27,12 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="-15dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:background="@color/Black_transparent"
-            android:fontFamily="sans-serif-normal"
+            android:fontFamily="sans-serif-bold"
             android:gravity="center_vertical|center_horizontal"
-            android:textSize="18sp" />
+            android:textColor="@color/White"
+            android:textSize="20sp" />
     </LinearLayout>
 
     <LinearLayout

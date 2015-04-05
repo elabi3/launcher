@@ -41,8 +41,6 @@ public final class R {
         public static final int ic_action_content_clear=0x7f020006;
         public static final int ic_launcher=0x7f020007;
         public static final int list_item_selector=0x7f020008;
-        public static final int slide_down_dialog=0x7f020009;
-        public static final int slide_up_dialog=0x7f02000a;
     }
     public static final class id {
         public static final int action_settings=0x7f0a0030;
@@ -157,7 +155,6 @@ public final class R {
     }
     public static final class style {
         public static final int AppTheme=0x7f080000;
-        public static final int DialogAnimation=0x7f080001;
     }
     public static final class xml {
         public static final int preferences=0x7f040000;
