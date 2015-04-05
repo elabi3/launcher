@@ -11,6 +11,7 @@ import java.util.Locale;
 import java.util.Map;
 
 import android.content.Context;
+import android.util.Log;
 
 public class DataBaseAux {
 	public static DataBaseAux instance;
@@ -57,8 +58,22 @@ public class DataBaseAux {
 
 		result[0] = Integer.parseInt(sdf.format(cal.getTimeInMillis()
 				+ interval));
+		
+		Log.v("",
+				cal.getTimeInMillis()
+						+ " "
+						+ interval
+						+ " "
+						+ Integer.parseInt(sdf.format(cal.getTimeInMillis()
+								+ interval)));
+
 		result[1] = Integer.parseInt(sdf.format(cal.getTimeInMillis()
 				- interval));
+
+		cal.add(Calendar.DAY_OF_YEAR, 1);
+		cal.set(Calendar.HOUR_OF_DAY, 0);
+		Log.v("", cal.getTimeInMillis() + "");
+
 		return result;
 	}
 
@@ -121,8 +136,8 @@ public class DataBaseAux {
 		}
 	}
 
-	public static class ValueComparatorNext<K, V extends Comparable<V>> implements
-			Comparator<K> {
+	public static class ValueComparatorNext<K, V extends Comparable<V>>
+			implements Comparator<K> {
 		private Map<K, V> map;
 
 		public ValueComparatorNext(Map<K, V> base) {

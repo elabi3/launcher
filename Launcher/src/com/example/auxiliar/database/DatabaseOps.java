@@ -83,7 +83,7 @@ public class DatabaseOps {
 	// 1637;
 	public List<String> getRecomended(int weekday, int interval[]) {
 		String[] columns = { DatabaseTableOpens.COLUMN_NAME };
-
+		
 		String selection;
 		String[] selectionArgs;
 		if (weekday == -1) {
