@@ -26,9 +26,9 @@ public class Settings extends PreferenceActivity implements
 	    getActionBar().setDisplayHomeAsUpEnabled(true);
 		getActionBar().setTitle("Settings");
 		getActionBar().setElevation(0);
-		ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#FF1481BC"));
+		ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#30000000"));
 		getActionBar().setBackgroundDrawable(colorDrawable);
-		getWindow().getDecorView().setBackgroundColor(Color.parseColor("#FF07527A"));
+		getWindow().getDecorView().setBackgroundColor(Color.parseColor("#FF042A3F"));
 		
 		addPreferencesFromResource(R.xml.preferences);
 		findPreference("spaces_transition").setSummary(ViewPagerTransitions.getSelectedTransition());
