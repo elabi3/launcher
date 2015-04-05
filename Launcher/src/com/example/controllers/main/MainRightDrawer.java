@@ -31,6 +31,7 @@ public class MainRightDrawer implements OnItemClickListener, DrawerListener {
 		list.setAdapter(adapter);
 		list.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 		list.setOnItemClickListener(this);
+		list.setDividerHeight(0);
 	}
 
 	public void setSelectedView(int selected) {

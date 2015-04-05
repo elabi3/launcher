@@ -17,14 +17,13 @@ public final class R {
         public static final int White=0x7f050003;
         public static final int White_Light_transparent=0x7f050005;
         public static final int White_transparent=0x7f050004;
-        public static final int drawer_spaces_left_background_color=0x7f050009;
-        public static final int drawer_spaces_right_background_color=0x7f050008;
+        public static final int drawer_spaces_background_color=0x7f050008;
         public static final int spaces_background_color=0x7f050006;
         public static final int spaces_bars=0x7f050007;
-        public static final int spaces_button_border_color=0x7f05000b;
-        public static final int spaces_button_border_color_selected=0x7f05000d;
-        public static final int spaces_button_color=0x7f05000a;
-        public static final int spaces_button_color_selected=0x7f05000c;
+        public static final int spaces_button_border_color=0x7f05000a;
+        public static final int spaces_button_border_color_selected=0x7f05000c;
+        public static final int spaces_button_color=0x7f050009;
+        public static final int spaces_button_color_selected=0x7f05000b;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
