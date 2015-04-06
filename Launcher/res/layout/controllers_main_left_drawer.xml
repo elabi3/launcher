@@ -23,30 +23,30 @@
             android:id="@+id/senEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableTop="@drawable/ic_action_content_clear"
+            android:drawableTop="@drawable/ic_action_ic_action_new_email"
             android:fontFamily="sans-serif-light"
             android:text="@string/send_email"
-            android:textSize="16sp" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/newEvent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:drawableTop="@drawable/ic_action_content_clear"
+            android:layout_marginLeft="30dp"
+            android:drawableTop="@drawable/ic_action_new_event"
             android:fontFamily="sans-serif-light"
             android:text="@string/new_event"
-            android:textSize="16sp" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/newAlarm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:drawableTop="@drawable/ic_action_content_clear"
+            android:layout_marginLeft="30dp"
+            android:drawableTop="@drawable/ic_action_ic_action_add_alarm"
             android:fontFamily="sans-serif-light"
             android:text="@string/new_alarm"
-            android:textSize="16sp" />
+            android:textSize="18sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -63,7 +63,7 @@
             android:background="@drawable/background_circle"
             android:contentDescription="Description"
             android:elevation="2dp"
-            android:src="@drawable/ic_action_action_view_carousel" />
+            android:src="@drawable/ic_action_phone_call_icon_phone_call" />
 
         <TextView
             android:id="@+id/newPhone"
@@ -86,7 +86,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="55dp"
-        android:drawableLeft="@drawable/ic_action_content_clear"
+        android:drawableLeft="@drawable/ic_action_fez_04_512"
+        android:drawablePadding="10dp"
+        android:gravity="center_vertical"
         android:text="@string/settings_title"
         android:textSize="18sp" />
 

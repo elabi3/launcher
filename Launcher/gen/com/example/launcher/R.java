@@ -35,11 +35,23 @@ public final class R {
         public static final int background_button_selected=0x7f020001;
         public static final int background_circle=0x7f020002;
         public static final int background_list_item_selected=0x7f020003;
-        public static final int ic_action_action_list=0x7f020004;
-        public static final int ic_action_action_view_carousel=0x7f020005;
-        public static final int ic_action_content_clear=0x7f020006;
-        public static final int ic_launcher=0x7f020007;
-        public static final int list_item_selector=0x7f020008;
+        public static final int ic_action_12581283071984968747missiridia_universal_information_symbol=0x7f020004;
+        public static final int ic_action_256x256_black_white_android_share=0x7f020005;
+        public static final int ic_action_action_list=0x7f020006;
+        public static final int ic_action_action_view_carousel=0x7f020007;
+        public static final int ic_action_android_playstore=0x7f020008;
+        public static final int ic_action_content_clear=0x7f020009;
+        public static final int ic_action_edit=0x7f02000a;
+        public static final int ic_action_fez_04_512=0x7f02000b;
+        public static final int ic_action_ic_action_add_alarm=0x7f02000c;
+        public static final int ic_action_ic_action_new_email=0x7f02000d;
+        public static final int ic_action_icon_ios7_trash_outline_128=0x7f02000e;
+        public static final int ic_action_light_bulb_idea_icon_light_bulb_7=0x7f02000f;
+        public static final int ic_action_message=0x7f020010;
+        public static final int ic_action_new_event=0x7f020011;
+        public static final int ic_action_phone_call_icon_phone_call=0x7f020012;
+        public static final int ic_launcher=0x7f020013;
+        public static final int list_item_selector=0x7f020014;
     }
     public static final class id {
         public static final int Call=0x7f0a001b;

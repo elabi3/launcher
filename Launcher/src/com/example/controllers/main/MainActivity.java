@@ -66,7 +66,7 @@ public class MainActivity extends FragmentActivity implements
 		spaces.add(new SpaceItem(this, R.string.drawer_apps_title,
 				R.drawable.ic_action_content_clear, DrawerAppsFragment.class));
 		spaces.add(new SpaceItem(this, R.string.smart_title,
-				R.drawable.ic_launcher, SmartFragment.class));
+				R.drawable.ic_action_light_bulb_idea_icon_light_bulb_7, SmartFragment.class));
 		spaces.add(new SpaceItem(this, R.string.custom_title,
 				R.drawable.ic_launcher, CustomFragment.class));
 	}
