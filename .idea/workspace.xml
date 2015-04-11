@@ -6,6 +6,10 @@
         <option name="name" value="app: com.example.launcher" />
         <option name="packageNamePattern" value="com.example.launcher" />
       </filter>
+      <filter>
+        <option name="name" value="app: com.spaces.launcher" />
+        <option name="packageNamePattern" value="com.spaces.launcher" />
+      </filter>
     </filters>
   </component>
   <component name="AndroidLayouts">
@@ -26,51 +30,14 @@
     </layouts>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: com.example.launcher" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: com.spaces.launcher" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f6a6634-1a95-4e80-8902-b7ada1b2563b" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Launcher/src/com/example/auxiliar/ActionsIntents.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/auxiliar/ActionsIntents.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Launcher/src/com/example/auxiliar/Blur.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/auxiliar/Blur.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Launcher/src/com/example/auxiliar/ContactsManager.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/auxiliar/ContactsManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Launcher/src/com/example/auxiliar/Prefs.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/auxiliar/Prefs.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Launcher/src/com/example/auxiliar/database/DataBaseAux.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/auxiliar/database/DataBaseAux.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Launcher/src/com/example/auxiliar/database/DataBaseInterface.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/auxiliar/database/DataBaseInterface.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Launcher/src/com/example/auxiliar/database/DatabaseElementOpen.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/auxiliar/database/DatabaseElementOpen.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Launcher/src/com/example/auxiliar/database/DatabaseHelper.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/auxiliar/database/DatabaseHelper.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Launcher/src/com/example/auxiliar/database/DatabaseOps.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/auxiliar/database/DatabaseOps.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Launcher/src/com/example/auxiliar/database/DatabaseTableOpens.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/auxiliar/database/DatabaseTableOpens.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Launcher/src/com/example/controllers/Settings.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/controllers/Settings.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Launcher/src/com/example/controllers/fragments/CustomFragment.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/controllers/fragments/CustomFragment.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Launcher/src/com/example/controllers/fragments/DrawerAppsFragment.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/controllers/fragments/DrawerAppsFragment.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Launcher/src/com/example/controllers/fragments/SmartFragment.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/controllers/fragments/SmartFragment.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Launcher/src/com/example/controllers/main/MainActivity.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/controllers/main/MainActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Launcher/src/com/example/controllers/main/MainLeftDrawer.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/controllers/main/MainLeftDrawer.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Launcher/src/com/example/controllers/main/MainRightDrawer.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/controllers/main/MainRightDrawer.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Launcher/src/com/example/controllers/main/MainRightDrawerAdapter.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/controllers/main/MainRightDrawerAdapter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Launcher/src/com/example/controllers/main/SpaceItem.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/controllers/main/SpaceItem.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Launcher/src/com/example/controllers/main/ViewPagerTransitions.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/controllers/main/ViewPagerTransitions.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Launcher/src/com/example/moduleApps/AppsManager.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/moduleApps/AppsManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Launcher/src/com/example/moduleApps/PackageChangeReceiver.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/moduleApps/PackageChangeReceiver.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Launcher/src/com/example/moduleApps/auxiliar/SortApps.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/moduleApps/auxiliar/SortApps.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Launcher/src/com/example/moduleApps/controllers/AppsGrid.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/moduleApps/controllers/AppsGrid.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Launcher/src/com/example/moduleApps/controllers/AppsGridAdapter.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/moduleApps/controllers/AppsGridAdapter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Launcher/src/com/example/moduleApps/controllers/AppsGridClickListener.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/moduleApps/controllers/AppsGridClickListener.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Launcher/src/com/example/moduleApps/controllers/AppsGridLongClickListener.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/moduleApps/controllers/AppsGridLongClickListener.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Launcher/src/com/example/moduleApps/model/AppPack.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/moduleApps/model/AppPack.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Launcher/src/com/example/moduleCustomSpace/CustomAppWidgetHost.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/moduleCustomSpace/CustomAppWidgetHost.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Launcher/src/com/example/moduleCustomSpace/CustomAppWidgetHostView.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/moduleCustomSpace/CustomAppWidgetHostView.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Launcher/src/com/example/moduleCustomSpace/ShortcutClickListener.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/moduleCustomSpace/ShortcutClickListener.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Launcher/gen/com/example/launcher/BuildConfig.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Launcher/gen/com/example/launcher/Manifest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Launcher/gen/com/example/launcher/R.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Launcher/AndroidManifest.xml" afterPath="$PROJECT_DIR$/Launcher/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Launcher/bin/AndroidManifest.xml" afterPath="$PROJECT_DIR$/Launcher/bin/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Launcher/gen/com/example/launcher/BuildConfig.java" afterPath="$PROJECT_DIR$/Launcher/gen/com/example/launcher/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Launcher/Launcher.iml" afterPath="$PROJECT_DIR$/Launcher/Launcher.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Launcher/res/layout/controllers_main_right_drawer.xml" afterPath="$PROJECT_DIR$/Launcher/res/layout/controllers_main_right_drawer.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Launcher/project.properties" afterPath="$PROJECT_DIR$/Launcher/project.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Launcher/res/values/strings.xml" afterPath="$PROJECT_DIR$/Launcher/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Launcher Project.iws" />
@@ -112,8 +79,8 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Launcher/src/com/spaces/controllers/main/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.37104824" vertical-offset="512" max-vertical-offset="1980">
-              <caret line="68" column="44" selection-start-line="68" selection-start-column="44" selection-end-line="68" selection-end-column="44" />
+            <state vertical-scroll-proportion="0.44592345" vertical-offset="512" max-vertical-offset="1980">
+              <caret line="71" column="61" selection-start-line="71" selection-start-column="61" selection-end-line="71" selection-end-column="61" />
               <folding />
             </state>
           </provider>
@@ -132,7 +99,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/Launcher/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/Launcher/project.properties" />
         <option value="$PROJECT_DIR$/LibsProjects/JazzyViewPager/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/LibsProjects/JazzyViewPager/project.properties" />
@@ -144,6 +110,7 @@
         <option value="$PROJECT_DIR$/Launcher/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/Launcher/res/layout/module_apps_dialog_app_detail.xml" />
         <option value="$PROJECT_DIR$/Launcher/src/com/spaces/moduleApps/controllers/AppsGridLongClickListener.java" />
+        <option value="$PROJECT_DIR$/Launcher/AndroidManifest.xml" />
       </list>
     </option>
   </component>
@@ -595,7 +562,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="48" y="23" width="1318" height="745" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.8112903" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -838,17 +805,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Launcher/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19966722" vertical-offset="210" max-vertical-offset="990">
-          <caret line="22" column="22" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
-          <folding>
-            <element signature="e#911#929#0" expanded="true" />
-            <element signature="e#1129#1147#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Launcher/res/layout/controllers_main_left_drawer.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.5775402" vertical-offset="0" max-vertical-offset="1500">
@@ -906,10 +862,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Launcher/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.049916804" vertical-offset="0" max-vertical-offset="990">
+          <caret line="2" column="32" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Launcher/src/com/spaces/controllers/main/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37104824" vertical-offset="512" max-vertical-offset="1980">
-          <caret line="68" column="44" selection-start-line="68" selection-start-column="44" selection-end-line="68" selection-end-column="44" />
+        <state vertical-scroll-proportion="0.44592345" vertical-offset="512" max-vertical-offset="1980">
+          <caret line="71" column="61" selection-start-line="71" selection-start-column="61" selection-end-line="71" selection-end-column="61" />
           <folding />
         </state>
       </provider>
