@@ -23,7 +23,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.controllers.main.MainActivity"
+            android:name="com.spaces.controllers.main.MainActivity"
             android:clearTaskOnLaunch="true"
             android:label="@string/app_name"
             android:launchMode="singleTask"
@@ -39,15 +39,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.controllers.Settings"
-            android:parentActivityName="com.example.controllers.main.MainActivity" >
+            android:name="com.spaces.controllers.Settings"
+            android:parentActivityName="com.spaces.controllers.main.MainActivity" >
             >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.controllers.main.MainActivity" />
+                android:value="com.spaces.controllers.main.MainActivity" />
         </activity>
 
-        <receiver android:name="com.example.moduleApps.PackageChangeReceiver" >
+        <receiver android:name="com.spaces.moduleApps.PackageChangeReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_ADDED" />
                 <action android:name="android.intent.action.PACKAGE_REPLACED" />
