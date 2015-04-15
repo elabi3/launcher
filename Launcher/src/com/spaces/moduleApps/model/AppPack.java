@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.spaces.auxiliar.database.DataBaseInterface;
-import com.example.launcher.R;
+import com.spaces.launcher.R;
 
 public class AppPack {
 	private Drawable icon;

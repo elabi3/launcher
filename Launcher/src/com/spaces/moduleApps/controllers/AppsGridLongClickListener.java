@@ -1,11 +1,5 @@
 package com.spaces.moduleApps.controllers;
 
-import java.util.List;
-
-import com.example.launcher.R;
-import com.spaces.moduleApps.AppsManager;
-import com.spaces.moduleApps.model.AppPack;
-
 import android.app.Dialog;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -20,6 +14,12 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.spaces.launcher.R;
+import com.spaces.moduleApps.AppsManager;
+import com.spaces.moduleApps.model.AppPack;
+
+import java.util.List;
 
 public class AppsGridLongClickListener implements OnItemLongClickListener,
 		OnClickListener {

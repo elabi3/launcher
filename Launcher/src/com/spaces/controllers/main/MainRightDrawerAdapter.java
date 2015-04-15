@@ -1,6 +1,6 @@
 package com.spaces.controllers.main;
 
-import com.example.launcher.R;
+import com.spaces.launcher.R;
 
 import android.view.View;
 import android.view.ViewGroup;

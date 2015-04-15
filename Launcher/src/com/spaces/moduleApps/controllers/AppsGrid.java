@@ -1,22 +1,22 @@
 package com.spaces.moduleApps.controllers;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Observable;
-import java.util.Observer;
-import java.util.Timer;
-import java.util.TimerTask;
-
 import android.content.Context;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.GridView;
 
-import com.example.launcher.R;
+import com.spaces.launcher.R;
 import com.spaces.moduleApps.AppsManager;
 import com.spaces.moduleApps.auxiliar.SortApps;
 import com.spaces.moduleApps.model.AppPack;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class AppsGrid implements Observer {
 	public static final int APPS_GRID_ALL = 0;

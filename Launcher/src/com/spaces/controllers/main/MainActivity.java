@@ -1,8 +1,5 @@
 package com.spaces.controllers.main;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -13,11 +10,14 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.view.View;
 
-import com.example.launcher.R;
-import com.spaces.moduleApps.AppsManager;
 import com.spaces.controllers.fragments.CustomFragment;
 import com.spaces.controllers.fragments.DrawerAppsFragment;
 import com.spaces.controllers.fragments.SmartFragment;
+import com.spaces.launcher.R;
+import com.spaces.moduleApps.AppsManager;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends FragmentActivity implements
 		ViewPager.OnPageChangeListener {
@@ -94,7 +94,7 @@ public class MainActivity extends FragmentActivity implements
 		}
 	}
 
-	private static class HomePagerAdapter extends FragmentPagerAdapter {
+    private static class HomePagerAdapter extends FragmentPagerAdapter {
 		private List<SpaceItem> mFragments;
 
 		public HomePagerAdapter(FragmentManager fragmentManager,

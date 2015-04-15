@@ -1,8 +1,5 @@
 package com.spaces.controllers.fragments;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -12,8 +9,11 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.launcher.R;
+import com.spaces.launcher.R;
 import com.spaces.moduleApps.controllers.AppsGrid;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class SmartFragment extends Fragment {
 	private View mView;

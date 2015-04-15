@@ -28,7 +28,7 @@ import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
 
 import com.spaces.controllers.main.MainActivity;
-import com.example.launcher.R;
+import com.spaces.launcher.R;
 import com.spaces.moduleCustomSpace.ShortcutClickListener;
 
 public class CustomFragment extends Fragment implements OnLongClickListener,

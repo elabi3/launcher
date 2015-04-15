@@ -1,7 +1,5 @@
 package com.spaces.controllers.main;
 
-import com.example.launcher.R;
-
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.spaces.launcher.R;
 
 public class SpaceItem {
 

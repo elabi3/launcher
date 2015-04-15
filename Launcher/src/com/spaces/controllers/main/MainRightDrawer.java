@@ -8,7 +8,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
-import com.example.launcher.R;
+import com.spaces.launcher.R;
 
 public class MainRightDrawer implements OnItemClickListener, DrawerListener {
 

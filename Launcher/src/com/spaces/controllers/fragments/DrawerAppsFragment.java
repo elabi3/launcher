@@ -1,8 +1,5 @@
 package com.spaces.controllers.fragments;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.animation.ObjectAnimator;
 import android.graphics.Point;
 import android.os.Bundle;
@@ -19,8 +16,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
-import com.example.launcher.R;
+import com.spaces.launcher.R;
 import com.spaces.moduleApps.controllers.AppsGrid;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DrawerAppsFragment extends Fragment implements OnClickListener {
 	private View mView;

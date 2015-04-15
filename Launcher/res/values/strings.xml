@@ -35,6 +35,9 @@
     <string name="preferences_about_title">About</string>
     <string name="preferences_about_version_title">Version</string>
     <string name="preferences_about_author_title">Author</string>
+    <string name="preferences_feedback_title">Feedback</string>
+    <string name="preferences_feedback_contact">Contact</string>
+    <string name="preferences_feedback_rate">Rate</string>
     <string name="module_app_long_app_info">Info</string>
     <string name="module_app_long_app_share">Share</string>
     <string name="module_app_long_app_detail">Store Info</string>

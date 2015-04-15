@@ -13,7 +13,7 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceActivity;
 import com.spaces.controllers.main.ViewPagerTransitions;
-import com.example.launcher.R;
+import com.spaces.launcher.R;
 
 public class Settings extends PreferenceActivity implements
 		OnPreferenceClickListener, OnClickListener {

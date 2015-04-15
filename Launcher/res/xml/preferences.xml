@@ -12,6 +12,16 @@
     </PreferenceCategory>
     <PreferenceCategory
         android:summary=""
+        android:title="@string/preferences_feedback_title" >
+        <Preference
+            android:key="contact"
+            android:title="@string/preferences_feedback_contact" />
+        <Preference
+            android:key="rate"
+            android:title="@string/preferences_feedback_rate" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:summary=""
         android:title="@string/preferences_about_title" >
         <Preference
             android:key="version"

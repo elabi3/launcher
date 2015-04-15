@@ -19,16 +19,15 @@
             android:orientation="vertical" >
 
             <ImageView
-                android:layout_width="65dp"
-                android:layout_height="65dp"
-                android:background="@drawable/background_circle"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:contentDescription="Description"
                 android:src="@drawable/ic_action_content_clear" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center_vertical|center_horizontal"
                 android:text="@string/new_phone"
@@ -43,16 +42,15 @@
             android:orientation="vertical" >
 
             <ImageView
-                android:layout_width="65dp"
-                android:layout_height="65dp"
-                android:background="@drawable/background_circle"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:contentDescription="Description"
                 android:src="@drawable/ic_action_content_clear" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center_vertical|center_horizontal"
                 android:text="@string/new_phone"
@@ -67,16 +65,15 @@
             android:orientation="vertical" >
 
             <ImageView
-                android:layout_width="65dp"
-                android:layout_height="65dp"
-                android:background="@drawable/background_circle"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:contentDescription="Description"
                 android:src="@drawable/ic_action_content_clear" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center_vertical|center_horizontal"
                 android:text="@string/new_phone"
@@ -99,8 +96,8 @@
             android:orientation="vertical" >
 
             <ImageView
-                android:layout_width="65dp"
-                android:layout_height="65dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:background="@drawable/background_circle"
                 android:contentDescription="Description"
                 android:src="@drawable/ic_action_content_clear" />
@@ -108,7 +105,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center_vertical|center_horizontal"
                 android:text="@string/new_phone"
@@ -123,8 +120,8 @@
             android:orientation="vertical" >
 
             <ImageView
-                android:layout_width="65dp"
-                android:layout_height="65dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:background="@drawable/background_circle"
                 android:contentDescription="Description"
                 android:src="@drawable/ic_action_content_clear" />
@@ -132,7 +129,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center_vertical|center_horizontal"
                 android:text="@string/new_phone"
@@ -147,8 +144,8 @@
             android:orientation="vertical" >
 
             <ImageView
-                android:layout_width="65dp"
-                android:layout_height="65dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:background="@drawable/background_circle"
                 android:contentDescription="Description"
                 android:src="@drawable/ic_action_content_clear" />
@@ -156,7 +153,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center_vertical|center_horizontal"
                 android:text="@string/new_phone"
