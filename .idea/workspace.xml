@@ -35,21 +35,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f6a6634-1a95-4e80-8902-b7ada1b2563b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Launcher/src/com/spaces/moduleApps/model/AppPack.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/moduleApps/model/AppPack.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Launcher/src/com/spaces/moduleApps/controllers/AppsGrid.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/moduleApps/controllers/AppsGrid.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Launcher/src/com/spaces/moduleApps/controllers/AppsGridLongClickListener.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/moduleApps/controllers/AppsGridLongClickListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Launcher/src/com/spaces/controllers/fragments/CustomFragment.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/controllers/fragments/CustomFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Launcher/src/com/spaces/controllers/fragments/DrawerAppsFragment.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/controllers/fragments/DrawerAppsFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Launcher/src/com/spaces/controllers/main/MainActivity.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/controllers/main/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Launcher/src/com/spaces/controllers/main/MainLeftDrawer.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/controllers/main/MainLeftDrawer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Launcher/src/com/spaces/controllers/main/MainRightDrawer.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/controllers/main/MainRightDrawer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Launcher/src/com/spaces/controllers/main/MainRightDrawerAdapter.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/controllers/main/MainRightDrawerAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Launcher/src/com/spaces/controllers/Settings.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/controllers/Settings.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Launcher/src/com/spaces/controllers/fragments/SmartFragment.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/controllers/fragments/SmartFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Launcher/src/com/spaces/controllers/main/SpaceItem.java" afterPath="$PROJECT_DIR$/Launcher/src/com/spaces/controllers/main/SpaceItem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Launcher/res/layout/controllers_main_left_drawer_contact_detail.xml" afterPath="$PROJECT_DIR$/Launcher/res/layout/controllers_main_left_drawer_contact_detail.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Launcher/res/layout/controllers_main_left_drawer_contacts.xml" afterPath="$PROJECT_DIR$/Launcher/res/layout/controllers_main_left_drawer_contacts.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Launcher/res/xml/preferences.xml" afterPath="$PROJECT_DIR$/Launcher/res/xml/preferences.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Launcher/res/values/strings.xml" afterPath="$PROJECT_DIR$/Launcher/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -78,20 +64,7 @@
     <favorites_list name="Launcher Project" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Launcher/src/com/spaces/controllers/main/MainActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.2229618" vertical-offset="0" max-vertical-offset="2235">
-              <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -119,7 +92,6 @@
         <option value="$PROJECT_DIR$/Launcher/res/layout/controllers_main_left_drawer_contacts.xml" />
         <option value="$PROJECT_DIR$/Launcher/res/layout/controllers_main_left_drawer_contact_detail.xml" />
         <option value="$PROJECT_DIR$/Launcher/src/com/spaces/controllers/main/MainLeftDrawer.java" />
-        <option value="$PROJECT_DIR$/Launcher/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/Launcher/res/xml/preferences.xml" />
         <option value="$PROJECT_DIR$/Launcher/src/com/spaces/moduleApps/controllers/AppsGridLongClickListener.java" />
         <option value="$PROJECT_DIR$/Launcher/src/com/spaces/moduleApps/model/AppPack.java" />
@@ -128,7 +100,10 @@
         <option value="$PROJECT_DIR$/Launcher/src/com/spaces/controllers/fragments/DrawerAppsFragment.java" />
         <option value="$PROJECT_DIR$/Launcher/src/com/spaces/moduleApps/controllers/AppsGrid.java" />
         <option value="$PROJECT_DIR$/Launcher/src/com/spaces/controllers/fragments/SmartFragment.java" />
+        <option value="$PROJECT_DIR$/Launcher/src/com/spaces/controllers/fragments/TodayFragment.java" />
+        <option value="$PROJECT_DIR$/Launcher/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/Launcher/src/com/spaces/controllers/main/MainActivity.java" />
+        <option value="$PROJECT_DIR$/Launcher/res/layout/controllers_fragments_today.xml" />
       </list>
     </option>
   </component>
@@ -251,38 +226,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Launcher Project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Launcher" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xml" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Launcher Project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Launcher" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -559,6 +502,7 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25371966" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.8918919" sideWeight="0.5003928" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24980362" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -566,20 +510,19 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.47712418" sideWeight="0.5003928" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24980362" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4753577" sideWeight="0.49960724" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.91414946" sideWeight="0.10344828" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.91414946" sideWeight="0.10344828" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32750398" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24980362" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23884103" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27642912" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290938" sideWeight="0.18338558" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32750398" sideWeight="0.89576805" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32903227" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -618,6 +561,15 @@
           <caret line="71" column="61" selection-start-line="71" selection-start-column="61" selection-end-line="71" selection-end-column="61" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2056#2082#0" expanded="true" />
+            <element signature="e#2179#2199#0" expanded="true" />
+            <element signature="e#2323#2343#0" expanded="true" />
+            <element signature="e#3493#3494#0" expanded="true" />
+            <element signature="e#3530#3531#0" expanded="true" />
+            <element signature="e#3753#3754#0" expanded="true" />
+            <element signature="e#3786#3787#0" expanded="true" />
+            <element signature="e#3845#3846#0" expanded="true" />
+            <element signature="e#3887#3888#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -638,17 +590,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.10273973" vertical-offset="0" max-vertical-offset="584">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Launcher/res/layout/controllers_fragments_drawer_apps.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1065">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -859,14 +800,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Launcher/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.24" vertical-offset="104" max-vertical-offset="765">
-          <caret line="39" column="49" selection-start-line="39" selection-start-column="49" selection-end-line="39" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Launcher/src/com/spaces/auxiliar/ContactsManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="1560">
@@ -880,14 +813,14 @@
         <state vertical-scroll-proportion="0.49916804" vertical-offset="0" max-vertical-offset="601">
           <caret line="20" column="60" selection-start-line="20" selection-start-column="60" selection-end-line="20" selection-end-column="60" />
           <folding>
-            <element signature="e#153#187#0" expanded="true" />
-            <element signature="e#275#315#0" expanded="true" />
-            <element signature="e#409#448#0" expanded="true" />
-            <element signature="e#551#587#0" expanded="true" />
-            <element signature="e#670#708#0" expanded="true" />
-            <element signature="e#927#960#0" expanded="true" />
-            <element signature="e#1043#1084#0" expanded="true" />
-            <element signature="e#1218#1258#0" expanded="true" />
+            <element signature="e#153#187#0" expanded="false" />
+            <element signature="e#275#315#0" expanded="false" />
+            <element signature="e#409#448#0" expanded="false" />
+            <element signature="e#153#187#0" expanded="false" />
+            <element signature="e#275#315#0" expanded="false" />
+            <element signature="e#927#960#0" expanded="false" />
+            <element signature="e#1043#1084#0" expanded="false" />
+            <element signature="e#1218#1258#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -944,14 +877,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Launcher/src/com/spaces/controllers/fragments/SmartFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="80" max-vertical-offset="1380">
-          <caret line="12" column="50" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Launcher/src/com/spaces/moduleApps/controllers/AppsGridAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="2.8846154" vertical-offset="0" max-vertical-offset="1695">
@@ -979,13 +904,94 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Launcher/src/com/spaces/controllers/main/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/Launcher/res/layout/controllers_fragments_drawer_apps.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2229618" vertical-offset="0" max-vertical-offset="2235">
-          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1065">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="65" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Launcher/res/layout/controllers_fragments_drawer_buttons.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1005">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Launcher/res/layout/controllers_fragments_smart.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30481285" vertical-offset="804" max-vertical-offset="1455">
+          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="78" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Launcher/src/com/spaces/controllers/fragments/SmartFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="205" max-vertical-offset="1380">
+          <caret line="18" column="17" selection-start-line="18" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Launcher/src/com/spaces/controllers/fragments/TodayFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24958402" vertical-offset="0" max-vertical-offset="601">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Launcher/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39930555" vertical-offset="55" max-vertical-offset="780">
+          <caret line="19" column="29" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Launcher/src/com/spaces/controllers/main/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44701988" vertical-offset="720" max-vertical-offset="2355">
+          <caret line="57" column="25" selection-start-line="57" selection-start-column="25" selection-end-line="57" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2056#2082#0" expanded="true" />
+            <element signature="e#2179#2199#0" expanded="true" />
+            <element signature="e#2323#2343#0" expanded="true" />
+            <element signature="e#3493#3494#0" expanded="true" />
+            <element signature="e#3530#3531#0" expanded="true" />
+            <element signature="e#3753#3754#0" expanded="true" />
+            <element signature="e#3786#3787#0" expanded="true" />
+            <element signature="e#3845#3846#0" expanded="true" />
+            <element signature="e#3887#3888#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Launcher/res/layout/controllers_fragments_today.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49197862" vertical-offset="1164" max-vertical-offset="2190">
+          <caret line="96" column="34" selection-start-line="96" selection-start-column="34" selection-end-line="96" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>

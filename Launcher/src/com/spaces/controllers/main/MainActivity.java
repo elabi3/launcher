@@ -10,9 +10,9 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.view.View;
 
-import com.spaces.controllers.fragments.CustomFragment;
 import com.spaces.controllers.fragments.DrawerAppsFragment;
 import com.spaces.controllers.fragments.SmartFragment;
+import com.spaces.controllers.fragments.TodayFragment;
 import com.spaces.launcher.R;
 import com.spaces.moduleApps.AppsManager;
 
@@ -69,8 +69,10 @@ public class MainActivity extends FragmentActivity implements
 				R.drawable.ic_action_4714358, DrawerAppsFragment.class));
 		spaces.add(new SpaceItem(this, R.string.smart_title,
 				R.drawable.ic_action_light_bulb_idea_icon_light_bulb_7, SmartFragment.class));
-		spaces.add(new SpaceItem(this, R.string.custom_title,
-				R.drawable.ic_launcher, CustomFragment.class));
+        spaces.add(new SpaceItem(this, R.string.today_title,
+                R.drawable.ic_launcher, TodayFragment.class));
+		/*spaces.add(new SpaceItem(this, R.string.custom_title,
+				R.drawable.ic_launcher, CustomFragment.class));*/
 	}
 
 	private void setupViewPager() {

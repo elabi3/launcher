@@ -17,6 +17,7 @@
     <string name="custom_dialog_remove">Remove this space</string>
     <string name="smart_title">Smart</string>
     <string name="custom_title">Custom</string>
+    <string name="today_title">Today</string>
     <string name="content_descriotion_app">App Image</string>
     <string name="drawer_apps_title">Apps Drawer</string>
     <string name="drawer_apps_order_az">AZ</string>
