@@ -1,10 +1,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/spaces_background_color"
-    android:focusableInTouchMode="true" >
+    android:focusableInTouchMode="true">
 
     <LinearLayout
         android:id="@+id/topBar"
@@ -15,15 +14,15 @@
         android:layout_marginTop="30dp"
         android:background="@color/spaces_bars"
         android:elevation="8dp"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="45dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
-            android:gravity="center"
             android:background="#07527a"
             android:fontFamily="sans-serif-light"
+            android:gravity="center"
             android:text="Mon\n20"
             android:textColor="@color/White"
             android:textSize="14sp" />
@@ -31,8 +30,8 @@
         <TextView
             android:layout_width="40dp"
             android:layout_height="match_parent"
-            android:gravity="center"
             android:fontFamily="sans-serif-light"
+            android:gravity="center"
             android:text="Tues\n21"
             android:textColor="@color/White"
             android:textSize="13sp" />
@@ -40,8 +39,8 @@
         <TextView
             android:layout_width="40dp"
             android:layout_height="match_parent"
-            android:gravity="center"
             android:fontFamily="sans-serif-light"
+            android:gravity="center"
             android:text="Wed\n22"
             android:textColor="@color/White"
             android:textSize="13sp" />
@@ -49,8 +48,8 @@
         <TextView
             android:layout_width="40dp"
             android:layout_height="match_parent"
-            android:gravity="center"
             android:fontFamily="sans-serif-light"
+            android:gravity="center"
             android:text="Thr\n23"
             android:textColor="@color/White"
             android:textSize="13sp" />
@@ -58,8 +57,8 @@
         <TextView
             android:layout_width="40dp"
             android:layout_height="match_parent"
-            android:gravity="center"
             android:fontFamily="sans-serif-light"
+            android:gravity="center"
             android:text="Fri\n24"
             android:textColor="@color/White"
             android:textSize="13sp" />
@@ -67,8 +66,8 @@
         <TextView
             android:layout_width="40dp"
             android:layout_height="match_parent"
-            android:gravity="center"
             android:fontFamily="sans-serif-light"
+            android:gravity="center"
             android:text="Sat\n25"
             android:textColor="@color/White"
             android:textSize="13sp" />
@@ -76,8 +75,8 @@
         <TextView
             android:layout_width="40dp"
             android:layout_height="match_parent"
-            android:gravity="center"
             android:fontFamily="sans-serif-light"
+            android:gravity="center"
             android:text="Sun\n26"
             android:textColor="@color/White"
             android:textSize="13sp" />
@@ -86,8 +85,8 @@
             android:layout_width="45dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="5dp"
-            android:gravity="center"
             android:fontFamily="sans-serif-regular"
+            android:gravity="center"
             android:text="April\n2015"
             android:textColor="#07527a"
             android:textSize="14sp" />
@@ -95,47 +94,47 @@
 
     <View
         android:layout_width="5dp"
-        android:layout_below="@id/topBar"
         android:layout_height="match_parent"
+        android:layout_below="@id/topBar"
         android:layout_marginLeft="40dp"
-        android:background="#07527a"/>
+        android:background="#07527a" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="25dp"
         android:layout_below="@id/topBar"
+        android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_marginTop="30dp"
-                android:paddingLeft="40dp"
-                android:gravity="center_vertical"
-                android:background="#07527a"
-                android:fontFamily="sans-serif-regular"
-                android:text="Weather"
-                android:textColor="@color/White"
-                android:textSize="20sp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="30dp"
+            android:background="#07527a"
+            android:fontFamily="sans-serif-regular"
+            android:gravity="center_vertical"
+            android:paddingLeft="40dp"
+            android:text="Weather"
+            android:textColor="@color/White"
+            android:textSize="20sp" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:paddingLeft="40dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:paddingLeft="40dp" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_marginTop="10dp"
-                android:paddingLeft="40dp"
-                android:gravity="center_vertical"
-                android:background="#07527a"
-                android:fontFamily="sans-serif-regular"
-                android:text="Events"
-                android:textColor="@color/White"
-                android:textSize="20sp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp"
+            android:background="#07527a"
+            android:fontFamily="sans-serif-regular"
+            android:gravity="center_vertical"
+            android:paddingLeft="40dp"
+            android:text="Events"
+            android:textColor="@color/White"
+            android:textSize="20sp" />
     </LinearLayout>
 
 </RelativeLayout>

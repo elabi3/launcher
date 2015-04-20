@@ -18,17 +18,17 @@ import java.util.Calendar;
 public class SmartFragment extends Fragment {
 	private View mView;
 	private Handler handler = new Handler();
-	private TextView timeHour;
-	private TextView timeMin;
 
-	private AppsGrid appsRecommended;
+    private TextView title;
+    private TextView subTitle;
+    private AppsGrid appsRecommended;
 	private AppsGrid appsNexts;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setRetainInstance(true);
-		appsRecommended = new AppsGrid(getActivity(), AppsGrid.GRID,
+        appsRecommended = new AppsGrid(getActivity(), AppsGrid.GRID,
 				AppsGrid.APPS_GRID_RECOMENDED, 12, 30000);
 
 		appsNexts = new AppsGrid(getActivity(), AppsGrid.GRID,
@@ -41,7 +41,7 @@ public class SmartFragment extends Fragment {
 		mView = inflater.inflate(R.layout.controllers_fragments_smart,
 				container, false);
 
-		loadClock();
+		loadMessage();
 
 		// Layouts
 		LinearLayout layout = (LinearLayout) mView.findViewById(R.id.recommen);
@@ -53,38 +53,32 @@ public class SmartFragment extends Fragment {
 		return mView;
 	}
 
-	public void loadClock() {
-		timeHour = (TextView) mView.findViewById(R.id.timeHour);
-		timeMin = (TextView) mView.findViewById(R.id.timeMin);
+    public void loadMessage() {
+        title = (TextView) mView.findViewById(R.id.title);
+        subTitle = (TextView) mView.findViewById(R.id.subtitle);
 
-		handler = new Handler();
-		handler.postDelayed(runnable, 1000);
-	}
+        handler = new Handler();
+        handler.postDelayed(runnable, 1000);
+    }
 
-	private Runnable runnable = new Runnable() {
-		@Override
-		public void run() {
-			/* do what you need to do */
-			Calendar calendar = Calendar.getInstance();
-			SimpleDateFormat dateFormatHour = new SimpleDateFormat("HH");
-			SimpleDateFormat dateFormatMin = new SimpleDateFormat("mm");
-			SimpleDateFormat dateFormatSec = new SimpleDateFormat("ss");
+    private Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            Calendar calendar = Calendar.getInstance();
+            SimpleDateFormat dateFormatHour = new SimpleDateFormat("HH");
+            int hour = Integer.parseInt(dateFormatHour
+                    .format(calendar.getTime()));
 
-			// Revisar para poner seg�n el localized
-			SimpleDateFormat dateFormatDate = new SimpleDateFormat(
-					"dd:MMMM:yyyy");
-
-			final String strDateHour = dateFormatHour
-					.format(calendar.getTime());
-			final String strDateMin = dateFormatMin.format(calendar.getTime());
-			final String strDateSec = dateFormatSec.format(calendar.getTime());
-			final String strDate = dateFormatDate.format(calendar.getTime());
-
-			timeHour.setText(strDateHour);
-			timeMin.setText(strDateMin);
+            if (hour >= 5 && hour < 12) {
+                title.setText(R.string.smart_morning);
+            } else if (hour >= 12 && hour < 20 ) {
+                title.setText(R.string.smart_afternoon);
+            } else {
+                title.setText(R.string.smart_night);
+            }
 
 			/* and here comes the "trick" */
-			handler.postDelayed(this, 1000);
-		}
-	};
+            handler.postDelayed(this, 1000);
+        }
+    };
 }

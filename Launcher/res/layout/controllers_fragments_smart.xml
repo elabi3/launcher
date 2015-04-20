@@ -5,43 +5,38 @@
     android:layout_height="fill_parent"
     android:layout_alignParentTop="true"
     android:baselineAligned="false"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/title"
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:layout_weight=".52"
-        android:orientation="horizontal"
-        android:paddingTop="10dp" >
+        android:layout_height="match_parent"
+        android:paddingLeft="30dp"
+        android:layout_weight=".65"
+        android:gravity="bottom"
+        android:fontFamily="sans-serif-regular"
+        android:shadowColor="@color/Black"
+        android:shadowDx="1"
+        android:shadowDy="0"
+        android:shadowRadius="1"
+        android:textColor="@color/White"
+        android:textSize="30sp" />
 
-        <TextView
-            android:id="@+id/timeHour"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="50"
-            android:fontFamily="sans-serif-light"
-            android:gravity="center|right"
-            android:shadowColor="@color/Black"
-            android:shadowDx="1"
-            android:shadowDy="0"
-            android:shadowRadius="1"
-            android:textColor="@color/White"
-            android:textSize="90sp" />
-
-        <TextView
-            android:id="@+id/timeMin"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="50"
-            android:fontFamily="sans-serif-thin"
-            android:gravity="center|left"
-            android:shadowColor="@color/Black"
-            android:shadowDx="1"
-            android:shadowDy="0"
-            android:shadowRadius="1"
-            android:textColor="@color/White"
-            android:textSize="90sp" />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="50dp"
+        android:paddingTop="5dp"
+        android:layout_weight=".65"
+        android:fontFamily="sans-serif-light"
+        android:shadowColor="@color/Black"
+        android:shadowDx="1"
+        android:shadowDy="0"
+        android:text="what do you want to do?"
+        android:shadowRadius="1"
+        android:textColor="@color/White"
+        android:textSize="20sp" />
 
     <LinearLayout
         android:id="@+id/recommen"
@@ -51,17 +46,14 @@
         android:layout_marginRight="25dp"
         android:layout_weight=".48"
         android:orientation="horizontal"
-        android:paddingTop="5dp" >
-    </LinearLayout>
+        android:paddingTop="5dp"></LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_weight=".50"
+        android:layout_weight=".55"
         android:orientation="horizontal"
-        android:paddingBottom="20dp" >
+        android:paddingBottom="20dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -74,7 +66,7 @@
             android:shadowDx="1"
             android:shadowDy="0"
             android:shadowRadius="1"
-            android:text="Maybe you want..."
+            android:text="or maybe..."
             android:textColor="@color/White"
             android:textSize="20sp" />
 
@@ -82,11 +74,10 @@
             android:id="@+id/nextApps"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
             android:layout_weight="50"
             android:gravity="center_vertical|center_horizontal"
-            android:orientation="horizontal" >
-        </LinearLayout>
+            android:orientation="horizontal"></LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

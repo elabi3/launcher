@@ -10,6 +10,9 @@
     <string name="new_alarm">Alarm</string>
     <string name="new_phone">New Phone Call</string>
     <string name="settings_title">Launcher Settings</string>
+    <string name="smart_morning">Good morning,</string>
+    <string name="smart_afternoon">Good afternoon,</string>
+    <string name="smart_night">Good night,</string>
     <string name="custom_dialog_title">Select Action</string>
     <string name="custom_dialog_widget">Add Widget</string>
     <string name="custom_dialog_shortcat">Add Shortcat</string>

@@ -79,23 +79,27 @@ public class MainLeftDrawer implements OnClickListener {
 		// FavoriteContacts
 		ContactsManager cM = new ContactsManager(mContext);
 		people = cM.favoritesContacts();
-		int i = 0;
-		for (People p : people) {
-			((TextView) linearLayouts.get(i).getChildAt(1)).setText(p.name);
-            if (p.photo != null) {
-                InputStream image_stream = null;
-                try {
-                    image_stream = mContext.getContentResolver().openInputStream(Uri.parse(p.photo));
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                }
-                Bitmap bitmap= BitmapFactory.decodeStream(image_stream);
-                ((ImageView) linearLayouts.get(i).getChildAt(0)).setImageBitmap(getCircleBitmap(bitmap));
-            }
-            i++;
-		}
+        if (people == null || people.size() < 6) {
+            cM.recentsContacts();
+        }
 
-		cM.recentsContacts();
+        if (people != null && people.size() > 0) {
+            int i = 0;
+            for (People p : people) {
+                ((TextView) linearLayouts.get(i).getChildAt(1)).setText(p.name);
+                if (p.photo != null) {
+                    InputStream image_stream = null;
+                    try {
+                        image_stream = mContext.getContentResolver().openInputStream(Uri.parse(p.photo));
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                    Bitmap bitmap = BitmapFactory.decodeStream(image_stream);
+                    ((ImageView) linearLayouts.get(i).getChildAt(0)).setImageBitmap(getCircleBitmap(bitmap));
+                }
+                i++;
+            }
+        }
 	}
 
     private Bitmap getCircleBitmap(Bitmap bm) {
